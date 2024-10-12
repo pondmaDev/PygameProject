@@ -1,5 +1,7 @@
+from scripts import interface as interface_main
 
-from scripts import window
+def run_interface():
+    interface_main()
 
-def run_window_py():
-    exec(open("scripts/window.py").read())
+if __name__ == "__main__":
+    run_interface()
