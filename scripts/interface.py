@@ -20,40 +20,77 @@ pygame.display.set_caption('CollectCat')
 # pygame.mixer.music.load('your_music_file.mp3')
 # pygame.mixer.music.play(-1)
 
-# Main loop
-running = True
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+# Load background image (placeholder)
+# background_image = pygame.image.load('your_background_image.png')
+# background_image = pygame.transform.scale(background_image, (screen_width, screen_height))
 
-    # Fill screen
-    screen.fill(WHITE)
+def draw_button(text, x, y, width, height, inactive_color, active_color):
+    mouse = pygame.mouse.get_pos()
+    click = pygame.mouse.get_pressed()
+    
+    if x + width > mouse[0] > x and y + height > mouse[1] > y:
+        pygame.draw.rect(screen, active_color, (x, y, width, height))
+        if click[0] == 1:
+            return True
+    else:
+        pygame.draw.rect(screen, inactive_color, (x, y, width, height))
+    
+    font = pygame.font.Font(None, 30)
+    text_surf = font.render(text, True, BLACK)
+    text_rect = text_surf.get_rect()
+    text_rect.center = ((x + (width / 2)), (y + (height / 2)))
+    screen.blit(text_surf, text_rect)
+    return False
 
-    # Title/Header
-    font = pygame.font.Font(None, 74)
-    title_text = font.render('CollectCat', True, BLACK)
-    screen.blit(title_text, (screen_width // 2 - title_text.get_width() // 2, 20))
+def main_menu():
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
 
-    # Buttons
-    button_font = pygame.font.Font(None, 50)
-    start_button = button_font.render('Start Game', True, BLACK)
-    setting_button = button_font.render('Settings', True, BLACK)
-    credit_button = button_font.render('Credits', True, BLACK)
+        # Fill screen with background image
+        # screen.blit(background_image, (0, 0))
+        screen.fill(WHITE)  # Temporary, replace with background image
 
-    start_button_rect = start_button.get_rect(center=(screen_width // 2, 200))
-    setting_button_rect = setting_button.get_rect(center=(screen_width // 2, 300))
-    credit_button_rect = credit_button.get_rect(center=(screen_width // 2, 400))
+        # Title/Header
+        font = pygame.font.Font(None, 74)
+        title_text = font.render('CollectCat', True, BLACK)
+        screen.blit(title_text, (screen_width // 2 - title_text.get_width() // 2, 20))
 
-    screen.blit(start_button, start_button_rect)
-    screen.blit(setting_button, setting_button_rect)
-    screen.blit(credit_button, credit_button_rect)
+        # Buttons
+        if draw_button('Start Game', screen_width//2 - 100, 200, 200, 50, (200, 200, 200), (150, 150, 150)):
+            level_selection()
+        draw_button('Settings', screen_width//2 - 100, 300, 200, 50, (200, 200, 200), (150, 150, 150))
+        draw_button('Credits', screen_width//2 - 100, 400, 200, 50, (200, 200, 200), (150, 150, 150))
 
-    # Placeholder for background GIF (you'll replace this with your actual GIF implementation)
-    pygame.draw.rect(screen, BLACK, (50, 100, 700, 400), 2)
+        pygame.display.flip()
 
-    # Update display
-    pygame.display.flip()
+def level_selection():
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
 
-pygame.quit()
-sys.exit()
+        # Fill screen with background image
+        # screen.blit(background_image, (0, 0))
+        screen.fill(WHITE)  # Temporary, replace with background image
+
+        # Title
+        font = pygame.font.Font(None, 74)
+        title_text = font.render('Select Level', True, BLACK)
+        screen.blit(title_text, (screen_width // 2 - title_text.get_width() // 2, 20))
+
+        # Level buttons
+        if draw_button('Level 1', 100, 200, 150, 50, (200, 200, 200), (150, 150, 150)):
+            print("Starting Level 1")  # Replace with actual level start
+        if draw_button('Level 2', 325, 200, 150, 50, (200,  200, 200), (150, 150, 150)):
+            print("Starting Level 2")  # Replace with actual level start
+        if draw_button('Level 3', 550, 200, 150, 50, (200, 200, 200), (150, 150, 150)):
+            print("Starting Level 3")  # Replace with actual level start
+
+        pygame.display.flip()
+
+if __name__ == "__main__":
+    main_menu()
