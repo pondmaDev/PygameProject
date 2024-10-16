@@ -1,5 +1,7 @@
 import pygame
 import sys
+from .character import Character
+from .movement import move_character
 
 # Initialize Pygame
 pygame.init()
@@ -11,7 +13,9 @@ screen_height = 600
 # Colors
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
-
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
 # Create screen
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption('CollectCat')
@@ -23,6 +27,7 @@ pygame.display.set_caption('CollectCat')
 # Load background image (placeholder)
 # background_image = pygame.image.load('your_background_image.png')
 # background_image = pygame.transform.scale(background_image, (screen_width, screen_height))
+
 
 def draw_button(text, x, y, width, height, inactive_color, active_color):
     mouse = pygame.mouse.get_pos()
@@ -41,6 +46,7 @@ def draw_button(text, x, y, width, height, inactive_color, active_color):
     text_rect.center = ((x + (width / 2)), (y + (height / 2)))
     screen.blit(text_surf, text_rect)
     return False
+
 
 def main_menu():
     while True:
@@ -66,6 +72,7 @@ def main_menu():
 
         pygame.display.flip()
 
+
 def level_selection():
     while True:
         for event in pygame.event.get():
@@ -73,24 +80,48 @@ def level_selection():
                 pygame.quit()
                 sys.exit()
 
-        # Fill screen with background image
-        # screen.blit(background_image, (0, 0))
-        screen.fill(WHITE)  # Temporary, replace with background image
+        screen.fill(WHITE)
 
-        # Title
         font = pygame.font.Font(None, 74)
         title_text = font.render('Select Level', True, BLACK)
         screen.blit(title_text, (screen_width // 2 - title_text.get_width() // 2, 20))
 
-        # Level buttons
         if draw_button('Level 1', 100, 200, 150, 50, (200, 200, 200), (150, 150, 150)):
-            print("Starting Level 1")  # Replace with actual level start
+            start_game(1)
         if draw_button('Level 2', 325, 200, 150, 50, (200,  200, 200), (150, 150, 150)):
-            print("Starting Level 2")  # Replace with actual level start
+            start_game(2)
         if draw_button('Level 3', 550, 200, 150, 50, (200, 200, 200), (150, 150, 150)):
-            print("Starting Level 3")  # Replace with actual level start
+            start_game(3)
 
         pygame.display.flip()
+
+
+def start_game(level):
+    global character
+    character = Character(screen_width // 2, screen_height // 2, 50, 50, RED)
+    
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+        keys_pressed = pygame.key.get_pressed()
+        move_character(character, keys_pressed, screen_width, screen_height)
+
+        screen.fill(WHITE)
+        character.update()
+        character.draw(screen)
+
+        font = pygame.font.Font(None,  36)
+        level_text = font.render(f'Level {level}', True, BLACK)
+        screen.blit(level_text, (10, 10))
+
+        pygame.display.flip()
+
+    pygame.quit()
+    sys.exit()
 
 if __name__ == "__main__":
     main_menu()

@@ -1,6 +1,7 @@
-from scripts import interface
+
 import pygame
 import sys
+from scripts import *
 
 def check_interface():
     try:
@@ -10,32 +11,33 @@ def check_interface():
         
         # Check if screen is created
         if not pygame.display.get_surface():
-            interface.screen = pygame.display.set_mode((interface.screen_width, interface.screen_height))
+            screen = pygame.display.set_mode((screen_width, screen_height))
         
         # Test draw_button function
-        test_button = interface.draw_button('Test', 100, 100, 100, 50, (200, 200, 200), (150, 150, 150))
+        test_button = draw_button('Test', 100, 100, 100, 50, (200, 200, 200), (150, 150, 150))
         
-        # Test main_menu function (just call it without entering the loop)
-        interface.main_menu()
+        # Test character creation
+        test_character = Character(screen_width // 2, screen_height // 2, 50, 50, RED)
         
-        # Test level_selection function (just call it without entering the loop)
-        interface.level_selection()
+        # Test movement function
+        keys = pygame.key.get_pressed()
+        move_character(test_character, keys, screen_width, screen_height)
         
-        print("Section 1 : Interface : Works Successfully")
+        print("Interface, Character, and Movement modules work successfully")
         return True
     except Exception as e:
-        print(f"Error in interface.py: {e}")
+        print(f"Error in initialization: {e}")
         return False
 
 def main():
     if check_interface():
-        # If interface check passes, proceed with the rest of the game
+        # If interface check passes, proceed with the game
         try:
-            interface.main_menu()  # Start the game with the main menu
+            main_menu()  # Start the game with the main menu
         except Exception as e:
             print(f"Error during game execution: {e}")
     else:
-        print("Interface check failed. Exiting the game.")
+        print("Initialization check failed. Exiting the game.")
     
     pygame.quit()
     sys.exit()
