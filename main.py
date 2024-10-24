@@ -24,6 +24,7 @@ def check_interface():
         move_character(test_character, keys, screen_width, screen_height)
         
         print("Interface, Character, and Movement modules work successfully")
+        print('Jimmy is here')
         return True
     except Exception as e:
         print(f"Error in initialization: {e}")
