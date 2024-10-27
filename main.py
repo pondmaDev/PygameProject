@@ -1,46 +1,93 @@
-
 import pygame
 import sys
-from scripts import *
+from scripts.character import Character
+from scripts.movement import move_character
+from scripts.interface import main_menu, level_selection  # Import the new functions
 
-def check_interface():
+# Initialize Pygame
+pygame.init()
+
+# Screen dimensions
+screen_width = 800
+screen_height = 600
+
+# Colors
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+RED = (255, 0, 0)
+
+ # Debug and Error 
+def error_print(message):
+    print(f"[ERROR] {message}")
+
+# Create screen
+screen = pygame.display.set_mode((screen_width, screen_height))
+pygame.display.set_caption('CollectCat')
+
+
+# Example paths for idle and running images
+idle_image_paths = [
+    'data/raw/Character/Idle/pixil-frame-0.png', 
+    'data/raw/Character/Idle/pixil-frame-0 (1).png'
+]
+running_image_paths = [
+    'data/raw/Character/running/pixil-frame-0 (2).png', 
+    'data/raw/Character/running/pixil-frame-0 (3).png'
+]
+
+def debug_print(message):
+    print(f"[DEBUG] {message}")
+
+def error_print(message):
+    print(f"[ERROR] {message}")
+
+def start_game(level):
+    global character
+    debug_print("Starting the game...")
+
     try:
-        # Initialize Pygame (if not already initialized in interface.py)
-        if not pygame.get_init():
-            pygame.init()
-        
-        # Check if screen is created
-        if not pygame.display.get_surface():
-            screen = pygame.display.set_mode((screen_width, screen_height))
-        
-        # Test draw_button function
-        test_button = draw_button('Test', 100, 100, 100, 50, (200, 200, 200), (150, 150, 150))
-        
-        # Test character creation
-        test_character = Character(screen_width // 2, screen_height // 2, 50, 50, RED)
-        
-        # Test movement function
-        keys = pygame.key.get_pressed()
-        move_character(test_character, keys, screen_width, screen_height)
-        
-        print("Interface, Character, and Movement modules work successfully")
-        return True
+        character = Character(screen_width // 2, screen_height // 2, 50, 50, RED, 
+                              idle_image_paths, running_image_paths)
+        debug_print("Character initialized successfully.")
     except Exception as e:
-        print(f"Error in initialization: {e}")
-        return False
+        error_print(f"Failed to initialize character: {e}")
+        return
 
-def main():
-    if check_interface():
-        # If interface check passes, proceed with the game
+    running = True
+    while running:
         try:
-            main_menu()  # Start the game with the main menu
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+
+            keys_pressed = pygame.key.get_pressed()
+            move_character(character, keys_pressed, screen_width, screen_height)
+
+            screen.fill(WHITE)
+            character.update()  
+            character.draw(screen)  
+
+            font = pygame.font.Font(None, 36)
+            level_text = font.render(f'Level {level}', True, BLACK)
+            screen.blit(level_text, (10, 10))
+
+            pygame.display.flip()
+        
         except Exception as e:
-            print(f"Error during game execution: {e}")
-    else:
-        print("Initialization check failed. Exiting the game.")
-    
+            error_print(f"An error occurred during the game loop: {e}")
+
     pygame.quit()
     sys.exit()
 
 if __name__ == "__main__":
-    main()
+    while True:
+        try:
+            menu_option = main_menu(screen)
+            debug_print(f"Menu option selected: {menu_option}")
+            if menu_option == 'start_game':
+                level = level_selection(screen)  # Ensure level selection is called here
+                debug_print(f"Level selected: {level}")
+                start_game(level)  # Start the game with the selected level
+        except Exception as e:
+            error_print(f"An error occurred in the main loop: {e}")

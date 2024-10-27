@@ -1,13 +1,23 @@
 import pygame
 from .character import Character
 
+SPEED = 0.5 # Editting speed of character
+
 def move_character(character, keys_pressed, screen_width, screen_height):
-    speed = 5
-    if keys_pressed[pygame.K_LEFT] and character.x - speed > 0:
-        character.x -= speed
-    if keys_pressed[pygame.K_RIGHT] and character.x + speed + character.width < screen_width:
-        character.x += speed
-    if keys_pressed[pygame.K_UP] and character.y - speed > 0:
-        character.y -= speed
-    if keys_pressed[pygame.K_DOWN] and character.y + speed + character.height < screen_height:
-        character.y += speed
+    if keys_pressed[pygame.K_LEFT]:
+        character.x -= SPEED
+        character.set_running(True)
+    elif keys_pressed[pygame.K_RIGHT]:
+        character.x += SPEED
+        character.set_running(True)
+    elif keys_pressed[pygame.K_UP]:
+        character.y -= SPEED
+        character.set_running(True)
+    elif keys_pressed[pygame.K_DOWN]:
+        character.y += SPEED
+        character.set_running(True)
+    else:
+        character.set_running(False)  # Stop running when no key is pressed
+
+    character.x = max(0, min(character.x, screen_width - character.width))
+    character.y = max(0, min(character.y, screen_height - character.height))
