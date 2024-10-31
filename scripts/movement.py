@@ -1,20 +1,19 @@
 import pygame
-from .character import Character
+from scripts.character import Character
 
-SPEED = 0.5 # Editting speed of character
-
-def move_character(character, keys_pressed, screen_width, screen_height):
+def move_character(character, keys_pressed, screen_width, screen_height, settings):  # Add settings parameter
+    speed = settings.character_speed
     if keys_pressed[pygame.K_LEFT]:
-        character.x -= SPEED
+        character.x -= speed
         character.set_running(True)
     elif keys_pressed[pygame.K_RIGHT]:
-        character.x += SPEED
+        character.x += speed
         character.set_running(True)
     elif keys_pressed[pygame.K_UP]:
-        character.y -= SPEED
+        character.y -= speed
         character.set_running(True)
     elif keys_pressed[pygame.K_DOWN]:
-        character.y += SPEED
+        character.y += speed
         character.set_running(True)
     else:
         character.set_running(False)  # Stop running when no key is pressed
