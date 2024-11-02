@@ -93,18 +93,21 @@ class Game:
         self.debug_print("Entering settings menu...")
         running = True
         clock = pygame.time.Clock()
-
-        input_active = None
-        input_text = {
-            'volume': str(int(self.settings.bg_music_volume)),
-            'speed': f"{self.settings.character_speed:.1f}"
-        }
-        temp_text = {
-            'volume': str(int(self.settings.bg_music_volume)),
-            'speed': f"{self.settings.character_speed:.1f}"
-        }
+        last_click_time = 0
+        click_delay = 200  # 200 milliseconds delay between clicks
+        
+        # Add button states
+        volume_minus_clicked = False
+        volume_plus_clicked = False
+        speed_minus_clicked = False
+        speed_plus_clicked = False
+        window_mode_clicked = False
+        back_clicked = False
 
         while running:
+            current_time = pygame.time.get_ticks()
+            mouse_pressed = pygame.mouse.get_pressed()[0]  # Check if left mouse button is pressed
+            
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -112,43 +115,14 @@ class Game:
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         running = False
-                    elif input_active:
-                        if event.key == pygame.K_RETURN:
-                            try:
-                                if input_active == 'volume':
-                                    new_value = int(temp_text['volume'])
-                                    if 0 <= new_value <= 100:
-                                        self.settings.bg_music_volume = new_value
-                                        input_text['volume'] = str(new_value)
-                                    else:
-                                        temp_text['volume'] = input_text['volume']
-                                elif input_active == 'speed':
-                                    new_value = float(temp_text['speed'])
-                                    if 0 <= new_value <= 10:
-                                        self.settings.character_speed = new_value
-                                        input_text['speed'] = f"{new_value:.1f}"
-                                    else:
-                                        temp_text['speed'] = input_text['speed']
-                            except ValueError:
-                                # If conversion fails, revert to previous valid value
-                                temp_text[input_active] = input_text[input_active]
-                            input_active = None
-                        elif event.key == pygame.K_BACKSPACE:
-                            temp_text[input_active] = temp_text[input_active][:-1]
-                        else:
-                            # Only allow numbers and decimal point
-                            if event.unicode.isnumeric() or (event.unicode == '.' and input_active == 'speed' and '.' not in temp_text['speed']):
-                                temp_text[input_active] += event.unicode
-                elif event.type == pygame.MOUSEBUTTONDOWN:
-                    mouse_pos = pygame.mouse.get_pos()
-                    if volume_input_rect.collidepoint(mouse_pos):
-                        input_active = 'volume'
-                        temp_text['volume'] = input_text['volume']
-                    elif speed_input_rect.collidepoint(mouse_pos):
-                        input_active = 'speed'
-                        temp_text['speed'] = input_text['speed']
-                    else:
-                        input_active = None
+                elif event.type == pygame.MOUSEBUTTONUP:
+                    # Reset all button states when mouse is released
+                    volume_minus_clicked = False
+                    volume_plus_clicked = False
+                    speed_minus_clicked = False
+                    speed_plus_clicked = False
+                    window_mode_clicked = False
+                    back_clicked = False
 
             self.screen.fill(self.WHITE)
 
@@ -162,20 +136,23 @@ class Game:
             y_position = 150
 
             # Music Volume
-            volume_text = settings_font.render("Music Volume (0-100):", True, self.BLACK)
+            volume_text = settings_font.render(f"Music Volume: {int(self.settings.bg_music_volume)}%", True, self.BLACK)
             volume_rect = volume_text.get_rect(left=50, top=y_position)
             self.screen.blit(volume_text, volume_rect)
 
-            volume_input_rect = pygame.Rect(volume_rect.right + 20, y_position, 100, 40)
-            pygame.draw.rect(self.screen, 
-                            (170, 170, 170) if input_active == 'volume' else (200, 200, 200), 
-                            volume_input_rect)
-            volume_surface = settings_font.render(
-                temp_text['volume'] if input_active == 'volume' else input_text['volume'], 
-                True, 
-                self.BLACK
-            )
-            self.screen.blit(volume_surface, (volume_input_rect.x + 5, volume_input_rect.y + 5))
+            # Volume minus button
+            if self.menu.draw_button("-", volume_rect.right + 20, y_position, 40, 40, (200, 200, 200), (150, 150, 150)):
+                if not volume_minus_clicked and current_time - last_click_time > click_delay:
+                    self.settings.bg_music_volume = max(0, self.settings.bg_music_volume - 5)
+                    last_click_time = current_time
+                    volume_minus_clicked = True
+
+            # Volume plus button
+            if self.menu.draw_button("+", volume_rect.right + 70, y_position, 40, 40, (200, 200, 200), (150, 150, 150)):
+                if not volume_plus_clicked and current_time - last_click_time > click_delay:
+                    self.settings.bg_music_volume = min(100, self.settings.bg_music_volume + 5)
+                    last_click_time = current_time
+                    volume_plus_clicked = True
 
             # Window Mode
             y_position += 60
@@ -185,29 +162,37 @@ class Game:
 
             mode_text = "Fullscreen" if not self.settings.window_mode else "Windowed"
             if self.menu.draw_button(mode_text, window_rect.right + 20, y_position, 150, 40, (200, 200, 200), (150, 150, 150)):
-                self.settings.toggle_window_mode()
+                if not window_mode_clicked and current_time - last_click_time > click_delay:
+                    self.settings.toggle_window_mode()
+                    last_click_time = current_time
+                    window_mode_clicked = True
 
             # Character Speed
             y_position += 60
-            speed_text = settings_font.render("Character Speed (0-10):", True, self.BLACK)
+            speed_text = settings_font.render(f"Character Speed: {self.settings.character_speed:.1f}", True, self.BLACK)
             speed_rect = speed_text.get_rect(left=50, top=y_position)
             self.screen.blit(speed_text, speed_rect)
 
-            speed_input_rect = pygame.Rect(speed_rect.right + 20, y_position, 100, 40)
-            pygame.draw.rect(self.screen, 
-                            (170, 170, 170) if input_active == 'speed' else (200, 200, 200), 
-                            speed_input_rect)
-            speed_surface = settings_font.render(
-                temp_text['speed'] if input_active == 'speed' else input_text['speed'], 
-                True, 
-                self.BLACK
-            )
-            self.screen.blit(speed_surface, (speed_input_rect.x + 5, speed_input_rect.y + 5))
+            # Speed minus button
+            if self.menu.draw_button("-", speed_rect.right + 20, y_position, 40, 40, (200, 200, 200), (150, 150, 150)):
+                if not speed_minus_clicked and current_time - last_click_time > click_delay:
+                    self.settings.character_speed = max(0, self.settings.character_speed - 0.1)
+                    last_click_time = current_time
+                    speed_minus_clicked = True
+
+            # Speed plus button
+            if self.menu.draw_button("+", speed_rect.right + 70, y_position, 40, 40, (200, 200, 200), (150, 150, 150)):
+                if not speed_plus_clicked and current_time - last_click_time > click_delay:
+                    self.settings.character_speed = min(10, self.settings.character_speed + 0.1)
+                    last_click_time = current_time
+                    speed_plus_clicked = True
 
             # Back button
             back_y = self.screen_height - 100
             if self.menu.draw_button("Back", self.screen_width // 2 - 100, back_y, 200, 50, (200, 200, 200), (150, 150, 150)):
-                running = False
+                if not back_clicked and current_time - last_click_time > click_delay:
+                    running = False
+                    back_clicked = True
 
             pygame.display.flip()
             clock.tick(60)
