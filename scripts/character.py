@@ -1,35 +1,37 @@
 import pygame
 
 class Character:
-    def __init__(self, x, y, width, height, color, idle_image_paths, running_image_paths):
+    def __init__(self, x, y, width, height, color, idle_images=None, running_images=None):
         self.x = x
         self.y = y
         self.width = width
         self.height = height
         self.color = color
-        self.rect = pygame.Rect(x, y, width, height)
-        self.idle_images = [pygame.image.load(path) for path in idle_image_paths]
-        self.running_images = [pygame.image.load(path) for path in running_image_paths]
-        self.frame_index = 0
-        self.is_running = False
-        self.animation_timer = 0  # Timer to control animation speed
-
-    def draw(self, screen):
-        if self.is_running:
-            screen.blit(self.running_images[self.frame_index], self.rect)
-        else:
-            screen.blit(self.idle_images[self.frame_index], self.rect)
+        
+        # Create default surface if no images provided
+        default_surface = pygame.Surface((width, height))
+        default_surface.fill(color)
+        
+        self.idle_images = idle_images if idle_images else [default_surface]
+        self.running_images = running_images if running_images else [default_surface]
+        self.current_animation = self.idle_images
+        self.current_frame = 0
+        self.animation_timer = 0
+        self.animation_speed = 10
+        self.is_switching_lanes = False
 
     def update(self):
-        self.rect.x = self.x
-        self.rect.y = self.y
-        if self.is_running:
-            self.animation_timer += 1
-            if self.animation_timer >= 5:  # Change image every 5 frames
-                self.frame_index = (self.frame_index + 1) % len(self.running_images)
-                self.animation_timer = 0
-        else:
-            self.frame_index = 0  # Reset to the first idle image
+        self.animation_timer += 1
+        if self.animation_timer >= self.animation_speed:
+            self.animation_timer = 0
+            self.current_frame = (self.current_frame + 1) % len(self.current_animation)
 
-    def set_running(self, running):
-        self.is_running = running
+    def draw(self, screen):
+        try:
+            current_image = self.current_animation[self.current_frame]
+            screen.blit(current_image, (self.x - self.width//2, self.y - self.height//2))
+        except:
+            # Fallback to drawing a rectangle if image drawing fails
+            pygame.draw.rect(screen, self.color, 
+                           (self.x - self.width//2, self.y - self.height//2, 
+                            self.width, self.height))

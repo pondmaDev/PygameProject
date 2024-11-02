@@ -1,6 +1,7 @@
 import pygame
 import sys
-from .game_state import current_game_state
+from scripts.game_state import current_game_state
+from scripts.setting import current_settings
 
 # Colors
 WHITE = (255, 255, 255)
@@ -167,10 +168,93 @@ class LevelSelectionMenu(Menu):
             pygame.display.flip()
             clock.tick(60)
 
+class SettingsMenu(Menu):
+    def __init__(self, screen, settings):
+        self.screen = screen
+        self.settings = settings
+        self.WHITE = (255, 255, 255)
+        self.BLACK = (0, 0, 0)
+        self.last_click_time = 0
+        self.click_delay = 200  # 200 milliseconds delay between clicks
+
+    def display(self):
+        clock = pygame.time.Clock()
+        
+        while True:
+            current_time = pygame.time.get_ticks()
+            
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    return 'quit'
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        return 'main_menu'
+
+            self.screen.fill(self.WHITE)
+
+            # Draw title
+            font = pygame.font.Font(None, 48)
+            title_text = font.render("Settings", True, self.BLACK)
+            title_rect = title_text.get_rect(center=(self.screen.get_width() // 2, 50))
+            self.screen.blit(title_text, title_rect)
+
+            y_start = 150
+            spacing = 60
+
+            # Music Volume
+            self.draw_setting_label("Music Volume:", y_start)
+            volume_value = f"{int(self.settings.bg_music_volume)}%"
+            if self.draw_button(volume_value, self.screen.get_width()//2 + 50, y_start, 100, 40, (200, 200, 200), (150, 150, 150)):
+                if current_time - self.last_click_time > self.click_delay:
+                    self.settings.bg_music_volume = (self.settings.bg_music_volume + 10) % 110
+                    self.last_click_time = current_time
+
+            # Window Mode
+            self.draw_setting_label("Window Mode:", y_start + spacing)
+            mode_text = "Fullscreen" if not self.settings.window_mode else "Windowed"
+            if self.draw_button(mode_text, self.screen.get_width()//2 + 50, y_start + spacing, 150, 40, (200, 200, 200), (150, 150, 150)):
+                if current_time - self.last_click_time > self.click_delay:
+                    self.settings.toggle_window_mode()
+                    self.last_click_time = current_time
+
+            # Character Speed
+            self.draw_setting_label("Character Speed:", y_start + spacing * 2)
+            speed_value = f"{self.settings.character_speed:.1f}x"
+            if self.draw_button(speed_value, self.screen.get_width()//2 + 50, y_start + spacing * 2, 100, 40, (200, 200, 200), (150, 150, 150)):
+                if current_time - self.last_click_time > self.click_delay:
+                    new_speed = round(self.settings.character_speed + 0.5, 1)
+                    if new_speed > 10:
+                        new_speed = 1.0
+                    self.settings.adjust_character_speed(new_speed)
+                    self.last_click_time = current_time
+
+            # Back button
+            if self.draw_button("Back", self.screen.get_width()//2 - 100, self.screen.get_height() - 100, 200, 50, (200, 200, 200), (150, 150, 150)):
+                if current_time - self.last_click_time > self.click_delay:
+                    return 'main_menu'
+
+            pygame.display.flip()
+            clock.tick(60)
+
+    def draw_setting_label(self, text, y):
+        font = pygame.font.Font(None, 36)
+        label = font.render(text, True, self.BLACK)
+        self.screen.blit(label, (50, y))
+
 class PauseMenu(Menu):
-    def __init__(self, screen, current_screen):
+    def __init__(self, screen, previous_screen):
         super().__init__(screen)
-        self.current_screen = current_screen
+        self.previous_screen = previous_screen
+        self.width = screen.get_width()
+        self.height = screen.get_height()
+        self.font = pygame.font.Font(None, 36)
+        
+        # Define buttons
+        self.buttons = {
+            'resume': pygame.Rect(self.width//2 - 100, self.height//2 - 60, 200, 50),
+            'settings': pygame.Rect(self.width//2 - 100, self.height//2, 200, 50),
+            'main_menu': pygame.Rect(self.width//2 - 100, self.height//2 + 60, 200, 50)
+        }
 
     def display(self):
         menu_width = 300
@@ -181,11 +265,24 @@ class PauseMenu(Menu):
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    pygame.quit()
-                    sys.exit()
+                    return 'quit'
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
-                        return None
+                        return 'resume'
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    mouse_pos = pygame.mouse.get_pos()
+                    
+                    # Resume button
+                    if self.buttons['resume'].collidepoint(mouse_pos):
+                        return 'resume'
+                    
+                    # Settings button
+                    if self.buttons['settings'].collidepoint(mouse_pos):
+                        return 'settings'
+                    
+                    # Main menu button
+                    if self.buttons['main_menu'].collidepoint(mouse_pos):
+                        return 'main_menu'
 
             overlay = pygame.Surface((self.screen.get_width(), self.screen.get_height()))
             overlay.fill((0, 0, 0))
@@ -212,7 +309,7 @@ class PauseMenu(Menu):
                           button_width, button_height, (180, 180, 180), (150, 150, 150)):
                 return 'settings'
 
-            exit_text = 'Exit Game' if self.current_screen == 'main_menu' else 'Main Menu'
+            exit_text = 'Exit Game' if self.previous_screen == 'main_menu' else 'Main Menu'
             if self.draw_button(exit_text, button_x, menu_y + 240, 
                           button_width, button_height, (180, 180, 180), (150, 150, 150)):
                 return 'exit'
