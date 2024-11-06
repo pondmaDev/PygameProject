@@ -169,13 +169,14 @@ class LevelSelectionMenu(Menu):
             clock.tick(60)
 
 class SettingsMenu(Menu):
-    def __init__(self, screen, settings):
-        self.screen = screen
+    def __init__(self, screen, settings, from_pause=False):
+        super().__init__(screen)
         self.settings = settings
         self.WHITE = (255, 255, 255)
         self.BLACK = (0, 0, 0)
         self.last_click_time = 0
         self.click_delay = 200  # 200 milliseconds delay between clicks
+        self.from_pause = from_pause
 
     def display(self):
         clock = pygame.time.Clock()
@@ -229,9 +230,10 @@ class SettingsMenu(Menu):
                     self.last_click_time = current_time
 
             # Back button
-            if self.draw_button("Back", self.screen.get_width()//2 - 100, self.screen.get_height() - 100, 200, 50, (200, 200, 200), (150, 150, 150)):
+            back_text = 'Back to Game' if self.from_pause else 'Back'
+            if self.draw_button(back_text, self.screen.get_width()//2 - 100, self.screen.get_height() - 100, 200, 50, (200, 200, 200), (150, 150, 150)):
                 if current_time - self.last_click_time > self.click_delay:
-                    return 'main_menu'
+                    return 'resume' if self.from_pause else 'main_menu'
 
             pygame.display.flip()
             clock.tick(60)
@@ -242,9 +244,10 @@ class SettingsMenu(Menu):
         self.screen.blit(label, (50, y))
 
 class PauseMenu(Menu):
-    def __init__(self, screen, previous_screen):
+    def __init__(self, screen, previous_screen, settings):
         super().__init__(screen)
         self.previous_screen = previous_screen
+        self.settings = settings
         self.width = screen.get_width()
         self.height = screen.get_height()
         self.font = pygame.font.Font(None, 36)
@@ -278,12 +281,16 @@ class PauseMenu(Menu):
                     
                     # Settings button
                     if self.buttons['settings'].collidepoint(mouse_pos):
-                        return 'settings'
+                        settings_menu = SettingsMenu(self.screen, self.settings, from_pause=True)
+                        result = settings_menu.display()
+                        if result == 'resume' or result == 'main_menu':
+                            return result
                     
                     # Main menu button
                     if self.buttons['main_menu'].collidepoint(mouse_pos):
                         return 'main_menu'
 
+            # Draw pause menu
             overlay = pygame.Surface((self.screen.get_width(), self.screen.get_height()))
             overlay.fill((0, 0, 0))
             overlay.set_alpha(128)
@@ -293,7 +300,7 @@ class PauseMenu(Menu):
                             (menu_x, menu_y, menu_width, menu_height))
 
             font = pygame.font.Font(None, 48)
-            title_text = font.render('Pause Menu', True, BLACK)
+            title_text = font.render('Pause Menu', True, (0, 0, 0))
             self.screen.blit(title_text, (menu_x + menu_width//2 - title_text.get_width()//2, 
                                     menu_y + 20))
 
@@ -301,17 +308,19 @@ class PauseMenu(Menu):
             button_height = 50
             button_x = menu_x + (menu_width - button_width)//2
             
-            if self.draw_button('Level Selection', button_x, menu_y + 100, 
-                          button_width, button_height, (180, 180, 180), (150, 150, 150)):
-                return 'level_selection'
+            if self.draw_button('Resume', button_x, menu_y + 100,  button_width, button_height, (180, 180, 180), (150, 150, 150)):
+                return 'resume'
 
             if self.draw_button('Settings', button_x, menu_y + 170, 
-                          button_width, button_height, (180, 180, 180), (150, 150, 150)):
-                return 'settings'
+                                button_width, button_height, (180, 180, 180), (150, 150, 150)):
+                settings_menu = SettingsMenu(self.screen, self.settings, from_pause=True)
+                result = settings_menu.display()
+                if result == 'resume' or result == 'main_menu':
+                    return result
 
             exit_text = 'Exit Game' if self.previous_screen == 'main_menu' else 'Main Menu'
             if self.draw_button(exit_text, button_x, menu_y + 240, 
                           button_width, button_height, (180, 180, 180), (150, 150, 150)):
-                return 'exit'
+                return 'main_menu'
 
             pygame.display.flip()
