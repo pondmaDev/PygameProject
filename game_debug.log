@@ -1,0 +1,8 @@
+[ERROR] An error occurred in the main loop: 'Item' object has no attribute 'is_good'
+[2024-11-06 23:40:35] [ERROR] [GAME] An error occurred in the main loop: 'Item' object has no attribute 'is_good'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'reset_game_state'
+[2024-11-07 00:00:16] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'reset_game_state'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'item_spawn_timer'
+[2024-11-07 00:01:34] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'item_spawn_timer'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'item_spawn_timer'
+[2024-11-07 00:03:42] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'item_spawn_timer'

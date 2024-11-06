@@ -135,6 +135,10 @@ class LevelSelectionMenu(Menu):
             x3 = 3 * spacing + 2 * button_width
             y_position = 200
 
+            # Back button position (centered horizontally and near bottom of screen)
+            back_button_x = screen_width // 2 - button_width // 2
+            back_button_y = self.screen.get_height() - 100  # 100 pixels from bottom
+
             font = pygame.font.Font(None, 74)
             title_text = font.render('Select Level', True, BLACK)
             self.screen.blit(title_text, (screen_width // 2 - title_text.get_width() // 2, 20))
@@ -164,6 +168,14 @@ class LevelSelectionMenu(Menu):
                     self.last_click_time = current_time
                     pygame.event.clear()
                     return 3
+
+            # Back button with same styling and delay check
+            if self.draw_button('Back', back_button_x, back_button_y, button_width, button_height, (200, 200, 200), (150, 150, 150)):
+                if not self.button_clicked and current_time - self.last_click_time > self.click_delay:
+                    self.button_clicked = True
+                    self.last_click_time = current_time
+                    pygame.event.clear()
+                    return 'main_menu'
 
             pygame.display.flip()
             clock.tick(60)

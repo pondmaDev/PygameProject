@@ -2,7 +2,7 @@ import pygame
 import random
 
 class Item:
-    def __init__(self, lane, color, size=50):
+    def __init__(self, lane, color, size=50, is_good = True):
         self.lane = lane
         self.color = color
         self.size = size
@@ -10,6 +10,7 @@ class Item:
         self.y = 0  # Start from the top of the screen
         self.speed = 5  # Falling speed
         self.points = self.get_points(color) # initial color as points
+        self.is_good = is_good
 
     def fall(self): #This function make item fall
         self.y += self.speed
