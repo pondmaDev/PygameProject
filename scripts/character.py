@@ -7,6 +7,7 @@ class Character:
         self.width = width
         self.height = height
         self.color = color
+        self.game_speed = 0
         
         # Create default surface if no images provided
         default_surface = pygame.Surface((width, height))
@@ -20,11 +21,13 @@ class Character:
         self.animation_speed = 10
         self.is_switching_lanes = False
 
-    def update(self):
+    def update(self, game_speed):
         self.animation_timer += 1
         if self.animation_timer >= self.animation_speed:
             self.animation_timer = 0
             self.current_frame = (self.current_frame + 1) % len(self.current_animation)
+        
+        # Update position based on game speed
 
     def draw(self, screen):
         try:

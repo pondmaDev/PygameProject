@@ -255,84 +255,72 @@ class SettingsMenu(Menu):
         label = font.render(text, True, self.BLACK)
         self.screen.blit(label, (50, y))
 
-class PauseMenu(Menu):
+class PauseMenu:
     def __init__(self, screen, previous_screen, settings):
-        super().__init__(screen)
+        self.screen = screen
         self.previous_screen = previous_screen
         self.settings = settings
-        self.width = screen.get_width()
-        self.height = screen.get_height()
-        self.font = pygame.font.Font(None, 36)
+        self.screen_width = screen.get_width()
+        self.screen_height = screen.get_height()
         
-        # Define buttons
-        self.buttons = {
-            'resume': pygame.Rect(self.width//2 - 100, self.height//2 - 60, 200, 50),
-            'settings': pygame.Rect(self.width//2 - 100, self.height//2, 200, 50),
-            'main_menu': pygame.Rect(self.width//2 - 100, self.height//2 + 60, 200, 50)
-        }
-
+        # Define button dimensions and positions
+        button_width = 200
+        button_height = 50
+        button_x = self.screen_width // 2 - button_width // 2
+        spacing = 20  # Space between buttons
+        
+        # Create button rectangles with proper centering
+        self.resume_button = pygame.Rect(button_x, 200, button_width, button_height)
+        self.settings_button = pygame.Rect(button_x, 200 + button_height + spacing, button_width, button_height)
+        self.main_menu_button = pygame.Rect(button_x, 200 + (button_height + spacing) * 2, button_width, button_height)
+        
     def display(self):
-        menu_width = 300
-        menu_height = 400
-        menu_x = self.screen.get_width()//2 - menu_width//2
-        menu_y = self.screen.get_height()//2 - menu_height//2
-
-        while True:
+        running = True
+        while running:
+            mouse_pos = pygame.mouse.get_pos()
+            
+            # Check if mouse is over any button
+            resume_hover = self.resume_button.collidepoint(mouse_pos)
+            settings_hover = self.settings_button.collidepoint(mouse_pos)
+            main_menu_hover = self.main_menu_button.collidepoint(mouse_pos)
+            
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     return 'quit'
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_ESCAPE:
-                        return 'resume'
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                    return 'resume'
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    mouse_pos = pygame.mouse.get_pos()
-                    
-                    # Resume button
-                    if self.buttons['resume'].collidepoint(mouse_pos):
+                    # Use the full button rectangles for click detection
+                    if self.resume_button.collidepoint(event.pos):
                         return 'resume'
-                    
-                    # Settings button
-                    if self.buttons['settings'].collidepoint(mouse_pos):
-                        settings_menu = SettingsMenu(self.screen, self.settings, from_pause=True)
-                        result = settings_menu.display()
-                        if result == 'resume' or result == 'main_menu':
-                            return result
-                    
-                    # Main menu button
-                    if self.buttons['main_menu'].collidepoint(mouse_pos):
+                    elif self.settings_button.collidepoint(event.pos):
+                        return 'settings'
+                    elif self.main_menu_button.collidepoint(event.pos):
                         return 'main_menu'
-
-            # Draw pause menu
-            overlay = pygame.Surface((self.screen.get_width(), self.screen.get_height()))
+            
+            # Draw semi-transparent background
+            overlay = pygame.Surface((self.screen_width, self.screen_height))
             overlay.fill((0, 0, 0))
             overlay.set_alpha(128)
             self.screen.blit(overlay, (0, 0))
-
-            pygame.draw.rect(self.screen, (200, 200, 200), 
-                            (menu_x, menu_y, menu_width, menu_height))
-
-            font = pygame.font.Font(None, 48)
-            title_text = font.render('Pause Menu', True, (0, 0, 0))
-            self.screen.blit(title_text, (menu_x + menu_width//2 - title_text.get_width()//2, 
-                                    menu_y + 20))
-
-            button_width = 200
-            button_height = 50
-            button_x = menu_x + (menu_width - button_width)//2
             
-            if self.draw_button('Resume', button_x, menu_y + 100,  button_width, button_height, (180, 180, 180), (150, 150, 150)):
-                return 'resume'
-
-            if self.draw_button('Settings', button_x, menu_y + 170, 
-                                button_width, button_height, (180, 180, 180), (150, 150, 150)):
-                settings_menu = SettingsMenu(self.screen, self.settings, from_pause=True)
-                result = settings_menu.display()
-                if result == 'resume' or result == 'main_menu':
-                    return result
-
-            exit_text = 'Exit Game' if self.previous_screen == 'main_menu' else 'Main Menu'
-            if self.draw_button(exit_text, button_x, menu_y + 240, 
-                          button_width, button_height, (180, 180, 180), (150, 150, 150)):
-                return 'main_menu'
-
+            # Draw buttons with hover effect
+            self.draw_button(self.resume_button, "Resume", resume_hover)
+            self.draw_button(self.settings_button, "Settings", settings_hover)
+            self.draw_button(self.main_menu_button, "Main Menu", main_menu_hover)
+            
             pygame.display.flip()
+    
+    def draw_button(self, rect, text, hovered):
+        # Draw button background
+        color = (200, 200, 200) if not hovered else (180, 180, 180)
+        pygame.draw.rect(self.screen, color, rect)
+        
+        # Add a border to make the button more visible
+        pygame.draw.rect(self.screen, (100, 100, 100), rect, 2)
+        
+        # Draw text
+        font = pygame.font.Font(None, 36)
+        text_surface = font.render(text, True, (0, 0, 0))
+        text_rect = text_surface.get_rect(center=rect.center)
+        self.screen.blit(text_surface, text_rect)

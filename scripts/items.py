@@ -2,28 +2,33 @@ import pygame
 import random
 
 class Item:
-    def __init__(self, lane, color, size=50, is_good = True):
+    def __init__(self, lane, color, is_good=True):
         self.lane = lane
+        self.lane_width = 800 // 3  # Screen width divided by number of lanes
+        self.x = (lane * self.lane_width) + (self.lane_width // 2)
+        self.y = -50  # Start above the screen
+        self.size = 30
         self.color = color
-        self.size = size
-        self.x = lane * (800 // 3) + (800 // 3 - size) // 2  # Center the item in the lane
-        self.y = 0  # Start from the top of the screen
-        self.speed = 5  # Falling speed
-        self.points = self.get_points(color) # initial color as points
         self.is_good = is_good
 
     def fall(self): #This function make item fall
         self.y += self.speed
 
-    def draw(self, screen): #Draw items
-        pygame.draw.rect(screen, self.color, (self.x, self.y, self.size, self.size))
     
-    def get_points(self, color): # set points for color of square
-        if color == (0, 0, 255):  # Blue
+    def update(self, game_speed):
+        # Update position based on game speed
+        self.y += game_speed
+
+
+    def draw(self, screen):
+        pygame.draw.rect(screen, self.color, (self.x - self.size//2, self.y, self.size, self.size))
+        
+    def get_points(self):  # Renamed from get_points(self, color) to get_points(self)
+        if self.color == (0, 0, 255):  # Blue
             return 1
-        elif color == (0, 255, 0):  # Green
+        elif self.color == (0, 255, 0):  # Green
             return 5
-        elif color == (255, 0, 0):  # Red
+        elif self.color == (255, 0, 0):  # Red
             return -3
         else:
             return 0

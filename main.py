@@ -8,6 +8,7 @@ from scripts.setting import current_settings
 from scripts.game_state import current_game_state
 from scripts.lane_system import LaneManager, Lane
 from scripts.items import Item
+from scripts.world import World
 from debug import debug
 
 class Game:
@@ -45,12 +46,14 @@ class Game:
         self.default_surface.fill(self.RED)
         self.idle_images = [self.default_surface]
         self.running_images = [self.default_surface]
+        self.world = World(self.screen_width, self.screen_height)
         debug.log('init', "Images initialized")
 
     def initialize_game_variables(self):
         self.WHITE = (255, 255, 255)
         self.BLACK = (0, 0, 0)
         self.RED = (255, 0, 0)
+        self.game_speed = 6.0
         debug.log('init', "Game variables initialized")
     
     def initialize_reset_game_state(self):
@@ -157,8 +160,8 @@ class Game:
             for item in self.items[:]:  # Use a copy of the list to safely remove items
                 item_rect = pygame.Rect(item.x, item.y, item.size, item.size)
                 if char_rect.colliderect(item_rect):
-                    new_score = self.score + item.points
-                    if new_score < 0:
+                    new_score = self.score + item.get_points()
+                    if new_score <= 0:
                         debug.log('game', f"Game over. Final score: {self.score}")
                         return self.show_game_over_screen()
                     else:
@@ -255,8 +258,16 @@ class Game:
             self.update_game_state()
             game_over_result = self.check_collisions()
             if game_over_result:
-                return game_over_result  # This will be 'restart', 'main_menu', or 'quit
-            self.draw_game_state()
+                return game_over_result
+
+            # Draw everything
+            self.screen.fill(self.WHITE)
+            self.world.draw(self.screen)
+            self.draw_lanes()
+            if self.character:
+                self.character.draw(self.screen)
+            self.draw_items()
+            self.draw_score()
 
             pygame.display.flip()
             fps = clock.get_fps()
@@ -293,17 +304,34 @@ class Game:
     
 
     def update_game_state(self):
+        # Update the world (background scroll)
+        self.world.update(self.game_speed)
+
+        # Update character animation (not position)
+        if self.character:
+            self.character.update(self.game_speed)
+
+        # Item spawning logic
         self.item_spawner_time += 1
         if self.item_spawner_time >= 30:
             self.spawn_item()
             self.item_spawner_time = 0
 
-        self.update_items()
-        self.check_collisions()
-        debug.log('game', "Game state updated")
+        # Update items
+        for item in self.items:
+            try:
+                item.update(self.game_speed)
+            except AttributeError as e:
+                debug.error('game', f"Error updating item: {e}")
+                debug.error('game', f"Item attributes: {vars(item)}")
+
+        # Remove items that have moved off the screen
+        self.items = [item for item in self.items if item.y < self.screen_height]
+
+        debug.log('game', f"Game state updated. Speed: {self.game_speed:.2f}")
 
     def draw_game_state(self):
-        self.screen.fill(self.WHITE)
+        self.world.draw(self.screen)
         self.draw_lanes()
         if self.character:
             self.character.update()
