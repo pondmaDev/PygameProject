@@ -24,3 +24,307 @@
 [2024-11-07 16:16:28] [ERROR] [GAME] An error occurred in the main loop: 'Item' object has no attribute 'game_speed'
 [ERROR] An error occurred in the main loop: 'Item' object has no attribute 'points'
 [2024-11-07 16:23:55] [ERROR] [GAME] An error occurred in the main loop: 'Item' object has no attribute 'points'
+[ERROR] An error occurred in the main loop: No file 'data/raw/Background/background-image.png' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+[2024-11-08 12:05:38] [ERROR] [GAME] An error occurred in the main loop: No file 'data/raw/Background/background-image.png' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+[ERROR] An error occurred in the main loop: No file 'data/raw/Background/background-image.png' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+[2024-11-08 12:43:32] [ERROR] [GAME] An error occurred in the main loop: No file 'data/raw/Background/background-image.png' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+[ERROR] An error occurred in the main loop: No file 'data/raw/Background/background-image.png' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+[2024-11-08 16:02:37] [ERROR] [GAME] An error occurred in the main loop: No file 'data/raw/Background/background-image.png' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+[ERROR] An error occurred in the main loop: No file 'data/raw/Background/background-image.png' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+[2024-11-08 16:06:22] [ERROR] [GAME] An error occurred in the main loop: No file 'data/raw/Background/background-image.png' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'show_settings'
+[2024-11-08 16:20:35] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'show_settings'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'show_settings'
+[2024-11-08 16:27:53] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'show_settings'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'start_game'
+[2024-11-08 16:46:24] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'start_game'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'show_settings'
+[2024-11-08 16:46:40] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'show_settings'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'show_settings'
+[2024-11-08 16:56:16] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'show_settings'
+[DEBUG] Menu option selected: settings
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'show_settings'
+[2024-11-08 16:57:32] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'show_settings'
+[DEBUG] Menu option selected: settings
+[2024-11-08 17:05:24] [SETTINGS] Entering settings menu...
+[2024-11-08 17:05:24] [ERROR] [SETTINGS] Error showing settings: 'Setting' object has no attribute 'bg_music_volume'
+[DEBUG] Settings result: main_menu
+[2024-11-08 17:06:21] [INIT] Initializing Game...
+[2024-11-08 17:06:21] [INIT] Game variables initialized
+[2024-11-08 17:06:22] [INIT] Screen dimensions set to 800x600
+[2024-11-08 17:06:22] [INIT] Settings and Lane manager initialized
+[2024-11-08 17:06:22] [INIT] Menus initialized
+[2024-11-08 17:06:22] [INIT] Images initialized
+[DEBUG] Menu option selected: settings
+[2024-11-08 17:06:34] [SETTINGS] Entering settings menu...
+[2024-11-08 17:06:34] [ERROR] [SETTINGS] Error showing settings: 'Setting' object has no attribute 'bg_music_volume'
+[DEBUG] Settings result: main_menu
+[2024-11-08 17:12:57] [INIT] Initializing Game...
+[2024-11-08 17:12:57] [INIT] Game variables initialized
+[2024-11-08 17:12:57] [INIT] Screen dimensions set to 800x600
+[2024-11-08 17:12:57] [INIT] Settings and Lane manager initialized
+[2024-11-08 17:12:57] [INIT] Menus initialized
+[2024-11-08 17:12:57] [INIT] Images initialized
+[DEBUG] Menu option selected: settings
+[2024-11-08 17:13:06] [SETTINGS] Entering settings menu...
+[DEBUG] Settings result: main_menu
+[2024-11-08 17:14:51] [INIT] Initializing Game...
+[2024-11-08 17:14:51] [INIT] Game variables initialized
+[2024-11-08 17:14:52] [INIT] Screen dimensions set to 800x600
+[2024-11-08 17:14:52] [INIT] Settings and Lane manager initialized
+[2024-11-08 17:14:52] [INIT] Menus initialized
+[2024-11-08 17:14:52] [INIT] Images initialized
+[2024-11-08 17:14:52] [CHARACTER] Character initialized successfully
+[DEBUG] Menu option selected: start_game
+[DEBUG] Level selected: 1
+[2024-11-08 17:15:06] [GAME] Game state reset
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'start_game'
+[2024-11-08 17:15:06] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'start_game'
+[2024-11-08 17:21:49] [INIT] Initializing Game...
+[2024-11-08 17:21:49] [INIT] Game variables initialized
+[2024-11-08 17:21:49] [INIT] Screen dimensions set to 800x600
+[2024-11-08 17:21:49] [INIT] Settings and Lane manager initialized
+[2024-11-08 17:21:49] [INIT] Menus initialized
+[2024-11-08 17:21:49] [INIT] Images initialized
+[2024-11-08 17:21:49] [CHARACTER] Character initialized successfully
+[DEBUG] Menu option selected: start_game
+[DEBUG] Level selected: 1
+[2024-11-08 17:22:03] [GAME] Game state reset
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'start_game'
+[2024-11-08 17:22:03] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'start_game'
+[2024-11-08 17:26:12] [INIT] Initializing Game...
+[2024-11-08 17:26:12] [INIT] Game variables initialized
+[2024-11-08 17:26:13] [INIT] Screen dimensions set to 800x600
+[2024-11-08 17:26:13] [INIT] Settings and Lane manager initialized
+[2024-11-08 17:26:13] [INIT] Menus initialized
+[2024-11-08 17:26:13] [INIT] Images initialized
+[2024-11-08 17:26:13] [CHARACTER] Character initialized successfully
+[DEBUG] Menu option selected: settings
+[DEBUG] Settings result: main_menu
+[2024-11-08 17:26:24] [INIT] Initializing Game...
+[2024-11-08 17:26:24] [INIT] Game variables initialized
+[2024-11-08 17:26:24] [INIT] Screen dimensions set to 800x600
+[2024-11-08 17:26:24] [INIT] Settings and Lane manager initialized
+[2024-11-08 17:26:24] [INIT] Menus initialized
+[2024-11-08 17:26:24] [INIT] Images initialized
+[2024-11-08 17:26:24] [CHARACTER] Character initialized successfully
+[DEBUG] Menu option selected: start_game
+[DEBUG] Level selected: 1
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'start_game'
+[2024-11-08 17:26:27] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'start_game'
+[2024-11-08 17:31:33] [INIT] Initializing Game...
+[2024-11-08 17:31:33] [INIT] Game variables initialized
+[2024-11-08 17:31:33] [INIT] Screen dimensions set to 800x600
+[2024-11-08 17:31:33] [INIT] Settings and Lane manager initialized
+[2024-11-08 17:31:33] [INIT] Menus initialized
+[2024-11-08 17:31:33] [INIT] Images initialized
+[2024-11-08 17:31:33] [CHARACTER] Character initialized successfully
+[DEBUG] Menu option selected: start_game
+[DEBUG] Level selected: 1
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'start_game'
+[2024-11-08 17:31:38] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'start_game'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 21:48:52] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 22:13:27] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 22:15:55] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 22:17:50] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 22:25:19] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 22:32:08] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 22:37:08] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 22:37:57] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 22:39:59] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 22:40:14] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 22:41:02] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 22:42:44] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 22:50:17] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 22:50:34] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 22:53:12] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 22:54:43] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 22:56:54] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 22:59:04] [ERROR] [GLOBAL] Uncaught exception: AttributeError: 'Game' object has no attribute 'initialize_game_variables'
+NoneType: None
+
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 23:02:47] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 23:04:00] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 23:05:47] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 23:06:38] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 23:08:22] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[ERROR] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 23:10:25] [ERROR] [GAME] An error occurred in the main loop: 'Game' object has no attribute 'main_menu'
+[2024-11-08 23:17:18] [ERROR] [GLOBAL] Uncaught exception: TypeError: Game.main() missing 1 required positional argument: 'self'
+NoneType: None
+
+[2024-11-08 23:18:30] [INIT] Debug log test - Initializing Game...
+[2024-11-08 23:18:30] [INIT] Attempting to initialize game variables
+[2024-11-08 23:18:30] [INIT] Game variables initialized
+[2024-11-08 23:18:30] [INIT] Attempting to initialize pygame
+[2024-11-08 23:18:30] [INIT] Screen dimensions set to 800x600
+[2024-11-08 23:18:30] [INIT] Attempting to initialize game objects
+[2024-11-08 23:18:30] [INIT] Settings and Lane manager initialized
+[2024-11-08 23:18:30] [INIT] Attempting to initialize menus
+[2024-11-08 23:18:30] [MENU] Initializing menus
+[2024-11-08 23:18:30] [MENU] Main menu initialized
+[2024-11-08 23:18:30] [MENU] Level selection menu initialized
+[2024-11-08 23:18:30] [MENU] Settings menu initialized
+[2024-11-08 23:18:30] [INIT] Attempting to initialize images
+[2024-11-08 23:18:30] [INIT] Images initialized
+[2024-11-08 23:18:30] [INIT] Attempting to initialize character
+[2024-11-08 23:18:30] [ERROR] [INIT] Initialization failed: 'LaneManager' object has no attribute 'get_current_lane_position'
+Traceback (most recent call last):
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\game.py", line 39, in __init__
+    self.initialize_character()
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\game.py", line 127, in initialize_character
+    initial_x = self.lane_manager.get_current_lane_position()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'LaneManager' object has no attribute 'get_current_lane_position'
+
+[ERROR] Initialization error: 'LaneManager' object has no attribute 'get_current_lane_position'
+[2024-11-08 23:23:24] [INIT] Debug log test - Initializing Game...
+[2024-11-08 23:23:24] [INIT] Attempting to initialize game variables
+[2024-11-08 23:23:24] [INIT] Game variables initialized
+[2024-11-08 23:23:24] [INIT] Attempting to initialize pygame
+[2024-11-08 23:23:24] [INIT] Screen dimensions set to 800x600
+[2024-11-08 23:23:24] [INIT] Attempting to initialize game objects
+[2024-11-08 23:23:24] [INIT] Settings and Lane manager initialized
+[2024-11-08 23:23:24] [INIT] Attempting to initialize menus
+[2024-11-08 23:23:24] [MENU] Initializing menus
+[2024-11-08 23:23:24] [MENU] Main menu initialized
+[2024-11-08 23:23:24] [MENU] Level selection menu initialized
+[2024-11-08 23:23:24] [MENU] Settings menu initialized
+[2024-11-08 23:23:24] [INIT] Attempting to initialize images
+[2024-11-08 23:23:24] [INIT] Images initialized
+[2024-11-08 23:23:24] [INIT] Attempting to initialize character
+[2024-11-08 23:23:24] [ERROR] [INIT] Initialization failed: 'LaneManager' object has no attribute 'get_current_lane_position'
+Traceback (most recent call last):
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\game.py", line 39, in __init__
+    self.initialize_character()
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\game.py", line 127, in initialize_character
+    initial_x = self.lane_manager.get_current_lane_position
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'LaneManager' object has no attribute 'get_current_lane_position'
+
+[ERROR] Initialization error: 'LaneManager' object has no attribute 'get_current_lane_position'
+[2024-11-08 23:23:41] [INIT] Debug log test - Initializing Game...
+[2024-11-08 23:23:41] [INIT] Attempting to initialize game variables
+[2024-11-08 23:23:41] [INIT] Game variables initialized
+[2024-11-08 23:23:41] [INIT] Attempting to initialize pygame
+[2024-11-08 23:23:41] [INIT] Screen dimensions set to 800x600
+[2024-11-08 23:23:41] [INIT] Attempting to initialize game objects
+[2024-11-08 23:23:41] [INIT] Settings and Lane manager initialized
+[2024-11-08 23:23:41] [INIT] Attempting to initialize menus
+[2024-11-08 23:23:41] [MENU] Initializing menus
+[2024-11-08 23:23:41] [MENU] Main menu initialized
+[2024-11-08 23:23:41] [MENU] Level selection menu initialized
+[2024-11-08 23:23:41] [MENU] Settings menu initialized
+[2024-11-08 23:23:41] [INIT] Attempting to initialize images
+[2024-11-08 23:23:41] [INIT] Images initialized
+[2024-11-08 23:23:41] [INIT] Attempting to initialize character
+[2024-11-08 23:23:41] [ERROR] [INIT] Initialization failed: 'LaneManager' object has no attribute 'get_current_lane_position'
+Traceback (most recent call last):
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\game.py", line 39, in __init__
+    self.initialize_character()
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\game.py", line 127, in initialize_character
+    initial_x = self.lane_manager.get_current_lane_position()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'LaneManager' object has no attribute 'get_current_lane_position'
+
+[ERROR] Initialization error: 'LaneManager' object has no attribute 'get_current_lane_position'
+[2024-11-08 23:24:09] [INIT] Debug log test - Initializing Game...
+[2024-11-08 23:24:09] [INIT] Attempting to initialize game variables
+[2024-11-08 23:24:09] [INIT] Game variables initialized
+[2024-11-08 23:24:09] [INIT] Attempting to initialize pygame
+[2024-11-08 23:24:09] [INIT] Screen dimensions set to 800x600
+[2024-11-08 23:24:09] [INIT] Attempting to initialize game objects
+[2024-11-08 23:24:09] [INIT] Settings and Lane manager initialized
+[2024-11-08 23:24:09] [INIT] Attempting to initialize menus
+[2024-11-08 23:24:09] [MENU] Initializing menus
+[2024-11-08 23:24:09] [MENU] Main menu initialized
+[2024-11-08 23:24:09] [MENU] Level selection menu initialized
+[2024-11-08 23:24:09] [MENU] Settings menu initialized
+[2024-11-08 23:24:09] [INIT] Attempting to initialize images
+[2024-11-08 23:24:09] [INIT] Images initialized
+[2024-11-08 23:24:09] [INIT] Attempting to initialize character
+[DEBUG] Menu option selected: start_game
+[DEBUG] Level selected: 1
+[2024-11-08 23:24:18] [GAME] Starting game at level 1
+[2024-11-08 23:24:18] [GAME] Game state reset
+[DEBUG] Game result: main_menu
+[2024-11-08 23:24:30] [INIT] Debug log test - Initializing Game...
+[2024-11-08 23:24:30] [INIT] Attempting to initialize game variables
+[2024-11-08 23:24:30] [INIT] Game variables initialized
+[2024-11-08 23:24:30] [INIT] Attempting to initialize pygame
+[2024-11-08 23:24:30] [INIT] Screen dimensions set to 800x600
+[2024-11-08 23:24:30] [INIT] Attempting to initialize game objects
+[2024-11-08 23:24:30] [INIT] Settings and Lane manager initialized
+[2024-11-08 23:24:30] [INIT] Attempting to initialize menus
+[2024-11-08 23:24:30] [MENU] Initializing menus
+[2024-11-08 23:24:30] [MENU] Main menu initialized
+[2024-11-08 23:24:30] [MENU] Level selection menu initialized
+[2024-11-08 23:24:30] [MENU] Settings menu initialized
+[2024-11-08 23:24:30] [INIT] Attempting to initialize images
+[2024-11-08 23:24:30] [INIT] Images initialized
+[2024-11-08 23:24:30] [INIT] Attempting to initialize character
+[DEBUG] Menu option selected: settings
+[2024-11-08 23:24:31] [SETTINGS] Entering settings menu...
+[DEBUG] Settings result: main_menu
+[2024-11-08 23:45:34] [INIT] Debug log test - Initializing Game...
+[2024-11-08 23:45:34] [INIT] Attempting to initialize game variables
+[2024-11-08 23:45:34] [INIT] Game variables initialized
+[2024-11-08 23:45:34] [INIT] Attempting to initialize pygame
+[2024-11-08 23:45:34] [INIT] Screen dimensions set to 800x600
+[2024-11-08 23:45:34] [INIT] Attempting to initialize game objects
+[2024-11-08 23:45:34] [INIT] Settings and Lane manager initialized
+[2024-11-08 23:45:34] [INIT] Attempting to initialize menus
+[2024-11-08 23:45:34] [MENU] Initializing menus
+[2024-11-08 23:45:34] [MENU] Main menu initialized
+[2024-11-08 23:45:34] [MENU] Level selection menu initialized
+[2024-11-08 23:45:34] [MENU] Settings menu initialized
+[2024-11-08 23:45:34] [INIT] Attempting to initialize images
+[2024-11-08 23:45:34] [INIT] Images initialized
+[2024-11-08 23:45:34] [INIT] Attempting to initialize character
+[DEBUG] Menu option selected: start_game
+[DEBUG] Level selected: 1
+[2024-11-08 23:45:41] [GAME] Starting game at level 1
+[2024-11-08 23:45:41] [GAME] Game state reset
+[DEBUG] Game result: main_menu
+[2024-11-09 00:15:16] [INIT] Debug log test - Initializing Game...
+[2024-11-09 00:15:16] [INIT] Attempting to initialize game variables
+[2024-11-09 00:15:16] [INIT] Game variables initialized
+[2024-11-09 00:15:16] [INIT] Attempting to initialize pygame
+[2024-11-09 00:15:16] [INIT] Screen dimensions set to 800x600
+[2024-11-09 00:15:16] [INIT] Attempting to initialize game objects
+[2024-11-09 00:15:16] [INIT] Settings and Lane manager initialized
+[2024-11-09 00:15:16] [INIT] Attempting to initialize menus
+[2024-11-09 00:15:16] [MENU] Initializing menus
+[2024-11-09 00:15:16] [MENU] Main menu initialized
+[2024-11-09 00:15:16] [MENU] Level selection menu initialized
+[2024-11-09 00:15:16] [MENU] Settings menu initialized
+[2024-11-09 00:15:16] [INIT] Attempting to initialize images
+[2024-11-09 00:15:17] [INIT] Images initialized
+[2024-11-09 00:15:17] [INIT] Attempting to initialize character
+[DEBUG] Menu option selected: start_game
+[DEBUG] Level selected: 2
+[2024-11-09 00:15:21] [GAME] Starting game at level 2
+[2024-11-09 00:15:21] [GAME] Game state reset
+[DEBUG] Game result: main_menu
