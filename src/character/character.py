@@ -1,90 +1,141 @@
 import pygame
 from src.utils.debug_section import debug
+from src.utils.constant import Colors
+from src.utils.resource_manager import ResourceManager
 
 class Character:
-    def __init__(self, x, y, width, height, color, idle_images=None, running_images=None):
+    def __init__(self, x, y, width, height, color, idle_image_key='character_idle', running_image_key='character_run'):
+        # Get resource manager instance
+        self.resource_manager = ResourceManager.get_instance()
+        
+        # Use the Colors dictionary to get the color tuple
+        self.color = Colors.get(color)
+        
         self.x = x
         self.y = y
         self.width = width
         self.height = height
-        self.color = color
+        
+        # Image keys for resource management
+        self.idle_image_key = 'character_idle'
+        self.run_image_key = 'character_run'
+        
+        # Rest of initialization remains the same
         self.game_speed = 0
+        
+        self.idle_images = []
+        self.running_images = []
         
         # Create default surface if no images provided
         default_surface = pygame.Surface((width, height))
-        default_surface.fill(color)
+        default_surface.fill(self.color)
         
-        self.idle_images = idle_images if idle_images else [default_surface]
-        self.running_images = running_images if running_images else [default_surface]
-        self.current_animation = self.idle_images
+        self.current_animation = [default_surface]
         self.current_frame = 0
         self.animation_timer = 0
         self.animation_speed = 10
         self.is_switching_lanes = False
-
-    def update(self, game_speed):
-        self.animation_timer += 1
-        if self.animation_timer >= self.animation_speed:
-            self.animation_timer = 0
-            self.current_frame = (self.current_frame + 1) % len(self.current_animation)
         
-        # Update position based on game speed
+        # Load character images
+        self.load_character_images()
 
-    def draw(self, screen):
-        try:
-            current_image = self.current_animation[self.current_frame]
-            screen.blit(current_image, (self.x - self.width//2, self.y - self.height//2))
-        except:
-            # Fallback to drawing a rectangle if image drawing fails
-            pygame.draw.rect(screen, self.color, 
-                           (self.x - self.width//2, self.y - self.height//2, 
-                            self.width, self.height))
-    
     def load_character_images(self):
-        """Load and scale character images"""
+        """Load character images using ResourceManager"""
         debug.log('character', "Starting to load character images")
         
         # Clear existing images
         self.idle_images = []
         self.running_images = []
         
-        # Load idle images
-        for path in self.idle_image_paths:
-            try:
-                image = pygame.image.load(path).convert_alpha()
-                image = pygame.transform.scale(image, (50, 50))
-                self.idle_images.append(image)
-                debug.debug_print(f"Loaded idle image: {path}")
-                debug.log('character', f"Loaded idle image: {path}")
-            except Exception as e:
-                debug.error_print(f"Failed to load idle image {path}: {e}")
-                debug.error('character', f"Failed to load idle image {path}: {e}")
-                
-        # Load running images
-        for path in self.running_image_paths:
-            try:
-                image = pygame.image.load(path).convert_alpha()
-                image = pygame.transform.scale(image, (50, 50))
-                self.running_images.append(image)
-                debug.debug_print(f"Loaded running image: {path}")
-                debug.log('character', f"Loaded running image: {path}")
-            except Exception as e:
-                debug.error_print(f"Failed to load running image {path}: {e}")
-                debug.error('character', f"Failed to load running image {path}: {e}")
-                
-        # If no images were loaded, create fallback images
-        if not self.idle_images:
-            fallback = pygame.Surface((50, 50))
-            fallback.fill(self.RED)
+        # Standardize image keys
+        idle_key = 'character_idle'
+        run_key = 'character_run'
+        
+        # Try to load idle images
+        try:
+            idle_image = self.resource_manager.get_image(idle_key)
+            self.idle_images = [idle_image]
+            debug.log('character', f"Loaded idle image: {idle_key}")
+        except KeyError as e:
+            # Create fallback idle image
+            debug.log('character', f"Error loading idle image: {e}")
+            fallback = pygame.Surface((self.width, self.height))
+            fallback.fill(self.color)
             self.idle_images = [fallback]
-            debug.debug_print("Using fallback idle image")
-            debug.log('character', "Using fallback idle image")
-            
-        if not self.running_images:
-            fallback = pygame.Surface((50, 50))
-            fallback.fill(self.RED)
+        
+        # Try to load running images
+        try:
+            running_image = self.resource_manager.get_image(run_key)
+            self.running_images = [running_image]
+            debug.log('character', f"Loaded running image: {run_key}")
+        except KeyError as e:
+            # Create fallback running image
+            debug.log('character', f"Error loading running image: {e}")
+            fallback = pygame.Surface((self.width, self.height))
+            fallback.fill(self.color)
             self.running_images = [fallback]
-            debug.debug_print("Using fallback running image")
-            debug.log('character', "Using fallback running image")
+        
+        # Set default animation to idle
+        self.current_animation = self.idle_images
         
         debug.log('character', "Character images loading completed")
+
+    def animate(self):
+        """
+        Animate character images
+        Cycles through available animation frames
+        """
+        self.animation_timer += 1
+        if self.animation_timer >= self.animation_speed:
+            self.current_frame = (self.current_frame + 1) % len(self.current_animation)
+            self.animation_timer = 0
+
+    def get_current_image(self):
+        """
+        Get the current animation frame
+        
+        Returns:
+            pygame.Surface: Current animation frame
+        """
+        return self.current_animation[self.current_frame]
+
+    def set_animation_state(self, is_running):
+        """
+        Set character animation state
+        
+        Args:
+            is_running (bool): Whether character is running
+        """
+        self.current_animation = self.running_images if is_running else self.idle_images
+        self.current_frame = 0
+        self.animation_timer = 0
+    
+    def draw(self, screen):
+        """
+        Draw the character on the screen with more advanced rendering
+        
+        Args:
+            screen (pygame.Surface): The surface to draw the character on
+        """
+        # Get the current animation frame
+        current_image = self.get_current_image()
+        
+        # Optional: Resize image if needed
+        scaled_image = pygame.transform.scale(current_image, (self.width, self.height))
+        
+        # Draw the character image
+        screen.blit(scaled_image, (self.x, self.y))
+        
+        # Optional: Draw hitbox or debug information
+        if debug.is_debug_mode('character'):  # Specify the section
+            # Draw a rectangle around the character
+            pygame.draw.rect(screen, Colors.RED, 
+                            (self.x, self.y, self.width, self.height), 
+                            2)  # 2 pixel border
+            
+            # Optional: Draw center point
+            center_x = self.x + self.width // 2
+            center_y = self.y + self.height // 2
+            pygame.draw.circle(screen, Colors.GREEN, (center_x, center_y), 3)
+        
+        debug.log('character', f"Drawing character at ({self.x}, {self.y})")

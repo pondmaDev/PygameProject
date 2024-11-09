@@ -4,16 +4,17 @@ import sys
 
 class Debug:
     def __init__(self):
-        self.enabled = True
+        self.enabled = False
         self.sections = {
-            'init': True,
+            'init': False,
             'menu': True,
-            'game': True,
-            'character': True,
+            'game': False,
+            'character': False,
             'items': True,
             'collision': True,
             'settings': True,
-            'performance': True
+            'performance': False,
+            'resources' : True
         }
         self.log_file = "game_debug.log"
 
@@ -50,6 +51,20 @@ class Debug:
                 file.write(message + '\n')
         except Exception as e:
             print(f"Failed to write to log file: {e}")
+    ##### is debug mode is use to doo loop debug #### CAREFULLY USE BEFORE YOUR GAME GONE
+    def is_debug_mode(self, section=None):
+        """
+        Check if debug mode is enabled.
+        
+        Args:
+            section (str, optional): Specific section to check debug mode for
+        
+        Returns:
+            bool: Whether debug mode is enabled
+        """
+        if section is None:
+            return self.enabled
+        return self.enabled and self.sections.get(section, False)
 
 # Create a global instance
 debug = Debug()

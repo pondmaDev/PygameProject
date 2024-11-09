@@ -4,22 +4,24 @@ from src.game.game import Game as GameImplementation
 from src.utils.debug_section import debug
 
 def main():
+    """
+    Main game loop with robust error handling and screen management
+    """
+    pygame_initialized = False
+    
     try:
-        # Initialize Pygame
         pygame.init()
-
-        # Create an instance of the game implementation
+        pygame_initialized = True
+        
         game = GameImplementation()
         
-        # Run the game loop
         current_screen = 'main_menu'
         
         while True:
             try:
-                # Use the methods from the game implementation
                 if current_screen == 'main_menu':
                     menu_option = game.main_menu.display()
-                    debug.debug_print(f"Menu option selected: {menu_option}")
+                    debug.log('game', f"MAIN: Menu option selected: {menu_option}")
                     
                     if menu_option == 'start_game':
                         current_screen = 'level_selection'
@@ -30,40 +32,102 @@ def main():
                 
                 elif current_screen == 'level_selection':
                     level = game.level_menu.display()
-                    debug.debug_print(f"Level selected: {level}")
+                    debug.log('game', f"MAIN: Level selected: {level}")
                     
                     if level == 'main_menu':
                         current_screen = 'main_menu'
+                    elif level == 'quit':
+                        break
                     elif isinstance(level, int):
-                        # Start the game with the selected level
-                        game_result = game.start_game(level)
-                        debug.debug_print(f"Game result: {game_result}")
+                        try:
+                            # Clear any pending events before starting the game
+                            pygame.event.clear()
+                            
+                            # Explicitly pass the level to start_game
+                            debug.log('game', f"MAIN: Attempting to start game with level {level}")
+                            game_result = game.start_game(level)
+                            debug.log('game', f"MAIN: Game result: {game_result}")
+                            
+                            # More comprehensive result handling with extensive logging
+                            if game_result == 'quit':
+                                debug.log('game', "MAIN: Quit game")
+                                break
+                            elif game_result == 'restart':
+                                debug.log('game', "MAIN: Restarting game")
+                                # Stay on the same level
+                                continue
+                            elif game_result == 'main_menu':
+                                debug.log('game', "MAIN: Returning to main menu")
+                                current_screen = 'main_menu'
+                            elif game_result == 'level_selection':
+                                debug.log('game', "MAIN: Returning to level selection")
+                                current_screen = 'level_selection'
+                            else:
+                                # Unexpected result, default to main menu with warning
+                                debug.warning('game', f"MAIN: Unexpected game result: {game_result}")
+                                current_screen = 'main_menu'
                         
-                        if game_result == 'quit':
-                            break
-                        elif game_result == 'main_menu':
+                        except Exception as game_start_error:
+                            debug.error('game', f"MAIN: Error starting game: {game_start_error}")
+                            import traceback
+                            debug.error('game', f"Full traceback: {traceback.format_exc()}")
                             current_screen = 'main_menu'
                 
                 elif current_screen == 'settings':
-                    settings_result = game.show_settings()
-                    debug.debug_print(f"Settings result: {settings_result}")
-                    
+                    try:
+                        settings_result = game.show_settings()
+                        debug.log('game', f"Settings result: {settings_result}")
+                        
+                        if settings_result == 'quit':
+                            break
+                        elif settings_result == 'main_menu':
+                            current_screen = 'main_menu'
+                    except Exception as settings_error:
+                        debug.error('game', f"Error in settings: {settings_error}")
+                        current_screen = 'main_menu'
+                
+                else:
+                    # Unexpected screen state
+                    debug.error('game', f"Unexpected screen state: {current_screen}")
                     current_screen = 'main_menu'
-                    
-            except Exception as e:
-                debug.error_print(f"An error occurred: {e}")
+                
+                # Optional: Add a small delay to prevent high CPU usage
+                pygame.time.delay(10)
+                
+            except KeyboardInterrupt:
+                debug.log('game', "Game interrupted by user")
                 break
-
-    except Exception as e:
-        debug.error_print(f"Initialization error: {e}")
+            except Exception as screen_error:
+                debug.error('game', f"Screen management error: {screen_error}")
+                current_screen = 'main_menu'
+    
+    except pygame.error as pygame_error:
+        debug.error('init', f"Pygame initialization error: {pygame_error}")
+    
+    except Exception as init_error:
+        debug.error('init', f"Initialization error: {init_error}")
     
     finally:
-        # Cleanup
-        pygame.quit()
-        sys.exit()
+        # Comprehensive cleanup
+        try:
+            if pygame_initialized:
+                pygame.mixer.quit()
+                pygame.display.quit()
+                pygame.quit()
+        except Exception as cleanup_error:
+            debug.error('cleanup', f"Error during cleanup: {cleanup_error}")
+        
+        sys.exit(0)
 
-# Remove the class definition entirely
-# Remove the if __name__ == "__main__": block with the Game() instantiation
+# Optional: Wrap main in a function to catch any unhandled exceptions
+def run_game():
+    try:
+        main()
+    except Exception as unexpected_error:
+        debug.error('critical', f"Unexpected critical error: {unexpected_error}")
+        # Log to file or send error report
+        sys.exit(1)
 
+# Entry point
 if __name__ == "__main__":
-    main()
+    run_game()

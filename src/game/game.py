@@ -1,16 +1,18 @@
 import pygame
 import random
 from src.character.character import Character
+from src.character.character_controller import CharacterController
 from src.ui.interface import MainMenu, LevelSelectionMenu, SettingsMenu, PauseMenu
 from config.setting import current_settings
 from src.game.game_state import current_game_state
 from src.system.lane_system import LaneManager
 from src.game.world import World
 from src.utils.debug_section import debug
-from src.items.items import Item
+from src.items import Item, ItemSpawner
 from src.utils.constant import Colors
-from src.system.movement import CharacterController, move_character
+from src.system.movement import move_character
 from src.utils.resource_manager import ResourceManager
+from src.system.collision import CollisionManager
 
 class Game:
     def __init__(self):
@@ -66,6 +68,13 @@ class Game:
         self.settings = current_settings
         self.lane_manager = LaneManager(self.screen_width, num_lanes=3)
         self.character = None
+        self.item_spawner = ItemSpawner(
+            screen_width=self.screen_width, 
+            screen_height=self.screen_height,
+            num_lanes=self.lane_manager.num_lanes  # Assuming you have a lane manager
+        )
+        # Initialize items list
+        self.items = []
         debug.log('init', "Settings and Lane manager initialized")
 
     def initialize_menus(self):
@@ -118,8 +127,7 @@ class Game:
 
     
     def initialize_reset_game_state(self):
-        self.score = 0
-        self.items = []
+        self.score = 10
         self.item_spawner_time = 0  # This is your variable name
         debug.log('game', "Game state reset")
     
@@ -135,6 +143,25 @@ class Game:
         )
         
     #HANDLE EVENT SESSION
+    def handle_input(self, keys_pressed):
+        """
+        Handle lane switching based on key presses.
+        
+        Args:
+            keys_pressed: Pygame key state dictionary
+        """
+        if not (keys_pressed[pygame.K_LEFT] or keys_pressed[pygame.K_RIGHT]):
+            self.lane_manager.can_switch = True  # Reset the switch flag when keys are released
+        
+        if keys_pressed[pygame.K_LEFT] and self.lane_manager.can_switch:
+            if self.lane_manager.switch_lane(-1):
+                self.character.is_switching_lanes = True
+                self.character.target_x = self.lane_manager.current_lane_position
+        
+        elif keys_pressed[pygame.K_RIGHT] and self.lane_manager.can_switch:
+            if self.lane_manager.switch_lane(1):
+                self.character.is_switching_lanes = True
+                self.character.target_x = self.lane_manager.current_lane_position
 
     def handle_pause(self):
         debug.log('game', "Game paused")
@@ -168,22 +195,29 @@ class Game:
         move_character(self.character, keys_pressed, self.lane_manager, self.settings)
         debug.log('game', "Game logic handled")
     
+    # In game.py, modify the check_collisions method
     def check_collisions(self):
-        if self.character:
-            char_rect = pygame.Rect(self.character.x, self.character.y, self.character.width, self.character.height)
-            for item in self.items[:]:  # Use a copy of the list to safely remove items
-                item_rect = pygame.Rect(item.x, item.y, item.size, item.size)
-                if char_rect.colliderect(item_rect):
-                    new_score = self.score + item.get_points()
-                    if new_score <= 0:
-                        debug.log('game', f"Game over. Final score: {self.score}")
-                        return self.show_game_over_screen()
-                    else:
-                        self.score = new_score
-                        self.items.remove(item)
-                    debug.log('collision', f"Collision detected! Score: {self.score}")
+        collision_results = CollisionManager.check_item_collisions(
+            self.character, 
+            self.items
+        )
+        
+        if collision_results:
+            # Update score
+            new_score = self.score + collision_results['score_change']
             
-            debug.log('collision', "Collisions checked")
+            # Remove collected items
+            for item in collision_results['items_to_remove']:
+                self.items.remove(item)
+            
+            # Check for game over
+            if CollisionManager.is_game_over(new_score):
+                debug.log('game', f"Game over. Final score: {new_score}")
+                return self.show_game_over_screen()
+            
+            # Update score if not game over
+            self.score = new_score
+        
         return None  # Continue game if no game over
 
     # RENDER SESSION#
@@ -221,40 +255,95 @@ class Game:
     
     #Game loop SESSION
     def game_loop(self):
-        clock = pygame.time.Clock()
-        game_running = True
+        debug.log('game', "GAME LOOP: Entering game loop")
+        try:
+            clock = pygame.time.Clock()
+            game_running = True
+            frame_count = 0
+            
+            # Initialize last time for delta time calculation
+            last_time = pygame.time.get_ticks()
 
-        while game_running:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    return 'quit'
-                if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-                    pause_result = self.handle_pause()
-                    if pause_result != 'resume':
-                        return pause_result
+            while game_running:
+                frame_count += 1
+                
+                # Calculate delta time
+                current_time = pygame.time.get_ticks()
+                dt = (current_time - last_time) / 1000.0  # Convert to seconds
+                last_time = current_time
+                
+                # Extensive logging for each frame
+                if frame_count % 60 == 0:  # Log every 60 frames
+                    debug.log('game', f"GAME LOOP: Frame {frame_count}, Current state tracking")
+
+                # Event handling
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        debug.log('game', "GAME LOOP: Quit event detected")
+                        return 'quit'
                     
-            self.handle_character_movement
-            self.handle_game_logic()
-            self.update_game_state()
-            game_over_result = self.check_collisions()
-            if game_over_result:
-                return game_over_result
+                    if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                        debug.log('game', "GAME LOOP: Pause event detected")
+                        pause_result = self.handle_pause()
+                        debug.log('game', f"GAME LOOP: Pause result - {pause_result}")
+                        
+                        if pause_result != 'resume':
+                            return pause_result
+                    
+                    # Additional event handling if needed
+                
+                # Get current key states
+                keys_pressed = pygame.key.get_pressed()
+                
+                # Game logic
+                try:
+                    # Handle character movement with delta time
+                    # Use character_controller instead of character.controller
+                    if hasattr(self, 'character_controller'):
+                        self.character_controller.handle_input(keys_pressed)
+                        self.character_controller.update(dt)
+                    
+                    # Other game logic updates
+                    self.handle_game_logic()
+                    self.update_game_state(dt)  # Pass dt to update_game_state
+                    
+                    # Collision check with detailed logging
+                    game_over_result = self.check_collisions()
+                    if game_over_result:
+                        debug.log('game', f"GAME LOOP: Game over result - {game_over_result}")
+                        return game_over_result
 
-            # Draw everything
-            self.screen.fill(self.WHITE)
-            self.world.draw(self.screen)
-            self.draw_lanes()
-            if self.character:
-                self.character.draw(self.screen)
-            self.draw_items()
-            self.draw_score()
+                    # Rendering
+                    self.screen.fill(self.WHITE)
+                    self.world.draw(self.screen)
+                    self.draw_lanes()
+                    if self.character:
+                        self.character.draw(self.screen)
+                    self.draw_items()
+                    self.draw_score()
 
-            pygame.display.flip()
-            fps = clock.get_fps()
-            debug.log('performance', f"FPS: {fps:.2f}")
-            clock.tick(60)
+                    pygame.display.flip()
+                    
+                    # Performance monitoring
+                    fps = clock.get_fps()
+                    debug.log('performance', f"FPS: {fps:.2f}")
+                    clock.tick(60)
 
-        return 'main_menu'
+                except Exception as logic_error:
+                    debug.error('game', f"GAME LOOP LOGIC ERROR: {logic_error}")
+                    import traceback
+                    debug.error('game', f"Full traceback: {traceback.format_exc()}")
+                    # Return to main menu on critical error
+                    return 'main_menu'
+
+            debug.log('game', "GAME LOOP: Exited main game loop, returning to main menu")
+            return 'main_menu'
+
+        except Exception as e:
+            debug.error('game', f"GAME LOOP CRITICAL ERROR: {e}")
+            import traceback
+            debug.error('game', f"Full traceback: {traceback.format_exc()}")
+            return 'main_menu'
 
     
     # UPDATE GAME STATE SESSION
@@ -263,13 +352,16 @@ class Game:
         Initialize and start the game for a specific level
         
         Args:
-            level (str): The selected game level
+            level (int or str): The selected game level
         
         Returns:
-            str: Game result ('quit', 'restart', 'main_menu', etc.)
+            str: Game result ('quit', 'restart', 'main_menu', 'level_selection')
         """
-        debug.log('game', f"Starting game at level {level}")
+        debug.log('game', f"START GAME: Attempting to start level {level}")
         try:
+            # Ensure level is converted to an integer
+            level = int(level)
+            
             # Set the current game state
             current_game_state.set_screen('game')
             current_game_state.set_level(level)
@@ -280,12 +372,38 @@ class Game:
             # Reinitialize the character for the new game
             self.initialize_character()
             
-            # Start the game loop and return its result
-            return 'main_menu' # This was game_loop()
+            # Create character controller
+            self.character_controller = CharacterController(
+                self.character, 
+                self.lane_manager, 
+                self.settings
+            )
+            
+            # Actual game loop
+            result = self.game_loop()
+            
+            # Log the result with full tracing
+            debug.log('game', f"START GAME: Game loop completed with result: {result}")
+            
+            # Ensure a valid result is returned
+            if result not in ['quit', 'restart', 'main_menu', 'level_selection']:
+                debug.warning('game', f"UNEXPECTED RESULT: Game loop returned unexpected result: {result}")
+                
+                # Add stack trace for unexpected result
+                import traceback
+                debug.warning('game', f"Traceback: {traceback.format_stack()}")
+                
+                return 'main_menu'
+            
+            return result
+        
         except Exception as e:
-            debug.error('game', f"Failed to start game: {e}")
+            # Log full exception details
+            debug.error('game', f"GAME START ERROR: {e}")
+            import traceback
+            debug.error('game', f"Full traceback: {traceback.format_exc()}")
             return 'main_menu'
-    
+        
     def spawn_item(self):
         lane = random.randint(0, 2)  # Random lane (0, 1, or 2)
         color = random.choice([(255, 0, 0), (0, 0, 255), (0, 255, 0)])  # Random color (red, blue, green)
@@ -295,13 +413,55 @@ class Game:
         debug.log('items', f"New item spawned in lane {lane} with color {color}")
     
     def show_settings(self):
+        """
+        Display the settings menu with comprehensive error handling
+        
+        Returns:
+            str: Result of settings menu interaction 
+                ('main_menu', 'quit', or other specific states)
+        """
         try:
+            # Log entry into settings
             debug.log('settings', "Entering settings menu...")
-            self.settings_menu = SettingsMenu(self.screen, self.settings) 
-            return self.settings_menu.display()
-        except Exception as e:
-            debug.error('settings', f"Error showing settings: {e}")
-            return 'main_menu'  # or handle accordingly
+            
+            # Validate screen and settings before creating menu
+            if not hasattr(self, 'screen') or self.screen is None:
+                debug.error('settings', "Invalid screen object")
+                return 'main_menu'
+            
+            if not hasattr(self, 'settings') or self.settings is None:
+                debug.error('settings', "Invalid settings object")
+                return 'main_menu'
+            
+            # Create settings menu with error checking
+            try:
+                self.settings_menu = SettingsMenu(self.screen, self.settings)
+            except Exception as menu_init_error:
+                debug.error('settings', f"Failed to initialize settings menu: {menu_init_error}")
+                return 'main_menu'
+            
+            # Display settings menu with additional error handling
+            try:
+                settings_result = self.settings_menu.display()
+                
+                # Log the result of settings interaction
+                debug.log('settings', f"Settings menu result: {settings_result}")
+                
+                # Validate and sanitize the result
+                if settings_result is None:
+                    debug.warning('settings', "Settings menu returned None, defaulting to main_menu")
+                    return 'main_menu'
+                
+                return settings_result
+            
+            except Exception as display_error:
+                debug.error('settings', f"Error displaying settings menu: {display_error}")
+                return 'main_menu'
+        
+        except Exception as unexpected_error:
+            # Catch any unexpected errors
+            debug.error('settings', f"Unexpected error in show_settings: {unexpected_error}")
+            return 'main_menu'
     
     def update_items(self):
         items_to_remove = []
@@ -313,30 +473,35 @@ class Game:
             self.items.remove(item)
         debug.log('items', "Items updated")
 
-    def update_game_state(self):
+    def update_game_state(self, dt):
         # Update the world (background scroll)
-        self.world.update(self.game_speed)
+        self.world.update(self.game_speed * dt)
 
-        # Update character animation (not position)
-        if self.character:
-            self.character.update(self.game_speed)
+        # Update character animation
+        try:
+            if hasattr(self, 'character_controller'):
+                self.character_controller.update(self.game_speed * dt)
+        except Exception as e:
+            debug.error('game', f"Error updating character controller: {e}")
 
-        # Item spawning logic
-        self.item_spawner_time += 1
-        if self.item_spawner_time >= 30:
-            self.spawn_item()
-            self.item_spawner_time = 0
+        # Spawn items
+        try:
+            # Let the item spawner determine when to spawn items
+            new_items = self.item_spawner.update(self.game_speed * dt)
+            
+            # Add any newly spawned items to the game items list
+            if new_items:
+                self.items.extend(new_items)
+        except Exception as e:
+            debug.error('item_spawner', f"Error in item spawning: {e}")
 
-        # Update items
-        for item in self.items:
-            try:
-                item.update(self.game_speed)
-            except AttributeError as e:
-                debug.error('game', f"Error updating item: {e}")
-                debug.error('game', f"Item attributes: {vars(item)}")
+        # Update items and remove off-screen items
+        self.items = [
+            item for item in self.items 
+            if item.update(self.game_speed * dt, self.screen_height)
+        ]
 
-        # Remove items that have moved off the screen
-        self.items = [item for item in self.items if item.y < self.screen_height]
+        debug.log('game', f"Game state updated. Speed: {self.game_speed:.2f}")
 
         debug.log('game', f"Game state updated. Speed: {self.game_speed:.2f}")
     
