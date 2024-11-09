@@ -13,16 +13,37 @@ class LaneManager:
         self.lane_width = screen_width // num_lanes
         self.current_lane = 1  # Start in the middle lane (0-based index)
         self.can_switch = True  # Flag to prevent multiple switches
-        self.lanes = [Lane(self.get_lane_position(i), self.lane_width) for i in range(num_lanes)]
+        
+        # Keep both methods for backward compatibility
+        self.lanes = [Lane(self.get_lane_center(i, 0), self.lane_width) for i in range(num_lanes)]
 
-    def get_lane_position(self, lane_index):
-        """Calculate the center position of the lane based on its index."""
-        return (lane_index * self.lane_width) + (self.lane_width // 2)
+    def get_lane_center(self, lane_index, character_width=0):
+        """
+        Calculate the precise center position of the lane.
+        
+        Args:
+            lane_index (int): The index of the lane
+            character_width (int, optional): Width of the character to adjust positioning
+        
+        Returns:
+            float: Precise center position of the lane
+        """
+        # Calculate lane center with more precision
+        lane_center = (lane_index * self.lane_width) + (self.lane_width / 2)
+        
+        # Adjust for character width if provided
+        if character_width > 0:
+            lane_center -= (character_width / 2)
+        
+        return lane_center
+    
+    # Alias method for backward compatibility
+    get_lane_position = get_lane_center
 
     @property
     def current_lane_position(self):
         """Return the center position of the current lane."""
-        return self.get_lane_position(self.current_lane)
+        return self.get_lane_center(self.current_lane, 0)
 
     def switch_lane(self, direction):
         """Switch to the adjacent lane in the specified direction."""
@@ -52,3 +73,4 @@ class LaneManager:
         """Set the occupation status of the specified lane."""
         if 0 <= lane_index < self.num_lanes:
             self.lanes[lane_index].is_occupied = occupied
+    

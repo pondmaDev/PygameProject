@@ -39,6 +39,12 @@ class Character:
         # Load character images
         self.load_character_images()
 
+        # Add a safeguard
+        if self.width is None:
+            self.width = 50  # Default width
+        if self.height is None:
+            self.height = 50  # Default height
+
     def load_character_images(self):
         """Load character images using ResourceManager"""
         debug.log('character', "Starting to load character images")
@@ -89,6 +95,16 @@ class Character:
         if self.animation_timer >= self.animation_speed:
             self.current_frame = (self.current_frame + 1) % len(self.current_animation)
             self.animation_timer = 0
+
+    def force_position(self, x):
+        """
+        Force the character to a specific x-position.
+        
+        Args:
+            x (float): The exact x-coordinate to move to
+        """
+        self.x = x
+        self.target_x = x
 
     def get_current_image(self):
         """

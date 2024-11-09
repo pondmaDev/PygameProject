@@ -1,6 +1,7 @@
 import random
 from typing import List, Optional
 from .item import Item
+from src.utils.debug_section import debug
 
 class ItemSpawner:
     def __init__(
@@ -39,7 +40,7 @@ class ItemSpawner:
 
     def update(self, game_speed: float) -> Optional[List[Item]]:
         """
-        Update spawner and potentially spawn new items
+        Update spawner and potentially spawn new items with robust error handling
         
         Args:
             game_speed (float): Current game speed
@@ -47,18 +48,32 @@ class ItemSpawner:
         Returns:
             Optional[List[Item]]: List of newly spawned items or None
         """
+        # Validate and sanitize inputs
+        if game_speed <= 0:
+            debug.warning('item_spawner', f"Invalid game speed: {game_speed}. Using default speed.")
+            game_speed = 1.0  # Default safe speed
+        
         # Increment spawn timer
         self.spawn_timer += 1
         
-        # Adjust spawn interval based on game speed and difficulty
-        adjusted_interval = max(10, int(self.spawn_interval / (game_speed * self.difficulty_multiplier)))
+        try:
+            # Prevent division by zero and handle extreme values
+            difficulty_factor = max(0.1, self.difficulty_multiplier)
+            adjusted_interval = max(
+                10, 
+                int(self.spawn_interval / (game_speed * difficulty_factor))
+            )
+            
+            # Check if it's time to spawn items
+            if self.spawn_timer >= adjusted_interval:
+                self.spawn_timer = 0
+                return self._spawn_items(game_speed)
+            
+            return None
         
-        # Check if it's time to spawn items
-        if self.spawn_timer >= adjusted_interval:
-            self.spawn_timer = 0
-            return self._spawn_items(game_speed)
-        
-        return None
+        except Exception as e:
+            debug.error('item_spawner', f"Error in item spawner update: {e}")
+            return None
 
     def _spawn_items(self, game_speed: float) -> List[Item]:
         """

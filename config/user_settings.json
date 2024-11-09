@@ -1,7 +1,7 @@
 {
     "bg_music_volume": 50,
     "window_mode": true,
-    "character_speed": 4.0,
+    "character_speed": 3.0,
     "sound_effects_volume": 50,
     "difficulty": "medium"
 }

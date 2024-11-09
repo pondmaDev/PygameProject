@@ -1,6 +1,7 @@
 import pygame
 import random
 from typing import List, Optional
+from src.utils.debug_section import debug
 
 class Item:
     def __init__(
@@ -29,7 +30,7 @@ class Item:
 
     def update(self, game_speed: float, screen_height: int) -> bool:
         """
-        Update item's position
+        Update item's position with robust error handling
         
         Args:
             game_speed (float): Current game speed
@@ -38,8 +39,19 @@ class Item:
         Returns:
             bool: Whether item is still on screen
         """
-        self.y += self.speed * game_speed
-        return self.y < screen_height
+        try:
+            # Validate inputs
+            safe_game_speed = max(0.1, game_speed)
+            
+            # Update position
+            self.y += self.speed * safe_game_speed
+            
+            # Check if item is still on screen
+            return self.y < screen_height
+        
+        except Exception as e:
+            debug.error('items', f"Error updating item position: {e}")
+            return False  # Remove item if update fails
 
     def get_points(self) -> int:
         """

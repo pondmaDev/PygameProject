@@ -4,13 +4,13 @@ import sys
 
 class Debug:
     def __init__(self):
-        self.enabled = False
+        self.enabled = True
         self.sections = {
             'init': False,
-            'menu': True,
+            'menu': False,
             'game': False,
-            'character': False,
-            'items': True,
+            'character': True,
+            'items': False,
             'collision': True,
             'settings': True,
             'performance': False,

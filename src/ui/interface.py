@@ -501,8 +501,20 @@ class PauseMenu(Menu):
             overlay.set_alpha(128)
             self.screen.blit(overlay, (0, 0))
             
-            self.draw_button(self.resume_button, "Resume", resume_hover)
-            self.draw_button(self.settings_button, "Settings", settings_hover)
-            self.draw_button(self.main_menu_button, "Main Menu", main_menu_hover)
+            # Modify these lines to match the draw_button method signature
+            if self.draw_button("Resume", self.resume_button.x, self.resume_button.y, 
+                                self.resume_button.width, self.resume_button.height, 
+                                (200, 200, 200), (150, 150, 150)):
+                return 'resume'
+            
+            if self.draw_button("Settings", self.settings_button.x, self.settings_button.y, 
+                                self.settings_button.width, self.settings_button.height, 
+                                (200, 200, 200), (150, 150, 150)):
+                return 'settings'
+            
+            if self.draw_button("Main Menu", self.main_menu_button.x, self.main_menu_button.y, 
+                                self.main_menu_button.width, self.main_menu_button.height, 
+                                (200, 200, 200), (150, 150, 150)):
+                return 'main_menu'
             
             pygame.display.flip()

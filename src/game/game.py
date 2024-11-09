@@ -132,16 +132,42 @@ class Game:
         debug.log('game', "Game state reset")
     
     def initialize_character(self):
-        initial_x = self.lane_manager.current_lane_position  # Use the property
-        self.character = Character(
-            initial_x,
-            self.screen_height - 100,
-            50, 50,
-            self.RED,
-            self.idle_images,
-            self.running_images
-        )
+        try:
+            # Calculate initial lane center
+            initial_x = self.lane_manager.get_lane_center(
+                self.lane_manager.current_lane, 
+                50  # hardcoded character width
+            )
+            
+            debug.log('character_init', f"Initial X position: {initial_x}")
+            debug.log('character_init', f"Screen height: {self.screen_height}")
+            
+            # Create character with explicit parameters
+            self.character = Character(
+                x=initial_x,
+                y=self.screen_height - 100,
+                width=50,
+                height=50,
+                color='RED'
+            )
+            
+            # Verify character creation
+            if self.character is None:
+                raise ValueError("Character creation failed")
+            
+            debug.log('character_init', f"Character created: width={self.character.width}, height={self.character.height}")
+            
+            # Initialize character controller
+            self.character_controller = CharacterController(
+                character=self.character,
+                lane_manager=self.lane_manager,
+                settings=self.settings
+            )
         
+        except Exception as e:
+            debug.error('character_init', f"Character initialization failed: {e}")
+            raise
+                
     #HANDLE EVENT SESSION
     def handle_input(self, keys_pressed):
         """
@@ -188,7 +214,7 @@ class Game:
         keys_pressed = pygame.key.get_pressed()
         if hasattr(self, 'character_controller'):
             self.character_controller.handle_input(keys_pressed)
-            self.character_controller.update()
+            self.character_controller.update(1/60)
 
     def handle_game_logic(self):
         keys_pressed = pygame.key.get_pressed()
@@ -252,6 +278,25 @@ class Game:
         self.draw_items()
         self.draw_score()
         debug.log('game', "Game state drawn")
+    
+    def draw_lane_debug(self, screen):
+        """
+        Draw lane boundaries for visual debugging
+        """
+        for i, lane in enumerate(self.lane_manager.lanes):
+            # Draw lane boundary
+            x_start = i * self.lane_manager.lane_width
+            pygame.draw.line(screen, (255, 0, 0), 
+                            (x_start, 0), 
+                            (x_start, screen.get_height()), 
+                            2)
+            
+            # Draw lane center
+            center_x = lane.x_position
+            pygame.draw.line(screen, (0, 255, 0), 
+                            (center_x, 0), 
+                            (center_x, screen.get_height()), 
+                            1)
     
     #Game loop SESSION
     def game_loop(self):
@@ -474,20 +519,33 @@ class Game:
         debug.log('items', "Items updated")
 
     def update_game_state(self, dt):
+    # Validate delta time
+        if dt <= 0:
+            debug.log('game', f"Invalid delta time: {dt}. Using default.")
+            dt = 1/60  # Assume 60 FPS default
+        
         # Update the world (background scroll)
-        self.world.update(self.game_speed * dt)
+        try:
+            self.world.update(self.game_speed * dt)
+        except Exception as world_update_error:
+            debug.error('game', f"Error updating world: {world_update_error}")
 
         # Update character animation
         try:
             if hasattr(self, 'character_controller'):
-                self.character_controller.update(self.game_speed * dt)
+                # Ensure safe update
+                safe_game_speed = max(0.1, self.game_speed)
+                self.character_controller.update(dt)
         except Exception as e:
             debug.error('game', f"Error updating character controller: {e}")
 
-        # Spawn items
+        # Spawn items with robust error handling
         try:
+            # Ensure safe game speed for item spawner
+            safe_game_speed = max(0.1, self.game_speed)
+            
             # Let the item spawner determine when to spawn items
-            new_items = self.item_spawner.update(self.game_speed * dt)
+            new_items = self.item_spawner.update(safe_game_speed * dt)
             
             # Add any newly spawned items to the game items list
             if new_items:
@@ -495,13 +553,16 @@ class Game:
         except Exception as e:
             debug.error('item_spawner', f"Error in item spawning: {e}")
 
-        # Update items and remove off-screen items
-        self.items = [
-            item for item in self.items 
-            if item.update(self.game_speed * dt, self.screen_height)
-        ]
-
-        debug.log('game', f"Game state updated. Speed: {self.game_speed:.2f}")
+        # Update items and remove off-screen items with error handling
+        try:
+            safe_game_speed = max(0.1, self.game_speed)
+            self.items = [
+                item for item in self.items 
+                if item.update(safe_game_speed * dt, self.screen_height)
+            ]
+        except Exception as items_update_error:
+            debug.error('game', f"Error updating items: {items_update_error}")
+            self.items = []  # Reset items list in case of critical error
 
         debug.log('game', f"Game state updated. Speed: {self.game_speed:.2f}")
     
