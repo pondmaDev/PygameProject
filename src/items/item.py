@@ -1,6 +1,5 @@
 import pygame
 import random
-from typing import List, Optional
 from src.utils.debug_section import debug
 
 class Item:
@@ -9,7 +8,8 @@ class Item:
         lane: int, 
         color: tuple = (0, 255, 0), 
         is_good: bool = True, 
-        size: int = 30
+        size: int = 30,
+        fall_speed: float = 5  # Fall speed parameter
     ):
         """
         Initialize an item in the game
@@ -19,6 +19,7 @@ class Item:
             color (tuple): RGB color of the item
             is_good (bool): Whether the item is beneficial
             size (int): Size of the item
+            fall_speed (float): Speed at which the item falls
         """
         self.lane = lane
         self.x = 0  # Will be set by spawner
@@ -26,7 +27,7 @@ class Item:
         self.color = color
         self.is_good = is_good
         self.size = size
-        self.speed = 5  # Configurable fall speed
+        self.speed = fall_speed  # Set the speed to the fall_speed parameter
 
     def update(self, game_speed: float, screen_height: int) -> bool:
         """

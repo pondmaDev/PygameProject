@@ -21,7 +21,6 @@ class ItemSpawner:
         self.screen_width = screen_width
         self.screen_height = screen_height
         self.num_lanes = num_lanes
-        self.max_items = 3
         # Calculate lane positions
         self.lane_width = screen_width // num_lanes
         self.lane_positions = [
@@ -29,9 +28,10 @@ class ItemSpawner:
             for i in range(num_lanes)
         ]
         
-         # Spawn timing variables
-        self.spawn_timer = 0
-        self.spawn_interval = 2.0  # Spawn every 2 seconds
+         # Spawn timing variables #### ADJUST SPAWN RATE
+        self.max_items = 1
+        self.spawn_timer = 3
+        self.spawn_interval = 4.0  # Spawn every 2 seconds
         self.min_spawn_interval = 0.5  # Minimum time between spawns
         self.max_spawn_interval = 3.0  # Maximum time between spawns
         
