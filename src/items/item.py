@@ -1,26 +1,49 @@
-import pygame
 import random
+from typing import Tuple
 from src.utils.debug_section import debug
 
+class ItemType:
+    """Enum-like class to define item types"""
+    GOOD_GREEN = {
+        'color': (0, 255, 0),
+        'is_good': True,
+        'weight': 3,
+        'size': 40
+    }
+    GOOD_BLUE = {
+        'color': (0, 0, 255),
+        'is_good': True,
+        'weight': 3,
+        'size': 40
+    }
+    BAD_RED = {
+        'color': (255, 0, 0),
+        'is_good': False,
+        'weight': 1,
+        'size': 40
+    }
+
 class Item:
+    """Represents a game item that falls from the top of the screen"""
+    
     def __init__(
         self, 
         lane: int, 
-        color: tuple = (0, 255, 0), 
+        color: Tuple[int, int, int] = ItemType.GOOD_GREEN['color'], 
         is_good: bool = True, 
         size: int = 40,
-        fall_speed: float = 5,  # Base fall speed
-        level: int = 1  # Game level
+        fall_speed: float = 5,
+        level: int = 1
     ):
         """
-        Initialize an item in the game
+        Initialize an item with specific properties
         
         Args:
-            lane (int): The lane the item is in
-            color (tuple): RGB color of the item
+            lane (int): Lane the item is in
+            color (Tuple[int,int,int]): RGB color of the item
             is_good (bool): Whether the item is beneficial
             size (int): Size of the item
-            fall_speed (float): Base speed at which the item falls
+            fall_speed (float): Base speed of falling
             level (int): Current game level
         """
         self.lane = lane
@@ -30,52 +53,48 @@ class Item:
         self.is_good = is_good
         self.size = size
         
-        # Calculate dynamic fall speed based on level
         self.base_speed = fall_speed
         self.level = level
-        self.speed = self._calculate_speed()
+        self.speed = self._calculate_dynamic_speed()
 
-    def _calculate_speed(self) -> float:
+    def _calculate_dynamic_speed(self) -> float:
         """
-        Calculate dynamic fall speed based on level with more aggressive progression
+        Calculate fall speed with level-based progression
         
         Returns:
-            float: Calculated fall speed
+            float: Dynamically calculated speed
         """
-        # Base speed increases exponentially with level
-        # Adjust these multipliers to fine-tune difficulty progression
-        base_speed_multiplier = 1.0  # Starting point
-        level_speed_multiplier = 1 + (self.level * 0.5)  # 50% speed increase per level
-        
-        # Optional: Add some randomness to speed variation
-        speed_variation = random.uniform(0.9, 1.1)
-        
-        return self.base_speed * level_speed_multiplier * speed_variation
+        try:
+            # Exponential speed increase with level
+            level_multiplier = 1 + (self.level * 0.5)
+            speed_variation = random.uniform(0.9, 1.1)
+            
+            calculated_speed = self.base_speed * level_multiplier * speed_variation
+            
+            # Ensure a minimum speed
+            return max(2.0, calculated_speed)
+        except Exception as e:
+            debug.error('items', f"Speed calculation error: {e}")
+            return self.base_speed
 
     def update(self, game_speed: float, screen_height: int) -> bool:
         """
-        Update item's position with robust error handling
+        Update item position with error handling
         
         Args:
             game_speed (float): Current game speed
-            screen_height (int): Height of the game screen
+            screen_height (int): Screen height
         
         Returns:
             bool: Whether item is still on screen
         """
         try:
-            # Validate inputs
             safe_game_speed = max(0.1, game_speed)
-            
-            # Update position with dynamic speed
             self.y += self.speed * safe_game_speed
-            
-            # Check if item is still on screen
             return self.y < screen_height
-        
         except Exception as e:
-            debug.error('items', f"Error updating item position: {e}")
-            return False  # Remove item if update fails
+            debug.error('items', f"Item update error: {e}")
+            return False
 
     def get_points(self) -> int:
         """
@@ -88,11 +107,12 @@ class Item:
 
     def draw(self, screen):
         """
-        Draw the item on the screen with dynamic size
+        Draw the item on the screen
         
         Args:
             screen (pygame.Surface): Surface to draw on
         """
+        import pygame
         pygame.draw.rect(
             screen, 
             self.color, 

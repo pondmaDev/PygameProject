@@ -1,87 +1,83 @@
+
 import random
 from typing import List, Optional
-from .item import Item
+from src.items.item import Item, ItemType
 from src.utils.debug_section import debug
 
 class ItemSpawner:
+    """Manages spawning of items during gameplay"""
+    
     def __init__(
         self, 
         screen_width: int, 
         screen_height: int, 
         num_lanes: int = 3,
-        current_level: int = 1  # Add default value
+        current_level: int = 1
     ):
         """
         Initialize the ItemSpawner
         
         Args:
-            screen_width (int): Width of the game screen
-            screen_height (int): Height of the game screen
-            num_lanes (int): Number of lanes in the game
+            screen_width (int): Game screen width
+            screen_height (int): Game screen height
+            num_lanes (int): Number of game lanes
             current_level (int): Current game level
         """
         self.screen_width = screen_width
         self.screen_height = screen_height
         self.num_lanes = num_lanes
-        
-        # Add current_level as an instance attribute
         self.current_level = current_level
         
-        # Calculate lane positions
+        # Lane configuration
         self.lane_width = screen_width // num_lanes
         self.lane_positions = [
             (i * self.lane_width) + (self.lane_width // 2) 
             for i in range(num_lanes)
         ]
         
-        # Improved spawn timing variables
-        self.max_items = 10  # Maximum number of items on screen
+        # Spawn configuration
+        self.max_items = 10
         self.spawn_timer = 0
-        self.spawn_interval = 120  # Frames between spawns (adjust as needed)
+        self.spawn_interval = 120
         
         # Difficulty progression
         self.difficulty_multiplier = 1.0
+        
+        # Level-based bad item spawn rates
+        self.bad_item_spawn_rates = {
+            1: 0.2,   # 20% chance of bad items in level 1
+            2: 0.4,   # 30% chance of bad items in level 2
+            3: 0.6,   # 40% chance of bad items in level 3
+        }
 
     def update(self, game_speed: float, current_items: List[Item] = None) -> Optional[List[Item]]:
         """
-        Update spawner and potentially spawn new items with robust error handling
+        Update spawner and potentially spawn new items
         
         Args:
             game_speed (float): Current game speed
             current_items (List[Item], optional): Current items on screen
         
         Returns:
-            Optional[List[Item]]: List of newly spawned items or None
+            Optional[List[Item]]: Newly spawned items
         """
-        # Use an empty list if no items are provided
-        if current_items is None:
-            current_items = []
-
-        # Validate and sanitize inputs
-        if game_speed <= 0:
-            debug.warning('item_spawner', f"Invalid game speed: {game_speed}. Using default speed.")
-            game_speed = 1.0  # Default safe speed
+        current_items = current_items or []
+        
+        # Validate game speed
+        safe_game_speed = max(0.1, game_speed)
+        self.minimum_fall_speed = 0
         
         # Increment spawn timer
         self.spawn_timer += 1
         
-        try:
-            # Check if enough time has passed since last spawn
-            # and we haven't reached max items
-            if (self.spawn_timer >= self.spawn_interval and 
-                len(current_items) < self.max_items):
-                
-                # Reset spawn timer
-                self.spawn_timer = 0
-                
-                # Spawn items
-                return self._spawn_items(game_speed)
+        # Check spawn conditions
+        if (self.spawn_timer >= self.spawn_interval and 
+            len(current_items) < self.max_items):
             
-            return None
+            self.spawn_timer = 0
+            return self._spawn_items(safe_game_speed)
         
-        except Exception as e:
-            debug.error('item_spawner', f"Error in item spawner update: {e}")
-            return None
+        return None
 
     def _spawn_items(self, game_speed: float) -> List[Item]:
         """
@@ -94,12 +90,10 @@ class ItemSpawner:
             List[Item]: Newly spawned items
         """
         new_items = []
-        
-        # Randomize number of items to spawn
-        num_items = random.randint(1, min(2, self.max_items))
-        
-        # Keep track of used lanes to avoid spawning multiple items in same lane
         used_lanes = set()
+        
+        # Randomize number of items
+        num_items = random.randint(1, min(2, self.max_items))
         
         for _ in range(num_items):
             # Select an unused lane
@@ -111,16 +105,13 @@ class ItemSpawner:
             if not available_lanes:
                 break
             
-            # Choose a lane
             lane = random.choice(available_lanes)
             used_lanes.add(lane)
             
-            # Create item
+            # Create and configure item
             new_item = self._create_item(lane)
-            
-            # Set item position
             new_item.x = self.lane_positions[lane]
-            new_item.y = 0  # Start from top of screen
+            new_item.y = 0
             
             new_items.append(new_item)
         
@@ -128,7 +119,7 @@ class ItemSpawner:
 
     def _create_item(self, lane: int) -> Item:
         """
-        Create an item with randomized properties and adjusted size
+        Create an item with weighted randomization based on level
         
         Args:
             lane (int): Lane for the item
@@ -136,29 +127,65 @@ class ItemSpawner:
         Returns:
             Item: Newly created item
         """
-        # Define item colors and types with weighted probabilities
-        item_types = [
-            {
-                'color': (0, 255, 0),  # Green (good)
-                'is_good': True, 
-                'weight': 3,
-                'size': 40  # Slightly larger good item
-            },
-            {
-                'color': (0, 0, 255),  # Blue (good)
-                'is_good': True, 
-                'weight': 3,
-                'size': 40  # Medium good item
-            },
-            {
-                'color': (255, 0, 0),  # Red (bad)
-                'is_good': False, 
-                'weight': 1,
-                'size': 40  # Smaller bad item
-            }
-        ]
+        # Get the bad item spawn rate for the current level
+        bad_item_rate = self.bad_item_spawn_rates.get(
+            self.current_level, 
+            0.6  # Default to 60% for levels beyond defined rates
+        )
+
+        # Calculate dynamic fall speed
+        base_speed = 5
+        level_speed_multiplier = 1 + (self.current_level * 0.5)
+        speed_variation = random.uniform(0.9, 1.1)
+        fall_speed = base_speed * level_speed_multiplier * speed_variation
+
+        # Update minimum fall speed tracking
+        if self.minimum_fall_speed == 0 or fall_speed < self.minimum_fall_speed:
+            self.minimum_fall_speed = fall_speed
         
-        # Weighted random selection
+        # Determine item type based on probability
+        if random.random() < bad_item_rate:
+            # Spawn a bad item
+            item_type = ItemType.BAD_RED
+        else:
+            # Spawn a good item (randomly between green and blue)
+            item_type = random.choice([ItemType.GOOD_GREEN, ItemType.GOOD_BLUE])
+        
+        # Calculate dynamic fall speed
+        base_speed = 5
+        level_speed_multiplier = 1 + (self.current_level * 0.5)
+        speed_variation = random.uniform(0.9, 1.1)
+        fall_speed = base_speed * level_speed_multiplier * speed_variation
+        
+        return Item(
+            lane=lane,
+            color=item_type['color'],
+            is_good=item_type['is_good'],
+            size=item_type['size'],
+            fall_speed=fall_speed,
+            level=self.current_level
+        )
+    
+    def get_minimum_fall_speed(self) -> float:
+        """
+        Get the current minimum fall speed
+        
+        Returns:
+            float: Minimum fall speed
+        """
+        return self.minimum_fall_speed
+
+
+    def _weighted_choice(self, item_types: List[dict]) -> dict:
+        """
+        Select an item type based on weighted probabilities
+        
+        Args:
+            item_types (List[dict]): List of item types with weights
+        
+        Returns:
+            dict: Selected item type
+        """
         total_weight = sum(item['weight'] for item in item_types)
         r = random.uniform(0, total_weight)
         
@@ -166,40 +193,6 @@ class ItemSpawner:
         for item_type in item_types:
             cumulative_weight += item_type['weight']
             if r <= cumulative_weight:
-                # Calculate dynamic fall speed based on level
-                base_speed = 5  # Base fall speed
-                level_speed_multiplier = 1 + (self.current_level * 0.5)  # 50% speed increase per level
-                speed_variation = random.uniform(0.9, 1.1)
-                fall_speed = base_speed * level_speed_multiplier * speed_variation
-                
-                return Item(
-                    lane=lane,
-                    color=item_type['color'],
-                    is_good=item_type['is_good'],
-                    size=item_type['size'],
-                    fall_speed=fall_speed,  # Dynamic fall speed
-                    level=self.current_level
-                )
+                return item_type
         
-        # Fallback
-        return Item(
-            lane=lane,
-            color=(0, 255, 0),
-            is_good=True,
-            size=40,
-            fall_speed=5,
-            level=self.current_level
-        )
-
-    def increase_difficulty(self):
-        """
-        Increase game difficulty over time with more nuanced speed progression
-        """
-        # Increase difficulty multiplier more aggressively
-        self.difficulty_multiplier *= 1.2  # 20% increase instead of 10%
-        
-        # Slightly increase max items, but cap it
-        self.max_items = min(self.max_items + 1, 5)
-        
-        # Decrease spawn interval more gradually
-        self.spawn_interval = max(60, int(self.spawn_interval * 0.95))
+        return item_types[0]  # Fallback

@@ -16,7 +16,7 @@ def main():
         game = GameImplementation()
         
         current_screen = 'main_menu'
-        
+    
         while True:
             try:
                 if current_screen == 'main_menu':
@@ -40,21 +40,16 @@ def main():
                         break
                     elif isinstance(level, int):
                         try:
-                            # Clear any pending events before starting the game
                             pygame.event.clear()
-                            
-                            # Explicitly pass the level to start_game
                             debug.log('game', f"MAIN: Attempting to start game with level {level}")
                             game_result = game.start_game(level)
                             debug.log('game', f"MAIN: Game result: {game_result}")
                             
-                            # More comprehensive result handling with extensive logging
                             if game_result == 'quit':
                                 debug.log('game', "MAIN: Quit game")
                                 break
                             elif game_result == 'restart':
                                 debug.log('game', "MAIN: Restarting game")
-                                # Stay on the same level
                                 continue
                             elif game_result == 'main_menu':
                                 debug.log('game', "MAIN: Returning to main menu")
@@ -63,7 +58,6 @@ def main():
                                 debug.log('game', "MAIN: Returning to level selection")
                                 current_screen = 'level_selection'
                             else:
-                                # Unexpected result, default to main menu with warning
                                 debug.warning('game', f"MAIN: Unexpected game result: {game_result}")
                                 current_screen = 'main_menu'
                         
@@ -87,11 +81,9 @@ def main():
                         current_screen = 'main_menu'
                 
                 else:
-                    # Unexpected screen state
                     debug.error('game', f"Unexpected screen state: {current_screen}")
                     current_screen = 'main_menu'
                 
-                # Optional: Add a small delay to prevent high CPU usage
                 pygame.time.delay(10)
                 
             except KeyboardInterrupt:

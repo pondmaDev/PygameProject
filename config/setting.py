@@ -28,6 +28,26 @@ class Setting:
             'difficulty': self.difficulty
         }
 
+        self.LEVEL_SCROLL_MULTIPLIERS = {
+            1: 1.0,   # Base speed
+            2: 1.2,   # Slightly faster
+            3: 1.5,   # Faster
+            4: 1.8,   # Much faster
+            5: 2.0    # Maximum speed
+        }
+    
+    def get_level_scroll_multiplier(self, level):
+        """
+        Get scroll multiplier for a specific level
+        
+        Args:
+            level (int): Game level
+        
+        Returns:
+            float: Scroll speed multiplier
+        """
+        return self.LEVEL_SCROLL_MULTIPLIERS.get(level, 1.0)  # Default to 1.0 if level not found
+
     def load_settings(self, file_path: str) -> None:
         """Load settings from a JSON file."""
         try:

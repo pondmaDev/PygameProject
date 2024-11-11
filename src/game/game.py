@@ -54,6 +54,7 @@ class Game:
         self.GRAY = Colors.GRAY
         self.GRAY_HOVER = Colors.GRAY_HOVER
         self.game_speed = 3.0
+        self.current_level = 1
         debug.log('init', "Game variables initialized")
 
     def initialize_pygame(self):
@@ -194,21 +195,34 @@ class Game:
         pause_menu = PauseMenu(self.screen, current_game_state.get_screen(), self.settings)
         result = pause_menu.display()
         
-        if result in ['exit', 'main_menu', 'level_selection']:
-            return result
+        debug.log('game', f"Pause menu result: {result}")
+        
+        if result == 'main_menu':
+            # Perform any necessary cleanup or reset
+            debug.log('game', "Preparing to return to main menu from pause")
+            return 'main_menu'
         elif result == 'settings':
             return self.handle_settings_from_pause()
+        elif result == 'resume':
+            return 'resume'
+        elif result == 'quit':
+            return 'quit'
+        
+        # Default fallback
         return 'resume'
 
     def handle_settings_from_pause(self):
         debug.log('settings', "Entering settings from pause menu")
-        settings_menu = SettingsMenu(self.screen, self.settings)
+        settings_menu = SettingsMenu(self.screen, self.settings, from_pause=True)
         settings_result = settings_menu.display()
+        
         if settings_result == 'main_menu':
             return 'main_menu'
         elif settings_result == 'resume':
             self.apply_settings()
-        return 'resume'
+            return 'resume'
+        
+        return 'resume'  # Default fallback
     
     def handle_character_movement(self):
         keys_pressed = pygame.key.get_pressed()
@@ -332,7 +346,10 @@ class Game:
                         pause_result = self.handle_pause()
                         debug.log('game', f"GAME LOOP: Pause result - {pause_result}")
                         
-                        if pause_result != 'resume':
+                        if pause_result == 'main_menu':
+                            debug.log('game', "GAME LOOP: Returning to main menu from pause")
+                            return 'main_menu'
+                        elif pause_result != 'resume':
                             return pause_result
                     
                     # Additional event handling if needed
@@ -555,14 +572,62 @@ class Game:
         debug.log('items', "Items updated")
 
     def update_game_state(self, dt):
-    # Validate delta time
+        # Validate delta time
         if dt <= 0:
             debug.log('game', f"Invalid delta time: {dt}. Using default.")
             dt = 1/60  # Assume 60 FPS default
         
-        # Update the world (background scroll)
+        # Track minimum fall speed
+        minimum_fall_speed = 0
+        
+        # Update items and remove off-screen items with error handling
         try:
-            self.world.update(self.game_speed * dt)
+            safe_game_speed = max(0.1, self.game_speed)
+            
+            # Update existing items and track minimum fall speed
+            updated_items = []
+            for item in self.items:
+                if item.update(safe_game_speed * dt, self.screen_height):
+                    updated_items.append(item)
+                    
+                    # Track minimum fall speed
+                    if hasattr(item, 'speed'):
+                        if minimum_fall_speed == 0 or item.speed < minimum_fall_speed:
+                            minimum_fall_speed = item.speed
+            
+            self.items = updated_items
+        except Exception as items_update_error:
+            debug.error('game', f"Error updating items: {items_update_error}")
+            self.items = []  # Reset items list in case of critical error
+            minimum_fall_speed = self.game_speed  # Fallback to game speed
+        
+        # Spawn items with robust error handling
+        try:
+            # Pass current items to item spawner
+            safe_game_speed = max(0.1, self.game_speed)
+            
+            # Create a method in Game class to pass current items
+            new_items = self.item_spawner.update(safe_game_speed * dt, self.items)
+            
+            # Add any newly spawned items to the game items list
+            if new_items:
+                self.items.extend(new_items)
+                
+                # Update minimum fall speed with newly spawned items
+                for item in new_items:
+                    if hasattr(item, 'speed'):
+                        if minimum_fall_speed == 0 or item.speed < minimum_fall_speed:
+                            minimum_fall_speed = item.speed
+        except Exception as e:
+            debug.error('item_spawner', f"Error in item spawning: {e}")
+        
+        # Use game state to get current level
+        level = getattr(self, 'current_level', 
+                        current_game_state.get_level() or 1)
+        
+        # Update the world with current level and settings
+        try:
+            self.world.update(dt, level, self.settings)
         except Exception as world_update_error:
             debug.error('game', f"Error updating world: {world_update_error}")
 
@@ -575,33 +640,15 @@ class Game:
         except Exception as e:
             debug.error('game', f"Error updating character controller: {e}")
 
-        # Spawn items with robust error handling
-        # Modify the item spawner update
-        try:
-            # Pass current items to item spawner
-            safe_game_speed = max(0.1, self.game_speed)
-            
-            # Create a method in Game class to pass current items
-            new_items = self.item_spawner.update(safe_game_speed * dt, self.items)
-            
-            # Add any newly spawned items to the game items list
-            if new_items:
-                self.items.extend(new_items)
-        except Exception as e:
-            debug.error('item_spawner', f"Error in item spawning: {e}")
+        # Log the minimum fall speed and game state
+        debug.log('game', 
+            f"Game state updated. "
+            f"Speed: {self.game_speed:.2f}, "
+            f"Minimum Fall Speed: {minimum_fall_speed:.2f}, "
+            f"Items: {len(self.items)}"
+        )
 
-        # Update items and remove off-screen items with error handling
-        try:
-            safe_game_speed = max(0.1, self.game_speed)
-            self.items = [
-                item for item in self.items 
-                if item.update(safe_game_speed * dt, self.screen_height)
-            ]
-        except Exception as items_update_error:
-            debug.error('game', f"Error updating items: {items_update_error}")
-            self.items = []  # Reset items list in case of critical error
-
-        debug.log('game', f"Game state updated. Speed: {self.game_speed:.2f}")
+        return minimum_fall_speed
     
     def apply_settings(self):
         # Apply music volume

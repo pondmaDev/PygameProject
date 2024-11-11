@@ -299,6 +299,7 @@ class SettingsMenu(Menu):
                         return 'quit'
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_ESCAPE:
+                            # Use the new handle_exit method
                             return self.handle_exit()
 
                 # Render screen
@@ -345,7 +346,7 @@ class SettingsMenu(Menu):
                     self.adjust_character_speed
                 )
 
-                # Back button
+                # Back button with dynamic text
                 back_text = 'Back to Game' if self.from_pause else 'Back'
                 if self.draw_button(
                     back_text, 
@@ -355,6 +356,7 @@ class SettingsMenu(Menu):
                     (200, 200, 200), 
                     (150, 150, 150)
                 ):
+                    # Use the new handle_exit method
                     return self.handle_exit()
 
                 pygame.display.flip()
@@ -362,7 +364,8 @@ class SettingsMenu(Menu):
 
         except Exception as display_error:
             debug.error('settings', f"Error in settings menu display: {display_error}")
-            return 'main_menu'
+            # Fallback to main menu or resume based on context
+            return 'resume' if self.from_pause else 'main_menu'
 
     def render_setting_option(self, label, value, y_pos, current_time, action):
         """
@@ -421,6 +424,9 @@ class SettingsMenu(Menu):
     def handle_exit(self):
         """
         Handle exiting the settings menu with change tracking
+        
+        Returns:
+            str: Appropriate screen to return to
         """
         try:
             # Check if any settings were modified
@@ -439,11 +445,18 @@ class SettingsMenu(Menu):
                 except Exception as save_error:
                     debug.error('settings', f"Failed to save settings: {save_error}")
 
-            # Return appropriate screen based on context
-            return 'resume' if self.from_pause else 'main_menu'
+            # Explicitly return to the appropriate screen based on context
+            debug.log('settings', f"Exiting settings from_pause: {self.from_pause}")
+            
+            # Key change: Always return 'resume' when from pause menu
+            if self.from_pause:
+                return 'resume'
+            
+            return 'main_menu'
 
         except Exception as exit_error:
             debug.error('settings', f"Error handling settings exit: {exit_error}")
+            # Fallback to main menu if something goes wrong
             return 'main_menu'
 
     def draw_setting_label(self, text, y):
@@ -479,10 +492,6 @@ class PauseMenu(Menu):
         while running:
             mouse_pos = pygame.mouse.get_pos()
             
-            resume_hover = self.resume_button.collidepoint(mouse_pos)
-            settings_hover = self.settings_button.collidepoint(mouse_pos)
-            main_menu_hover = self.main_menu_button.collidepoint(mouse_pos)
-            
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     return 'quit'
@@ -490,18 +499,22 @@ class PauseMenu(Menu):
                     return 'resume'
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if self.resume_button.collidepoint(event.pos):
+                        debug.log('menu', "Pause Menu: Resuming game")
                         return 'resume'
                     elif self.settings_button.collidepoint(event.pos):
+                        debug.log('menu', "Pause Menu: Entering Settings")
                         return 'settings'
                     elif self.main_menu_button.collidepoint(event.pos):
+                        debug.log('menu', "Pause Menu: Returning to Main Menu")
                         return 'main_menu'
             
+            # Create a semi-transparent overlay
             overlay = pygame.Surface((self.screen_width, self.screen_height))
             overlay.fill((0, 0, 0))
             overlay.set_alpha(128)
             self.screen.blit(overlay, (0, 0))
             
-            # Modify these lines to match the draw_button method signature
+            # Draw buttons
             if self.draw_button("Resume", self.resume_button.x, self.resume_button.y, 
                                 self.resume_button.width, self.resume_button.height, 
                                 (200, 200, 200), (150, 150, 150)):
