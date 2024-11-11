@@ -394,7 +394,7 @@ class Game:
     # UPDATE GAME STATE SESSION
     def start_game(self, level):
         """
-        Initialize and start the game for a specific level
+        Initialize and start the game for a specific level with full reset
         
         Args:
             level (int or str): The selected game level
@@ -411,18 +411,59 @@ class Game:
             current_game_state.set_screen('game')
             current_game_state.set_level(level)
             
-            # Reset game state
-            self.initialize_reset_game_state()
+            # FULL RESET OF GAME STATE
+            # Reset all critical game variables
+            self.score = 10  # Reset starting score
+            self.items = []  # Clear existing items
+            self.game_speed = 3.0  # Reset game speed
             
-            # Reinitialize the character for the new game
-            self.initialize_character()
+            # Reinitialize lane manager
+            self.lane_manager = LaneManager(self.screen_width, num_lanes=3)
             
-            # Create character controller
-            self.character_controller = CharacterController(
-                self.character, 
-                self.lane_manager, 
-                self.settings
+            # Reinitialize item spawner with current screen dimensions
+            self.item_spawner = ItemSpawner(
+                screen_width=self.screen_width, 
+                screen_height=self.screen_height,
+                num_lanes=self.lane_manager.num_lanes,
+                current_level=level  # Pass the current level
             )
+            
+            # Reinitialize character
+            try:
+                # Calculate initial lane center
+                initial_x = self.lane_manager.get_lane_center(
+                    self.lane_manager.current_lane, 
+                    50  # hardcoded character width
+                )
+                
+                # Recreate character with explicit parameters
+                self.character = Character(
+                    x=initial_x,
+                    y=self.screen_height - 100,
+                    width=50,
+                    height=50,
+                    color='RED'
+                )
+                
+                # Recreate character controller
+                self.character_controller = CharacterController(
+                    character=self.character,
+                    lane_manager=self.lane_manager,
+                    settings=self.settings
+                )
+                
+            except Exception as character_error:
+                debug.error('game', f"Character reinitialization failed: {character_error}")
+                return 'main_menu'
+            
+            # Optional: Level-specific initialization
+            # You could add level-specific settings or difficulty here
+            if level == 2:
+                self.game_speed = 4.0  # Faster for level 2
+                self.item_spawner.difficulty_multiplier = 1.2
+            elif level == 3:
+                self.game_speed = 5.0  # Even faster for level 3
+                self.item_spawner.difficulty_multiplier = 1.5
             
             # Actual game loop
             result = self.game_loop()
@@ -432,12 +473,7 @@ class Game:
             
             # Ensure a valid result is returned
             if result not in ['quit', 'restart', 'main_menu', 'level_selection']:
-                debug.warning('game', f"UNEXPECTED RESULT: Game loop returned unexpected result: {result}")
-                
-                # Add stack trace for unexpected result
-                import traceback
-                debug.warning('game', f"Traceback: {traceback.format_stack()}")
-                
+                debug.warning('game', f"UNEXPECTED RESULT: Game loop returned {result}")
                 return 'main_menu'
             
             return result
@@ -540,12 +576,13 @@ class Game:
             debug.error('game', f"Error updating character controller: {e}")
 
         # Spawn items with robust error handling
+        # Modify the item spawner update
         try:
-            # Ensure safe game speed for item spawner
+            # Pass current items to item spawner
             safe_game_speed = max(0.1, self.game_speed)
             
-            # Let the item spawner determine when to spawn items
-            new_items = self.item_spawner.update(safe_game_speed * dt)
+            # Create a method in Game class to pass current items
+            new_items = self.item_spawner.update(safe_game_speed * dt, self.items)
             
             # Add any newly spawned items to the game items list
             if new_items:

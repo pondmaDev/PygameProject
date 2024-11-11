@@ -8,8 +8,9 @@ class Item:
         lane: int, 
         color: tuple = (0, 255, 0), 
         is_good: bool = True, 
-        size: int = 30,
-        fall_speed: float = 5  # Fall speed parameter
+        size: int = 40,
+        fall_speed: float = 5,  # Base fall speed
+        level: int = 1  # Game level
     ):
         """
         Initialize an item in the game
@@ -19,7 +20,8 @@ class Item:
             color (tuple): RGB color of the item
             is_good (bool): Whether the item is beneficial
             size (int): Size of the item
-            fall_speed (float): Speed at which the item falls
+            fall_speed (float): Base speed at which the item falls
+            level (int): Current game level
         """
         self.lane = lane
         self.x = 0  # Will be set by spawner
@@ -27,7 +29,28 @@ class Item:
         self.color = color
         self.is_good = is_good
         self.size = size
-        self.speed = fall_speed  # Set the speed to the fall_speed parameter
+        
+        # Calculate dynamic fall speed based on level
+        self.base_speed = fall_speed
+        self.level = level
+        self.speed = self._calculate_speed()
+
+    def _calculate_speed(self) -> float:
+        """
+        Calculate dynamic fall speed based on level with more aggressive progression
+        
+        Returns:
+            float: Calculated fall speed
+        """
+        # Base speed increases exponentially with level
+        # Adjust these multipliers to fine-tune difficulty progression
+        base_speed_multiplier = 1.0  # Starting point
+        level_speed_multiplier = 1 + (self.level * 0.5)  # 50% speed increase per level
+        
+        # Optional: Add some randomness to speed variation
+        speed_variation = random.uniform(0.9, 1.1)
+        
+        return self.base_speed * level_speed_multiplier * speed_variation
 
     def update(self, game_speed: float, screen_height: int) -> bool:
         """
@@ -44,7 +67,7 @@ class Item:
             # Validate inputs
             safe_game_speed = max(0.1, game_speed)
             
-            # Update position
+            # Update position with dynamic speed
             self.y += self.speed * safe_game_speed
             
             # Check if item is still on screen
@@ -65,7 +88,7 @@ class Item:
 
     def draw(self, screen):
         """
-        Draw the item on the screen
+        Draw the item on the screen with dynamic size
         
         Args:
             screen (pygame.Surface): Surface to draw on

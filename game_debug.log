@@ -17672,3 +17672,362 @@ TypeError: Argument must be rect style object
 [2024-11-10 00:36:03] [RESOURCES] Successfully loaded image: red_item
 [2024-11-10 00:36:03] [RESOURCES] Failed to load sound collect: Unrecognized audio format
 [2024-11-10 00:36:03] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+[2024-11-11 11:52:38] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+[2024-11-11 11:52:38] [RESOURCES] Successfully loaded image: character_idle
+[2024-11-11 11:52:38] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+[2024-11-11 11:52:38] [RESOURCES] Successfully loaded image: character_run
+[2024-11-11 11:52:38] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+[2024-11-11 11:52:38] [RESOURCES] Successfully loaded image: main_background
+[2024-11-11 11:52:38] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+[2024-11-11 11:52:38] [RESOURCES] Successfully loaded image: blue_item
+[2024-11-11 11:52:38] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+[2024-11-11 11:52:38] [RESOURCES] Successfully loaded image: green_item
+[2024-11-11 11:52:38] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+[2024-11-11 11:52:38] [RESOURCES] Successfully loaded image: red_item
+[2024-11-11 11:52:38] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+[2024-11-11 11:52:38] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+[2024-11-11 11:52:49] [SETTINGS] Entering settings from pause menu
+[2024-11-11 11:52:51] [SETTINGS] Character speed adjusted to 1.5
+[2024-11-11 11:52:52] [SETTINGS] Character speed adjusted to 2.0
+[2024-11-11 11:52:53] [SETTINGS] Settings saved successfully
+[2024-11-11 11:59:30] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+[2024-11-11 11:59:30] [RESOURCES] Successfully loaded image: character_idle
+[2024-11-11 11:59:30] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+[2024-11-11 11:59:30] [RESOURCES] Successfully loaded image: character_run
+[2024-11-11 11:59:30] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+[2024-11-11 11:59:30] [RESOURCES] Successfully loaded image: main_background
+[2024-11-11 11:59:30] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+[2024-11-11 11:59:30] [RESOURCES] Successfully loaded image: blue_item
+[2024-11-11 11:59:30] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+[2024-11-11 11:59:30] [RESOURCES] Successfully loaded image: green_item
+[2024-11-11 11:59:30] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+[2024-11-11 11:59:30] [RESOURCES] Successfully loaded image: red_item
+[2024-11-11 11:59:30] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+[2024-11-11 11:59:30] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+[2024-11-11 12:00:07] [SETTINGS] Entering settings from pause menu
+[2024-11-11 12:00:09] [SETTINGS] Character speed adjusted to 1.5
+[2024-11-11 12:00:10] [SETTINGS] Character speed adjusted to 2.0
+[2024-11-11 12:00:10] [SETTINGS] Character speed adjusted to 2.5
+[2024-11-11 12:00:10] [SETTINGS] Character speed adjusted to 3.0
+[2024-11-11 12:00:11] [SETTINGS] Settings saved successfully
+[2024-11-11 12:09:17] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+[2024-11-11 12:09:17] [RESOURCES] Successfully loaded image: character_idle
+[2024-11-11 12:09:17] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+[2024-11-11 12:09:17] [RESOURCES] Successfully loaded image: character_run
+[2024-11-11 12:09:17] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+[2024-11-11 12:09:17] [RESOURCES] Successfully loaded image: main_background
+[2024-11-11 12:09:17] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+[2024-11-11 12:09:17] [RESOURCES] Successfully loaded image: blue_item
+[2024-11-11 12:09:17] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+[2024-11-11 12:09:17] [RESOURCES] Successfully loaded image: green_item
+[2024-11-11 12:09:17] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+[2024-11-11 12:09:17] [RESOURCES] Successfully loaded image: red_item
+[2024-11-11 12:09:17] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+[2024-11-11 12:09:17] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+[2024-11-11 12:09:19] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:19] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:19] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:19] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:19] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:19] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:19] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:19] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:19] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:19] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:19] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:19] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:20] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:09:21] [ERROR] [ITEM_SPAWNER] Error in item spawning: ItemSpawner.update() takes 2 positional arguments but 3 were given
+[2024-11-11 12:10:51] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+[2024-11-11 12:10:51] [RESOURCES] Successfully loaded image: character_idle
+[2024-11-11 12:10:51] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+[2024-11-11 12:10:51] [RESOURCES] Successfully loaded image: character_run
+[2024-11-11 12:10:51] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+[2024-11-11 12:10:51] [RESOURCES] Successfully loaded image: main_background
+[2024-11-11 12:10:51] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+[2024-11-11 12:10:51] [RESOURCES] Successfully loaded image: blue_item
+[2024-11-11 12:10:51] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+[2024-11-11 12:10:51] [RESOURCES] Successfully loaded image: green_item
+[2024-11-11 12:10:51] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+[2024-11-11 12:10:51] [RESOURCES] Successfully loaded image: red_item
+[2024-11-11 12:10:51] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+[2024-11-11 12:10:51] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+[2024-11-11 12:11:12] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 12:11:12] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 12:11:27] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 12:12:28] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+[2024-11-11 12:12:28] [RESOURCES] Successfully loaded image: character_idle
+[2024-11-11 12:12:28] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+[2024-11-11 12:12:28] [RESOURCES] Successfully loaded image: character_run
+[2024-11-11 12:12:28] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+[2024-11-11 12:12:28] [RESOURCES] Successfully loaded image: main_background
+[2024-11-11 12:12:28] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+[2024-11-11 12:12:28] [RESOURCES] Successfully loaded image: blue_item
+[2024-11-11 12:12:28] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+[2024-11-11 12:12:28] [RESOURCES] Successfully loaded image: green_item
+[2024-11-11 12:12:28] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+[2024-11-11 12:12:28] [RESOURCES] Successfully loaded image: red_item
+[2024-11-11 12:12:28] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+[2024-11-11 12:12:28] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+[2024-11-11 12:13:19] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+[2024-11-11 12:13:19] [RESOURCES] Successfully loaded image: character_idle
+[2024-11-11 12:13:19] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+[2024-11-11 12:13:19] [RESOURCES] Successfully loaded image: character_run
+[2024-11-11 12:13:19] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+[2024-11-11 12:13:19] [RESOURCES] Successfully loaded image: main_background
+[2024-11-11 12:13:19] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+[2024-11-11 12:13:19] [RESOURCES] Successfully loaded image: blue_item
+[2024-11-11 12:13:19] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+[2024-11-11 12:13:19] [RESOURCES] Successfully loaded image: green_item
+[2024-11-11 12:13:19] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+[2024-11-11 12:13:19] [RESOURCES] Successfully loaded image: red_item
+[2024-11-11 12:13:19] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+[2024-11-11 12:13:19] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+[2024-11-11 12:13:39] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 12:13:40] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 12:13:41] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 12:13:42] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 12:13:43] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 12:13:44] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 12:13:45] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 12:13:47] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 12:13:48] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 12:13:49] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 12:13:55] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 12:13:58] [COLLISION] Collision detected! Item points: -5
+[2024-11-11 12:13:59] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 12:14:01] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 12:14:01] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 12:14:03] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 12:14:05] [COLLISION] Collision detected! Item points: -5
+[2024-11-11 12:14:07] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 12:14:09] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 12:14:11] [COLLISION] Collision detected! Item points: -5
+[2024-11-11 12:14:13] [COLLISION] Collision detected! Item points: -5
+[2024-11-11 12:14:15] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 12:14:17] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 13:32:46] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+[2024-11-11 13:32:46] [RESOURCES] Successfully loaded image: character_idle
+[2024-11-11 13:32:46] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+[2024-11-11 13:32:46] [RESOURCES] Successfully loaded image: character_run
+[2024-11-11 13:32:46] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+[2024-11-11 13:32:46] [RESOURCES] Successfully loaded image: main_background
+[2024-11-11 13:32:46] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+[2024-11-11 13:32:46] [RESOURCES] Successfully loaded image: blue_item
+[2024-11-11 13:32:46] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+[2024-11-11 13:32:46] [RESOURCES] Successfully loaded image: green_item
+[2024-11-11 13:32:46] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+[2024-11-11 13:32:46] [RESOURCES] Successfully loaded image: red_item
+[2024-11-11 13:32:46] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+[2024-11-11 13:32:46] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+[2024-11-11 13:33:21] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 13:33:23] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 13:33:24] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 13:33:26] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 13:33:30] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 13:33:32] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 13:33:34] [COLLISION] Collision detected! Item points: -5
+[2024-11-11 13:33:35] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 13:33:36] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 13:33:37] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 13:33:39] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 13:33:39] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 13:33:40] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 13:33:43] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 13:33:45] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 13:33:45] [COLLISION] Collision detected! Item points: -5
+[2024-11-11 13:33:46] [COLLISION] Collision detected! Item points: -5
+[2024-11-11 13:33:47] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 13:33:49] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 13:33:49] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 13:33:50] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 13:33:53] [SETTINGS] Entering settings from pause menu
+[2024-11-11 13:33:56] [SETTINGS] Window mode changed to False
+[2024-11-11 13:33:56] [SETTINGS] Window mode changed to True
+[2024-11-11 13:33:56] [SETTINGS] Window mode changed to False
+[2024-11-11 13:33:58] [SETTINGS] Settings saved successfully
+[2024-11-11 13:54:11] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+[2024-11-11 13:54:11] [RESOURCES] Successfully loaded image: character_idle
+[2024-11-11 13:54:11] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+[2024-11-11 13:54:11] [RESOURCES] Successfully loaded image: character_run
+[2024-11-11 13:54:11] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+[2024-11-11 13:54:11] [RESOURCES] Successfully loaded image: main_background
+[2024-11-11 13:54:11] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+[2024-11-11 13:54:11] [RESOURCES] Successfully loaded image: blue_item
+[2024-11-11 13:54:11] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+[2024-11-11 13:54:11] [RESOURCES] Successfully loaded image: green_item
+[2024-11-11 13:54:11] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+[2024-11-11 13:54:11] [RESOURCES] Successfully loaded image: red_item
+[2024-11-11 13:54:11] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+[2024-11-11 13:54:11] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+[2024-11-11 13:54:28] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 13:54:32] [SETTINGS] Entering settings menu...
+[2024-11-11 13:54:34] [SETTINGS] Settings menu result: main_menu
+[2024-11-11 14:07:53] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+[2024-11-11 14:07:53] [RESOURCES] Successfully loaded image: character_idle
+[2024-11-11 14:07:53] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+[2024-11-11 14:07:53] [RESOURCES] Successfully loaded image: character_run
+[2024-11-11 14:07:53] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+[2024-11-11 14:07:53] [RESOURCES] Successfully loaded image: main_background
+[2024-11-11 14:07:53] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+[2024-11-11 14:07:53] [RESOURCES] Successfully loaded image: blue_item
+[2024-11-11 14:07:53] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+[2024-11-11 14:07:53] [RESOURCES] Successfully loaded image: green_item
+[2024-11-11 14:07:53] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+[2024-11-11 14:07:53] [RESOURCES] Successfully loaded image: red_item
+[2024-11-11 14:07:53] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+[2024-11-11 14:07:53] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+[2024-11-11 14:07:58] [ERROR] [ITEM_SPAWNER] Error in item spawner update: 'ItemSpawner' object has no attribute 'current_level'
+[2024-11-11 14:08:00] [ERROR] [ITEM_SPAWNER] Error in item spawner update: 'ItemSpawner' object has no attribute 'current_level'
+[2024-11-11 14:11:46] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+[2024-11-11 14:11:46] [RESOURCES] Successfully loaded image: character_idle
+[2024-11-11 14:11:46] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+[2024-11-11 14:11:46] [RESOURCES] Successfully loaded image: character_run
+[2024-11-11 14:11:46] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+[2024-11-11 14:11:46] [RESOURCES] Successfully loaded image: main_background
+[2024-11-11 14:11:46] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+[2024-11-11 14:11:46] [RESOURCES] Successfully loaded image: blue_item
+[2024-11-11 14:11:46] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+[2024-11-11 14:11:46] [RESOURCES] Successfully loaded image: green_item
+[2024-11-11 14:11:46] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+[2024-11-11 14:11:46] [RESOURCES] Successfully loaded image: red_item
+[2024-11-11 14:11:46] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+[2024-11-11 14:11:46] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+[2024-11-11 14:12:00] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:01] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:03] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:06] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:07] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:08] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:08] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:11] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:11] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:12] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:14] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:15] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:15] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:17] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:19] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:20] [COLLISION] Collision detected! Item points: -5
+[2024-11-11 14:12:20] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:21] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:24] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:25] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:25] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:27] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:28] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:29] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:40] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:40] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:41] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:46] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:48] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:48] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:53] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:54] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:55] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:56] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:57] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:12:58] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:13:00] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:13:01] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:13:03] [COLLISION] Collision detected! Item points: -5
+[2024-11-11 14:13:05] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:13:07] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:13:08] [COLLISION] Collision detected! Item points: 10
+[2024-11-11 14:13:10] [COLLISION] Collision detected! Item points: 10
