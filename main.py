@@ -16,7 +16,7 @@ def main():
         game = GameImplementation()
         
         current_screen = 'main_menu'
-    
+        
         while True:
             try:
                 if current_screen == 'main_menu':
@@ -75,6 +75,8 @@ def main():
                         if settings_result == 'quit':
                             break
                         elif settings_result == 'main_menu':
+                            current_screen = 'main_menu'
+                        elif settings_result == 'resume':
                             current_screen = 'main_menu'
                     except Exception as settings_error:
                         debug.error('game', f"Error in settings: {settings_error}")

@@ -59,9 +59,16 @@ class Game:
 
     def initialize_pygame(self):
         pygame.init()
+        pygame.mixer.init()  # Initialize mixer
         self.screen_width = 800
         self.screen_height = 600
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
+        try:
+            pygame.mixer.music.load('path/to/your/background_music.mp3')
+            pygame.mixer.music.set_volume(self.settings.bg_music_volume / 100)
+            pygame.mixer.music.play(-1)  # -1 means loop indefinitely
+        except Exception as e:
+            debug.error('audio', f"Failed to load background music: {e}")
         pygame.display.set_caption('CollectCat')
         debug.log('init', f"Screen dimensions set to {self.screen_width}x{self.screen_height}")
 
@@ -192,6 +199,7 @@ class Game:
 
     def handle_pause(self):
         debug.log('game', "Game paused")
+        pygame.mixer.music.pause()
         pause_menu = PauseMenu(self.screen, current_game_state.get_screen(), self.settings)
         result = pause_menu.display()
         
@@ -210,6 +218,10 @@ class Game:
         
         # Default fallback
         return 'resume'
+    
+    def resume_game(self):
+        # Resume music
+        pygame.mixer.music.unpause()
 
     def handle_settings_from_pause(self):
         debug.log('settings', "Entering settings from pause menu")

@@ -1,5 +1,6 @@
 import json
 from typing import Any, Dict
+import os
 
 class Setting:
     _instance = None
@@ -28,6 +29,9 @@ class Setting:
             'difficulty': self.difficulty
         }
 
+        # Default settings file path
+        self.settings_file_path = 'config/user_settings.json'
+
         self.LEVEL_SCROLL_MULTIPLIERS = {
             1: 1.0,   # Base speed
             2: 1.2,   # Slightly faster
@@ -48,8 +52,11 @@ class Setting:
         """
         return self.LEVEL_SCROLL_MULTIPLIERS.get(level, 1.0)  # Default to 1.0 if level not found
 
-    def load_settings(self, file_path: str) -> None:
+    def load_settings(self, file_path: str = None) -> None:
         """Load settings from a JSON file."""
+        if file_path is None:
+            file_path = self.settings_file_path
+
         try:
             with open(file_path, 'r') as file:
                 loaded_settings = json.load(file)
@@ -61,8 +68,17 @@ class Setting:
         except (FileNotFoundError, json.JSONDecodeError) as e:
             print(f"Error loading settings: {e}")
 
-    def save_settings(self, file_path: str) -> None:
-        """Save current settings to a JSON file."""
+    def save(self, file_path: str = None) -> None:
+        """
+        Save current settings to a JSON file.
+        
+        Args:
+            file_path (str, optional): Path to save settings. 
+                                       Uses default path if not provided.
+        """
+        if file_path is None:
+            file_path = self.settings_file_path
+
         # Ensure settings dictionary is up to date
         self.settings.update({
             'bg_music_volume': self.bg_music_volume,
@@ -72,8 +88,15 @@ class Setting:
             'difficulty': self.difficulty
         })
         
-        with open(file_path, 'w') as file:
-            json.dump(self.settings, file, indent=4)
+        # Ensure the directory exists
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        
+        try:
+            with open(file_path, 'w') as file:
+                json.dump(self.settings, file, indent=4)
+            print(f"Settings saved to {file_path}")
+        except Exception as e:
+            print(f"Error saving settings: {e}")
 
     def adjust_bg_music_volume(self, new_volume: int) -> None:
         """Adjust background music volume."""

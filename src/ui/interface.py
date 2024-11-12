@@ -5,6 +5,7 @@ from config.setting import current_settings
 from src.utils.constant import Colors
 from src.utils.resource_manager import ResourceManager  # Make sure to import ResourceManager
 from src.utils.debug_section import debug
+import re
 # Define button texts as constants
 BUTTON_TEXTS = {
     'start_game': 'Start Game',
@@ -251,224 +252,266 @@ class LevelSelectionMenu(Menu):
 
 class SettingsMenu(Menu):
     def __init__(self, screen, settings, from_pause=False):
-        try:
-            super().__init__(screen)
-            
-            # Validate inputs
-            if screen is None:
-                raise ValueError("Screen cannot be None")
-            if settings is None:
-                raise ValueError("Settings cannot be None")
-            
-            # Use a deep copy to prevent direct modification of original settings
-            self.settings = settings
-            self.original_settings = {
-                'bg_music_volume': settings.bg_music_volume,
-                'window_mode': settings.window_mode,
-                'character_speed': settings.character_speed
+        super().__init__(screen)
+        self.settings = settings
+        self.from_pause = from_pause
+        
+        # Input handling attributes
+        self.input_active = False
+        self.current_input_field = None
+        self.input_text = ""
+        
+        # Define input configurations with more detailed validation
+        self.setting_configs = {
+            'bg_music_volume': {
+                'label': 'Music Volume',
+                'min': 0,
+                'max': 100,
+                'type': int,
+                'description': 'Enter volume (0-100)'
+            },
+            'character_speed': {
+                'label': 'Character Speed',
+                'min': 1,
+                'max': 10,
+                'type': float,
+                'description': 'Enter speed (1-10)'
             }
+        }
+        
+        # Store original settings for potential reset
+        self.original_settings = {
+            key: getattr(settings, key) 
+            for key in self.setting_configs.keys()
+        }
+        
+        # Input rect tracking
+        self.input_rects = {}
+        self.input_font = pygame.font.Font(None, 36)
+        self.description_font = pygame.font.Font(None, 24)
+
+    def validate_and_clamp_input(self, value, config):
+        """
+        Validate and clamp input to the specified range
+        
+        Args:
+            value (str): Input value
+            config (dict): Setting configuration
+        
+        Returns:
+            tuple: (processed_value, is_valid)
+        """
+        try:
+            # Remove any non-numeric characters except decimal point and minus sign
+            cleaned_value = re.sub(r'[^\d.-]', '', value)
             
-            self.last_click_time = 0
-            self.click_delay = 200
-            self.from_pause = from_pause
+            # Convert to appropriate type
+            processed_value = config['type'](cleaned_value)
             
-        except Exception as init_error:
-            debug.error('settings', f"Settings menu initialization error: {init_error}")
-            raise
+            # Clamp the value to the specified range
+            clamped_value = max(config['min'], min(processed_value, config['max']))
+            
+            return clamped_value, True
+        
+        except (ValueError, TypeError):
+            # If conversion fails, return the minimum value
+            return config['min'], False
 
     def display(self):
+        """
+        Display the settings menu with text input
+        """
         clock = pygame.time.Clock()
         
-        try:
-            # Set current game state
-            current_game_state.set_screen('settings')
-            
-            # Load background image with error handling
-            try:
-                background_image = self.resource_manager.get_image('main_background')
-            except Exception as bg_error:
-                debug.warning('settings', f"Failed to load background image: {bg_error}")
-                background_image = None
-
-            while True:
-                current_time = pygame.time.get_ticks()
+        while True:
+            # Event handling
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    return 'quit'
                 
-                # Comprehensive event handling
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                        return 'quit'
-                    if event.type == pygame.KEYDOWN:
-                        if event.key == pygame.K_ESCAPE:
-                            # Use the new handle_exit method
-                            return self.handle_exit()
-
-                # Render screen
-                self.screen.fill(Colors.WHITE)
-
-                # Draw background
-                if background_image:
-                    self.screen.blit(background_image, (0, 0))
-
-                # Render title
-                font = pygame.font.Font(None, 48)
-                title_text = font.render("Settings", True, Colors.BLACK)
-                title_rect = title_text.get_rect(center=(self.screen.get_width() // 2, 50))
-                self.screen.blit(title_text, title_rect)
-
-                # Render settings options
-                y_start = 150
-                spacing = 60
-
-                # Music Volume Setting
-                self.render_setting_option(
-                    "Music Volume:", 
-                    f"{int(self.settings.bg_music_volume)}%", 
-                    y_start, 
-                    current_time,
-                    self.adjust_volume
-                )
-
-                # Window Mode Setting
-                self.render_setting_option(
-                    "Window Mode:", 
-                    "Fullscreen" if not self.settings.window_mode else "Windowed", 
-                    y_start + spacing, 
-                    current_time,
-                    self.toggle_window_mode
-                )
-
-                # Character Speed Setting
-                self.render_setting_option(
-                    "Character Speed:", 
-                    f"{self.settings.character_speed:.1f}x", 
-                    y_start + spacing * 2, 
-                    current_time,
-                    self.adjust_character_speed
-                )
-
-                # Back button with dynamic text
-                back_text = 'Back to Game' if self.from_pause else 'Back'
-                if self.draw_button(
-                    back_text, 
-                    self.screen.get_width() // 2 - 100, 
-                    self.screen.get_height() - 100, 
-                    200, 50, 
-                    (200, 200, 200), 
-                    (150, 150, 150)
-                ):
-                    # Use the new handle_exit method
-                    return self.handle_exit()
-
-                pygame.display.flip()
-                clock.tick(60)
-
-        except Exception as display_error:
-            debug.error('settings', f"Error in settings menu display: {display_error}")
-            # Fallback to main menu or resume based on context
-            return 'resume' if self.from_pause else 'main_menu'
-
-    def render_setting_option(self, label, value, y_pos, current_time, action):
-        """
-        Render a single setting option with consistent error handling
-        """
-        try:
-            # Draw label
-            self.draw_setting_label(label, y_pos)
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        return self.handle_exit()
+                    
+                    # Handle input for active field
+                    if self.input_active:
+                        if event.key == pygame.K_RETURN:
+                            # Validate and update the setting
+                            self.update_setting()
+                            self.input_active = False
+                            self.current_input_field = None
+                        elif event.key == pygame.K_BACKSPACE:
+                            # Remove last character
+                            self.input_text = self.input_text[:-1]
+                        else:
+                            # Add typed character
+                            self.input_text += event.unicode
+                
+                # Mouse click handling for input fields
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    # Check if a setting input field was clicked
+                    for setting_key, config in self.setting_configs.items():
+                        input_rect = self.input_rects.get(setting_key)
+                        if input_rect and input_rect.collidepoint(event.pos):
+                            self.input_active = True
+                            self.current_input_field = setting_key
+                            self.input_text = str(getattr(self.settings, setting_key))
+                        else:
+                            # Deactivate input if clicked outside
+                            self.input_active = False
+                            self.current_input_field = None
             
-            # Draw value button
+            # Clear screen
+            self.screen.fill(Colors.WHITE)
+            
+            # Title
+            title = self.input_font.render("Settings", True, Colors.BLACK)
+            title_rect = title.get_rect(center=(self.screen.get_width() // 2, 50))
+            self.screen.blit(title, title_rect)
+            
+            # Render settings
+            y_start = 150
+            spacing = 100
+            
+            for i, (setting_key, config) in enumerate(self.setting_configs.items()):
+                current_value = getattr(self.settings, setting_key)
+                
+                # Label
+                label = self.input_font.render(config['label'], True, Colors.BLACK)
+                self.screen.blit(label, (self.screen.get_width() // 2 - 250, y_start + i * spacing))
+                
+                # Input field
+                input_rect = pygame.Rect(
+                    self.screen.get_width() // 2 - 100, 
+                    y_start + i * spacing + 50, 
+                    200, 
+                    40
+                )
+                self.input_rects[setting_key] = input_rect
+                
+                # Draw input field
+                input_color = Colors.LIGHTGRAY if self.current_input_field == setting_key else Colors.GRAY
+                pygame.draw.rect(self.screen, input_color, input_rect)
+                
+                # Render current value or input text
+                display_text = (self.input_text if self.current_input_field == setting_key 
+                                else str(current_value))
+                text_surface = self.input_font.render(display_text, True, Colors.BLACK)
+                text_rect = text_surface.get_rect(center=input_rect.center)
+                self.screen.blit(text_surface, text_rect)
+                
+                # Description
+                description = self.description_font.render(
+                    config['description'], 
+                    True, 
+                    Colors.GRAY
+                )
+                description_rect = description.get_rect(
+                    center=(self.screen.get_width() // 2, y_start + i * spacing + 100)
+                )
+                self.screen.blit(description, description_rect)
+            
+            # Back button
+            back_text = 'Back to Game' if self.from_pause else 'Back'
             if self.draw_button(
-                value, 
-                self.screen.get_width() // 2 + 50, 
-                y_pos, 
-                150, 40, 
+                back_text, 
+                self.screen.get_width() // 2 - 100, 
+                self.screen.get_height() - 100, 
+                200, 50, 
                 (200, 200, 200), 
                 (150, 150, 150)
             ):
-                if current_time - self.last_click_time > self.click_delay:
-                    try:
-                        action()
-                        self.last_click_time = current_time
-                    except Exception as action_error:
-                        debug.error('settings', f"Error in setting action: {action_error}")
-        except Exception as render_error:
-            debug.error('settings', f"Error rendering setting option {label}: {render_error}")
+                return self.handle_exit()
+            
+            pygame.display.flip()
+            clock.tick(60)
 
-    def adjust_volume(self):
-        """Safely adjust volume"""
-        try:
-            new_volume = (self.settings.bg_music_volume + 10) % 110
-            self.settings.adjust_bg_music_volume(new_volume)
-            debug.log('settings', f"Volume adjusted to {new_volume}")
-        except Exception as volume_error:
-            debug.error('settings', f"Volume adjustment error: {volume_error}")
-
-    def toggle_window_mode(self):
-        """Safely toggle window mode"""
-        try:
-            self.settings.toggle_window_mode()
-            debug.log('settings', f"Window mode changed to {self.settings.window_mode}")
-        except Exception as mode_error:
-            debug.error('settings', f"Window mode toggle error: {mode_error}")
-
-    def adjust_character_speed(self):
-        """Safely adjust character speed"""
-        try:
-            new_speed = round(self.settings.character_speed + 0.5, 1)
-            if new_speed > 10:
-                new_speed = 1.0
-            self.settings.adjust_character_speed(new_speed)
-            debug.log('settings', f"Character speed adjusted to {new_speed}")
-        except Exception as speed_error:
-            debug.error('settings', f"Character speed adjustment error: {speed_error}")
-
+    def update_setting(self):
+        """
+        Update the setting with validated input
+        """
+        if self.current_input_field:
+            config = self.setting_configs[self.current_input_field]
+            
+            # Validate and clamp input
+            clamped_value, is_valid = self.validate_and_clamp_input(self.input_text, config)
+            
+            # Update the setting
+            setattr(self.settings, self.current_input_field, clamped_value)
+            
+            # Special handling for music volume
+            if self.current_input_field == 'bg_music_volume':
+                try:
+                    import pygame
+                    pygame.mixer.music.set_volume(clamped_value / 100)
+                except Exception as e:
+                    debug.log('settings', f"Failed to adjust music volume: {e}")
+            if not is_valid:
+                debug.log('settings', f"Invalid input for {self.current_input_field}. "
+                        f"Value clamped to {clamped_value}")
+                
     def handle_exit(self):
         """
-        Handle exiting the settings menu with change tracking
+        Handle exiting the settings menu
         
         Returns:
-            str: Appropriate screen to return to
+            str: Screen to return to
         """
-        try:
-            # Check if any settings were modified
-            settings_changed = any([
-                self.settings.bg_music_volume != self.original_settings['bg_music_volume'],
-                self.settings.window_mode != self.original_settings['window_mode'],
-                self.settings.character_speed != self.original_settings['character_speed']
-            ])
+        debug.log('settings', "Saving settings")
+        # Save settings before exiting
+        self.settings.save()
+        return 'pause' if self.from_pause else 'main_menu'
 
-            if settings_changed:
-                # Optional: Add a confirmation dialog or auto-save
-                try:
-                    # Save settings to a default config file
-                    self.settings.save_settings('config/user_settings.json')
-                    debug.log('settings', "Settings saved successfully")
-                except Exception as save_error:
-                    debug.error('settings', f"Failed to save settings: {save_error}")
-
-            # Explicitly return to the appropriate screen based on context
-            debug.log('settings', f"Exiting settings from_pause: {self.from_pause}")
-            
-            # Key change: Always return 'resume' when from pause menu
-            if self.from_pause:
-                return 'resume'
-            
-            return 'main_menu'
-
-        except Exception as exit_error:
-            debug.error('settings', f"Error handling settings exit: {exit_error}")
-            # Fallback to main menu if something goes wrong
-            return 'main_menu'
-
-    def draw_setting_label(self, text, y):
+    def draw_button(self, text, x, y, width, height, color, hover_color ):
         """
-        Draw setting label with error handling
+        Draw a button and handle hover effect
+        
+        Args:
+            text (str): Button text
+            x (int): X position
+            y (int): Y position
+            width (int): Button width
+            height (int): Button height
+            color (tuple): Button color
+            hover_color (tuple): Color when hovered
+        
+        Returns:
+            bool: True if button is clicked, False otherwise
         """
-        try:
-            font = pygame.font.Font(None, 36)
-            label = font.render(text, True, Colors.BLACK)
-            self.screen.blit(label, (50, y))
-        except Exception as label_error:
-            debug.error('settings', f"Error drawing setting label: {label_error}")
+        mouse_pos = pygame.mouse.get_pos()
+        button_rect = pygame.Rect(x, y, width, height)
+        
+        # Change color on hover
+        if button_rect.collidepoint(mouse_pos):
+            pygame.draw.rect(self.screen, hover_color, button_rect)
+            if pygame.mouse.get_pressed()[0] and button_rect.collidepoint(mouse_pos):
+                return True
+        else:
+            pygame.draw.rect(self.screen, color, button_rect)
+        
+        # Render button text
+        font = pygame.font.Font(None, 36)
+        text_surface = font.render(text, True, Colors.BLACK)
+        text_rect = text_surface.get_rect(center=button_rect.center)
+        self.screen.blit(text_surface, text_rect)
+        
+        return False
+
+    def reset_settings(self):
+        """
+        Reset settings to their original values
+        """
+        for key, original_value in self.original_settings.items():
+            setattr(self.settings, key, original_value)
+        debug.log('settings', "Settings reset to original values")
+
+    def save_settings(self):
+        """
+        Save the current settings
+        """
+        self.settings.save()
+        debug.log('settings', "Settings saved successfully")
+
 
 class PauseMenu(Menu):
     def __init__(self, screen, previous_screen, settings):

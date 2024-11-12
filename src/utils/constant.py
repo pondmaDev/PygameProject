@@ -11,6 +11,7 @@ class Colors:
     GRAY_HOVER = (125, 123,164)
     YELLOW = (255, 255, 0)
     PURPLE = (128, 0, 128)
+    LIGHTGRAY = (211,211,211)
 
     @classmethod
     def get(cls, color_name):

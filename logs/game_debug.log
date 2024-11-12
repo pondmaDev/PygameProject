@@ -535,3 +535,234 @@
 2024-11-11 16:03:03 [INFO] [RESOURCES] Successfully loaded image: red_item
 2024-11-11 16:03:03 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
 2024-11-11 16:03:03 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-11 16:12:42 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-11 16:12:42 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-11 16:12:42 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-11 16:12:42 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-11 16:12:42 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-11 16:12:42 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-11 16:12:42 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-11 16:12:42 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-11 16:12:42 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-11 16:12:42 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-11 16:12:42 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-11 16:12:42 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-11 16:12:42 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-11 16:12:42 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-11 16:12:44 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:12:44 [ERROR] [SETTINGS] Error in settings menu display: 'SettingsMenu' object has no attribute 'adjust_volume'
+2024-11-11 16:12:44 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-11 16:12:44 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:12:44 [ERROR] [SETTINGS] Error in settings menu display: 'SettingsMenu' object has no attribute 'adjust_volume'
+2024-11-11 16:12:44 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-11 16:12:44 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:12:44 [ERROR] [SETTINGS] Error in settings menu display: 'SettingsMenu' object has no attribute 'adjust_volume'
+2024-11-11 16:12:44 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-11 16:12:44 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:12:44 [ERROR] [SETTINGS] Error in settings menu display: 'SettingsMenu' object has no attribute 'adjust_volume'
+2024-11-11 16:12:44 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-11 16:12:44 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:12:44 [ERROR] [SETTINGS] Error in settings menu display: 'SettingsMenu' object has no attribute 'adjust_volume'
+2024-11-11 16:12:44 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-11 16:12:45 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:12:45 [ERROR] [SETTINGS] Error in settings menu display: 'SettingsMenu' object has no attribute 'adjust_volume'
+2024-11-11 16:12:45 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-11 16:12:45 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:12:45 [ERROR] [SETTINGS] Error in settings menu display: 'SettingsMenu' object has no attribute 'adjust_volume'
+2024-11-11 16:12:45 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-11 16:12:45 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:12:45 [ERROR] [SETTINGS] Error in settings menu display: 'SettingsMenu' object has no attribute 'adjust_volume'
+2024-11-11 16:12:45 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-11 16:12:45 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:12:45 [ERROR] [SETTINGS] Error in settings menu display: 'SettingsMenu' object has no attribute 'adjust_volume'
+2024-11-11 16:12:45 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-11 16:15:30 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-11 16:15:30 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-11 16:15:30 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-11 16:15:30 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-11 16:15:30 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-11 16:15:30 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-11 16:15:30 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-11 16:15:30 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-11 16:15:30 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-11 16:15:30 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-11 16:15:30 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-11 16:15:30 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-11 16:15:30 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-11 16:15:30 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-11 16:15:31 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:15:31 [ERROR] [SETTINGS] Error in settings menu display: type object 'Colors' has no attribute 'LIGHTGRAY'
+2024-11-11 16:15:31 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-11 16:15:31 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:15:31 [ERROR] [SETTINGS] Error in settings menu display: type object 'Colors' has no attribute 'LIGHTGRAY'
+2024-11-11 16:15:31 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-11 16:15:31 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:15:31 [ERROR] [SETTINGS] Error in settings menu display: type object 'Colors' has no attribute 'LIGHTGRAY'
+2024-11-11 16:15:31 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-11 16:15:31 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:15:31 [ERROR] [SETTINGS] Error in settings menu display: type object 'Colors' has no attribute 'LIGHTGRAY'
+2024-11-11 16:15:31 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-11 16:15:31 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:15:31 [ERROR] [SETTINGS] Error in settings menu display: type object 'Colors' has no attribute 'LIGHTGRAY'
+2024-11-11 16:15:31 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-11 16:15:31 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:15:31 [ERROR] [SETTINGS] Error in settings menu display: type object 'Colors' has no attribute 'LIGHTGRAY'
+2024-11-11 16:15:31 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-11 16:15:31 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:15:31 [ERROR] [SETTINGS] Error in settings menu display: type object 'Colors' has no attribute 'LIGHTGRAY'
+2024-11-11 16:15:31 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-11 16:15:31 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:15:31 [ERROR] [SETTINGS] Error in settings menu display: type object 'Colors' has no attribute 'LIGHTGRAY'
+2024-11-11 16:15:31 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-11 16:15:31 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:15:31 [ERROR] [SETTINGS] Error in settings menu display: type object 'Colors' has no attribute 'LIGHTGRAY'
+2024-11-11 16:15:31 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-11 16:16:18 [ERROR] [INIT] Initialization failed: type object 'Colors' has no attribute 'GRAY_HOVER'
+2024-11-11 16:16:18 [ERROR] Traceback (most recent call last):
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\game\game.py", line 26, in __init__
+    self.initialize_game_variables()
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\game\game.py", line 55, in initialize_game_variables
+    self.GRAY_HOVER = Colors.GRAY_HOVER
+                      ^^^^^^^^^^^^^^^^^
+AttributeError: type object 'Colors' has no attribute 'GRAY_HOVER'
+
+2024-11-11 16:16:18 [ERROR] [INIT] Initialization error: type object 'Colors' has no attribute 'GRAY_HOVER'
+2024-11-11 16:19:19 [ERROR] [INIT] Initialization failed: type object 'Colors' has no attribute 'GRAY_HOVER'
+2024-11-11 16:19:19 [ERROR] Traceback (most recent call last):
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\game\game.py", line 26, in __init__
+    self.initialize_game_variables()
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\game\game.py", line 55, in initialize_game_variables
+    self.GRAY_HOVER = Colors.GRAY_HOVER
+                      ^^^^^^^^^^^^^^^^^
+AttributeError: type object 'Colors' has no attribute 'GRAY_HOVER'
+
+2024-11-11 16:19:19 [ERROR] [INIT] Initialization error: type object 'Colors' has no attribute 'GRAY_HOVER'
+2024-11-11 16:20:50 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-11 16:20:50 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-11 16:20:50 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-11 16:20:50 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-11 16:20:50 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-11 16:20:50 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-11 16:20:50 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-11 16:20:50 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-11 16:20:50 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-11 16:20:50 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-11 16:20:50 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-11 16:20:50 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-11 16:20:50 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-11 16:20:50 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-11 16:20:54 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:21:14 [INFO] [SETTINGS] Invalid input: 10%
+2024-11-11 16:21:34 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-11 16:30:00 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-11 16:30:00 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-11 16:30:00 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-11 16:30:00 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-11 16:30:00 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-11 16:30:00 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-11 16:30:00 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-11 16:30:00 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-11 16:30:00 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-11 16:30:00 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-11 16:30:00 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-11 16:30:00 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-11 16:30:00 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-11 16:30:00 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-11 16:30:02 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:30:33 [INFO] [SETTINGS] Saving settings
+2024-11-11 16:30:33 [ERROR] [SETTINGS] Error displaying settings menu: 'Setting' object has no attribute 'save'
+2024-11-11 16:34:10 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-11 16:34:10 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-11 16:34:10 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-11 16:34:10 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-11 16:34:10 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-11 16:34:10 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-11 16:34:10 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-11 16:34:10 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-11 16:34:10 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-11 16:34:10 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-11 16:34:10 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-11 16:34:10 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-11 16:34:10 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-11 16:34:10 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-11 16:34:18 [INFO] [SETTINGS] Entering settings from pause menu
+2024-11-11 16:34:34 [INFO] [SETTINGS] Saving settings
+2024-11-11 16:34:34 [ERROR] [GAME] GAME LOOP CRITICAL ERROR: 'Setting' object has no attribute 'save'
+2024-11-11 16:34:34 [ERROR] [GAME] Full traceback: Traceback (most recent call last):
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\game\game.py", line 346, in game_loop
+    pause_result = self.handle_pause()
+                   ^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\game\game.py", line 205, in handle_pause
+    return self.handle_settings_from_pause()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\game\game.py", line 217, in handle_settings_from_pause
+    settings_result = settings_menu.display()
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\ui\interface.py", line 424, in display
+    return self.handle_exit()
+           ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\ui\interface.py", line 456, in handle_exit
+    self.settings.save()
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'Setting' object has no attribute 'save'
+
+2024-11-11 16:37:48 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-11 16:37:48 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-11 16:37:48 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-11 16:37:48 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-11 16:37:48 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-11 16:37:48 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-11 16:37:48 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-11 16:37:48 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-11 16:37:48 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-11 16:37:48 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-11 16:37:48 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-11 16:37:48 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-11 16:37:48 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-11 16:37:48 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-11 16:37:49 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:38:22 [INFO] [SETTINGS] Saving settings
+2024-11-11 16:38:22 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-11 16:38:25 [INFO] [SETTINGS] Entering settings menu...
+2024-11-11 16:38:28 [INFO] [SETTINGS] Saving settings
+2024-11-11 16:38:28 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-11 16:44:33 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-11 16:44:33 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-11 16:44:33 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-11 16:44:33 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-11 16:44:33 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-11 16:44:33 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-11 16:44:33 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-11 16:44:33 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-11 16:44:33 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-11 16:44:33 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-11 16:44:33 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-11 16:44:33 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-11 16:44:33 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-11 16:44:33 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-11 16:44:33 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-11 16:44:39 [INFO] [SETTINGS] Entering settings from pause menu
+2024-11-11 16:44:50 [INFO] [SETTINGS] Saving settings
+2024-11-11 16:44:51 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:04:33 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-12 20:04:33 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-12 20:04:33 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-12 20:04:33 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-12 20:04:33 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-12 20:04:33 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-12 20:04:33 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-12 20:04:33 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-12 20:04:33 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-12 20:04:33 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-12 20:04:33 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-12 20:04:33 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-12 20:04:33 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-12 20:04:33 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-12 20:04:33 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-12 20:04:41 [INFO] [SETTINGS] Entering settings menu...
+2024-11-12 20:04:47 [INFO] [SETTINGS] Invalid input for character_speed. Value clamped to 1
+2024-11-12 20:04:58 [INFO] [SETTINGS] Saving settings
+2024-11-12 20:04:58 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-12 20:05:10 [INFO] [SETTINGS] Entering settings menu...
+2024-11-12 20:05:11 [INFO] [SETTINGS] Saving settings
+2024-11-12 20:05:11 [INFO] [SETTINGS] Settings menu result: main_menu
