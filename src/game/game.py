@@ -522,6 +522,17 @@ class Game:
         self.items.append(new_item)
         debug.log('items', f"New item spawned in lane {lane} with color {color}")
     
+    def update_items(self):
+        items_to_remove = []
+        for item in self.items:
+            item.fall()
+            if item.y > self.screen_height:
+                items_to_remove.append(item)
+        for item in items_to_remove:
+            self.items.remove(item)
+        debug.log('items', "Items updated")
+    
+    
     def show_settings(self):
         """
         Display the settings menu with comprehensive error handling
@@ -573,15 +584,6 @@ class Game:
             debug.error('settings', f"Unexpected error in show_settings: {unexpected_error}")
             return 'main_menu'
     
-    def update_items(self):
-        items_to_remove = []
-        for item in self.items:
-            item.fall()
-            if item.y > self.screen_height:
-                items_to_remove.append(item)
-        for item in items_to_remove:
-            self.items.remove(item)
-        debug.log('items', "Items updated")
 
     def update_game_state(self, dt):
         # Validate delta time
@@ -672,10 +674,6 @@ class Game:
         else:
             pygame.display.set_mode((self.screen_width, self.screen_height), pygame.FULLSCREEN)
         
-        # Apply character speed
-        if self.character:
-            self.character.speed = self.settings.character_speed
-        debug.log('settings', "Settings applied")
     
     def show_game_over_screen(self):
         debug.log('game', f"Showing game over screen. Final score: {self.score}")

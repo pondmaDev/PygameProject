@@ -5,6 +5,7 @@ from config.setting import current_settings
 from src.utils.constant import Colors
 from src.utils.resource_manager import ResourceManager  # Make sure to import ResourceManager
 from src.utils.debug_section import debug
+import logging
 import re
 # Define button texts as constants
 BUTTON_TEXTS = {
@@ -253,29 +254,36 @@ class LevelSelectionMenu(Menu):
 class SettingsMenu(Menu):
     def __init__(self, screen, settings, from_pause=False):
         super().__init__(screen)
+        self.input_rects = {}
         self.settings = settings
         self.from_pause = from_pause
+        
+        # Enhanced logging
+        self.logger = logging.getLogger('SettingsMenu')
+        self.logger.setLevel(logging.DEBUG)
         
         # Input handling attributes
         self.input_active = False
         self.current_input_field = None
         self.input_text = ""
         
-        # Define input configurations with more detailed validation
+        # Expanded setting configurations with more comprehensive validation
         self.setting_configs = {
             'bg_music_volume': {
                 'label': 'Music Volume',
                 'min': 0,
                 'max': 100,
                 'type': int,
-                'description': 'Enter volume (0-100)'
+                'description': 'Adjust background music volume (0-100)',
+                'on_change': self._adjust_music_volume
             },
-            'character_speed': {
-                'label': 'Character Speed',
-                'min': 1,
-                'max': 10,
-                'type': float,
-                'description': 'Enter speed (1-10)'
+            'sound_effects_volume': {
+                'label': 'Sound Effects',
+                'min': 0,
+                'max': 100,
+                'type': int,
+                'description': 'Adjust sound effects volume (0-100)',
+                'on_change': self._adjust_sound_effects_volume
             }
         }
         
@@ -285,171 +293,366 @@ class SettingsMenu(Menu):
             for key in self.setting_configs.keys()
         }
         
-        # Input rect tracking
-        self.input_rects = {}
-        self.input_font = pygame.font.Font(None, 36)
+        # Styling
+        self.colors = {
+            'background': (240, 240, 240),  # Light gray background
+            'input_inactive': (220, 220, 220),  # Inactive input field
+            'input_active': (200, 200, 200),  # Active input field
+            'text': (0, 0, 0),  # Black text
+            'label': (50, 50, 50),  # Dark gray labels
+            'description': (100, 100, 100)  # Medium gray description
+        }
+        
+        # Fonts
+        self.title_font = pygame.font.Font(None, 48)
+        self.label_font = pygame.font.Font(None, 36)
+        self.input_font = pygame.font.Font(None, 32)
         self.description_font = pygame.font.Font(None, 24)
 
-    def validate_and_clamp_input(self, value, config):
+    def _adjust_music_volume(self, value):
+        """Adjust background music volume"""
+        try:
+            pygame.mixer.music.set_volume(value / 100)
+            self.logger.info(f"Music volume {value}")
+        except Exception as e:
+            self.logger.error(f"Failed to adjust music volume: {e}")
+
+    def _adjust_sound_effects_volume(self, value):
+        """Adjust sound effects volume"""
+        # Implement sound effects volume adjustment if applicable
+        self.logger.info(f"Sound effects {value}")
+
+    def validate_and_process_input(self, input_text: str, config):
         """
-        Validate and clamp input to the specified range
+        Comprehensive input validation and processing
         
         Args:
-            value (str): Input value
+            input_text (str): Raw input text
             config (dict): Setting configuration
         
         Returns:
             tuple: (processed_value, is_valid)
         """
         try:
-            # Remove any non-numeric characters except decimal point and minus sign
-            cleaned_value = re.sub(r'[^\d.-]', '', value)
+            # Handle boolean toggle
+            if config['type'] == bool:
+                # Case-insensitive boolean parsing
+                lower_input = input_text.lower()
+                if lower_input in ['true', '1', 'yes', 'on']:
+                    return True, True
+                elif lower_input in ['false', '0', 'no', 'off']:
+                    return False, True
+                return getattr(self.settings, self.current_input_field), False
+
+            # Numeric input validation
+            # Remove any non-numeric characters
+            cleaned_value = re.sub(r'[^\d.-]', '', input_text)
             
             # Convert to appropriate type
             processed_value = config['type'](cleaned_value)
             
-            # Clamp the value to the specified range
-            clamped_value = max(config['min'], min(processed_value, config['max']))
+            # Clamp numeric values if min/max exist
+            if 'min' in config and 'max' in config:
+                processed_value = max(config['min'], min(processed_value, config['max']))
             
-            return clamped_value, True
+            return processed_value, True
         
-        except (ValueError, TypeError):
-            # If conversion fails, return the minimum value
-            return config['min'], False
+        except (ValueError, TypeError) as e:
+            self.logger.warning(f"Invalid input for {self.current_input_field}: {e}")
+            # Return current value if conversion fails
+            return getattr(self.settings, self.current_input_field), False
 
     def display(self):
         """
-        Display the settings menu with text input
+        Enhanced settings menu display with improved UI
         """
         clock = pygame.time.Clock()
-        
+        self.input_rects = {}
         while True:
-            # Event handling
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    return 'quit'
-                
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_ESCAPE:
-                        return self.handle_exit()
+            try:
+                # Comprehensive event handling
+                for event in pygame.event.get():
+                    result = self._process_event(event)
                     
-                    # Handle input for active field
-                    if self.input_active:
-                        if event.key == pygame.K_RETURN:
-                            # Validate and update the setting
-                            self.update_setting()
-                            self.input_active = False
-                            self.current_input_field = None
-                        elif event.key == pygame.K_BACKSPACE:
-                            # Remove last character
-                            self.input_text = self.input_text[:-1]
-                        else:
-                            # Add typed character
-                            self.input_text += event.unicode
+                    # Check if event processing returned a specific screen
+                    if result:
+                        return result
                 
-                # Mouse click handling for input fields
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    # Check if a setting input field was clicked
-                    for setting_key, config in self.setting_configs.items():
-                        input_rect = self.input_rects.get(setting_key)
-                        if input_rect and input_rect.collidepoint(event.pos):
-                            self.input_active = True
-                            self.current_input_field = setting_key
-                            self.input_text = str(getattr(self.settings, setting_key))
-                        else:
-                            # Deactivate input if clicked outside
-                            self.input_active = False
-                            self.current_input_field = None
+                # Render the entire settings screen
+                self._render_settings_screen()
+                
+                # Update display
+                pygame.display.flip()
+                clock.tick(60)
             
-            # Clear screen
-            self.screen.fill(Colors.WHITE)
-            
-            # Title
-            title = self.input_font.render("Settings", True, Colors.BLACK)
-            title_rect = title.get_rect(center=(self.screen.get_width() // 2, 50))
-            self.screen.blit(title, title_rect)
-            
-            # Render settings
-            y_start = 150
-            spacing = 100
+            except Exception as e:
+                # Robust error handling
+                self.logger.error(f"Unexpected error in settings menu: {e}")
+                return 'main_menu'
+
+    def _process_event(self, event):
+        """
+        Process individual events with structured handling
+        
+        Returns:
+            str or None: Screen to return or None if no specific action
+        """
+        # Quit event
+        if event.type == pygame.QUIT:
+            return 'quit'
+        
+        # Keyboard events
+        if event.type == pygame.KEYDOWN:
+            return self._handle_keyboard_event(event)
+        
+        # Mouse events
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            return self._handle_mouse_event(event)
+        
+        return None
+    
+    def _handle_keyboard_event(self, event):
+        """
+        Handle keyboard input for settings menu
+        
+        Returns:
+            str or None: Screen to return or None
+        """
+        # Escape key handling
+        if event.key == pygame.K_ESCAPE:
+            return self.handle_exit()
+        
+        # Input field active handling
+        if self.input_active:
+            if event.key == pygame.K_RETURN:
+                # Validate and update setting
+                self.update_setting()
+                self.input_active = False
+                self.current_input_field = None
+            elif event.key == pygame.K_BACKSPACE:
+                # Remove last character with safety check
+                self.input_text = self.input_text[:-1]
+            else:
+                # Add typed character with input validation
+                self.input_text += event.unicode
+        
+        return None
+
+    def _handle_mouse_event(self, event):
+        """
+        Handle mouse input for settings menu with additional button interactions
+        """
+        mouse_pos = event.pos
+        
+        # Check back button
+        back_rect = pygame.Rect(
+            self.screen.get_width() // 2 - 100, 
+            self.screen.get_height() - 120, 
+            200, 50
+        )
+        if back_rect.collidepoint(mouse_pos):
+            return self.handle_exit()
+        
+        # Check reset button
+        reset_rect = pygame.Rect(
+            self.screen.get_width() // 2 - 250, 
+            self.screen.get_height() - 120, 
+            120, 50
+        )
+        if reset_rect.collidepoint(mouse_pos):
+            self._reset_settings()
+        
+        # Handle input field selection
+        for setting_key, config in self.setting_configs.items():
+            input_rect = self.input_rects.get(setting_key)
+            if input_rect and input_rect.collidepoint(mouse_pos):
+                self.input_active = True
+                self.current_input_field = setting_key
+                self.input_text = str(getattr(self.settings, setting_key))
+                break
+        else:
+            # Deactivate input if clicked outside
+            self.input_active = False
+            self.current_input_field = None
+    
+    def _render_settings_screen(self):
+        """
+        Comprehensive rendering of settings screen with improved UI
+        """
+        # Clear screen with soft background color
+        self.screen.fill(self.colors['background'])
+        
+        # Render title with more prominent styling
+        title = self.title_font.render("Game Settings", True, self.colors['text'])
+        title_rect = title.get_rect(center=(self.screen.get_width() // 2, 80))
+        self.screen.blit(title, title_rect)
+        
+        # Render settings fields
+        self._render_settings_fields()
+        
+        # Render action buttons
+        self._render_action_buttons()
+
+    def _render_title(self):
+        """
+        Render the settings menu title
+        """
+        title = self.input_font.render("Settings", True, Colors.BLACK)
+        title_rect = title.get_rect(center=(self.screen.get_width() // 2, 50))
+        self.screen.blit(title, title_rect)
+
+    def _render_settings_fields(self):
+        """
+        Render individual settings fields with enhanced error handling
+        """
+        try:
+            y_start = 180
+            spacing = 120
             
             for i, (setting_key, config) in enumerate(self.setting_configs.items()):
                 current_value = getattr(self.settings, setting_key)
                 
-                # Label
-                label = self.input_font.render(config['label'], True, Colors.BLACK)
-                self.screen.blit(label, (self.screen.get_width() // 2 - 250, y_start + i * spacing))
+                # Render label with improved styling
+                label = self.label_font.render(config['label'], True, self.colors['label'])
+                label_rect = label.get_rect(midleft=(
+                    self.screen.get_width() // 2 - 200, 
+                    y_start + i * spacing
+                ))
+                self.screen.blit(label, label_rect)
                 
-                # Input field
+                # Create and store input rect with rounded look
                 input_rect = pygame.Rect(
-                    self.screen.get_width() // 2 - 100, 
-                    y_start + i * spacing + 50, 
-                    200, 
+                    self.screen.get_width() // 2 + 20, 
+                    y_start + i * spacing - 15, 
+                    180, 
                     40
                 )
+                # Ensure input_rects is a dictionary before setting
+                if not hasattr(self, 'input_rects'):
+                    self.input_rects = {}
                 self.input_rects[setting_key] = input_rect
                 
-                # Draw input field
-                input_color = Colors.LIGHTGRAY if self.current_input_field == setting_key else Colors.GRAY
-                pygame.draw.rect(self.screen, input_color, input_rect)
+                # Draw input field with rounded corners and dynamic coloring
+                input_color = (
+                    self.colors['input_active'] if self.current_input_field == setting_key 
+                    else self.colors['input_inactive']
+                )
+                pygame.draw.rect(self.screen, input_color, input_rect, border_radius=10)
                 
-                # Render current value or input text
-                display_text = (self.input_text if self.current_input_field == setting_key 
-                                else str(current_value))
-                text_surface = self.input_font.render(display_text, True, Colors.BLACK)
+                # Render input text
+                display_text = (
+                    self.input_text if self.current_input_field == setting_key 
+                    else str(current_value)
+                )
+                text_surface = self.input_font.render(display_text, True, self.colors['text'])
                 text_rect = text_surface.get_rect(center=input_rect.center)
                 self.screen.blit(text_surface, text_rect)
                 
-                # Description
+                # Render description with softer color
                 description = self.description_font.render(
                     config['description'], 
                     True, 
-                    Colors.GRAY
+                    self.colors['description']
                 )
                 description_rect = description.get_rect(
-                    center=(self.screen.get_width() // 2, y_start + i * spacing + 100)
+                    center=(self.screen.get_width() // 2, y_start + i * spacing + 50)
                 )
                 self.screen.blit(description, description_rect)
-            
-            # Back button
-            back_text = 'Back to Game' if self.from_pause else 'Back'
-            if self.draw_button(
-                back_text, 
-                self.screen.get_width() // 2 - 100, 
-                self.screen.get_height() - 100, 
-                200, 50, 
-                (200, 200, 200), 
-                (150, 150, 150)
-            ):
-                return self.handle_exit()
-            
-            pygame.display.flip()
-            clock.tick(60)
+        
+        except Exception as e:
+            self.logger.error(f"Error in rendering settings fields: {e}")
+            import traceback
+            self.logger.error(traceback.format_exc())
+
+    def _render_action_buttons(self):
+        """
+        Render action buttons with modern UI styling
+        """
+        # Back button
+        back_text = 'Back to Game' if self.from_pause else 'Back'
+        back_button_rect = pygame.Rect(
+            self.screen.get_width() // 2 - 100, 
+            self.screen.get_height() - 120, 
+            200, 
+            50
+        )
+        
+        # Reset to default button
+        reset_button_rect = pygame.Rect(
+            self.screen.get_width() // 2 - 250, 
+            self.screen.get_height() - 120, 
+            120, 
+            50
+        )
+        
+        # Hover and click detection
+        mouse_pos = pygame.mouse.get_pos()
+        
+        # Draw Back button
+        back_color = (180, 180, 180) if back_button_rect.collidepoint(mouse_pos) else (200, 200, 200)
+        pygame.draw.rect(self.screen, back_color, back_button_rect, border_radius=10)
+        back_button_text = self.label_font.render(back_text, True, self.colors['text'])
+        back_text_rect = back_button_text.get_rect(center=back_button_rect.center)
+        self.screen.blit(back_button_text, back_text_rect)
+        
+        # Draw Reset button
+        reset_color = (200, 100, 100) if reset_button_rect.collidepoint(mouse_pos) else (220, 120, 120)
+        pygame.draw.rect(self.screen, reset_color, reset_button_rect, border_radius=10)
+        reset_button_text = self.label_font.render('Reset', True, self.colors['text'])
+        reset_text_rect = reset_button_text.get_rect(center=reset_button_rect.center)
+        self.screen.blit(reset_button_text, reset_text_rect)
+        
+    def _render_back_button(self):
+        """
+        Render back button with dynamic text
+        """
+        back_text = 'Back to Game' if self.from_pause else 'Back'
+        self.draw_button(
+            back_text, 
+            self.screen.get_width() // 2 - 100, 
+            self.screen.get_height() - 100, 
+            200, 50, 
+            (200, 200, 200), 
+            (150, 150, 150)
+        )
 
     def update_setting(self):
         """
-        Update the setting with validated input
+        Enhanced setting update with comprehensive validation
         """
-        if self.current_input_field:
-            config = self.setting_configs[self.current_input_field]
-            
-            # Validate and clamp input
-            clamped_value, is_valid = self.validate_and_clamp_input(self.input_text, config)
-            
-            # Update the setting
-            setattr(self.settings, self.current_input_field, clamped_value)
-            
-            # Special handling for music volume
-            if self.current_input_field == 'bg_music_volume':
-                try:
-                    import pygame
-                    pygame.mixer.music.set_volume(clamped_value / 100)
-                except Exception as e:
-                    debug.log('settings', f"Failed to adjust music volume: {e}")
-            if not is_valid:
-                debug.log('settings', f"Invalid input for {self.current_input_field}. "
-                        f"Value clamped to {clamped_value}")
-                
+        if not self.current_input_field:
+            return
+
+        config = self.setting_configs[self.current_input_field]
+        
+        # Validate and process input
+        processed_value, is_valid = self.validate_and_process_input(
+            self.input_text, 
+            config
+        )
+        
+        # Update the setting
+        setattr(self.settings, self.current_input_field, processed_value)
+        
+        # Call optional change handler
+        if 'on_change' in config:
+            config['on_change'](processed_value)
+        
+        # Log validation result
+        if not is_valid:
+            self.logger.warning(
+                f"Input for {self.current_input_field} "
+                f"clamped/adjusted to {processed_value}"
+            )
+    
+    def _reset_settings(self):
+        """
+        Reset settings to their original values
+        """
+        for key in self.original_settings:
+            setattr(self.settings, key, self.original_settings[key])
+        self.logger.info("Settings have been reset to default values.")
+
     def handle_exit(self):
         """
         Handle exiting the settings menu

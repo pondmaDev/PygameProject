@@ -766,3 +766,1202 @@ AttributeError: 'Setting' object has no attribute 'save'
 2024-11-12 20:05:10 [INFO] [SETTINGS] Entering settings menu...
 2024-11-12 20:05:11 [INFO] [SETTINGS] Saving settings
 2024-11-12 20:05:11 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-12 20:23:19 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-12 20:23:19 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-12 20:23:19 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-12 20:23:19 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-12 20:23:19 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-12 20:23:19 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-12 20:23:19 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-12 20:23:19 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-12 20:23:19 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-12 20:23:19 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-12 20:23:19 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-12 20:23:19 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-12 20:23:19 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-12 20:23:19 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-12 20:23:19 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-12 20:23:31 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:23:32 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:23:33 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:23:37 [INFO] [SETTINGS] Entering settings from pause menu
+2024-11-12 20:23:44 [INFO] [SETTINGS] Saving settings
+2024-11-12 20:23:44 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:23:46 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:23:54 [INFO] [SETTINGS] Entering settings menu...
+2024-11-12 20:23:54 [INFO] [SETTINGS] Saving settings
+2024-11-12 20:23:54 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-12 20:23:56 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-12 20:23:56 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-12 20:23:56 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-12 20:23:56 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-12 20:23:56 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-12 20:23:56 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-12 20:23:56 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-12 20:23:56 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-12 20:23:56 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-12 20:23:56 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-12 20:23:56 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-12 20:23:56 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-12 20:23:56 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-12 20:23:56 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-12 20:23:56 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-12 20:31:32 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-12 20:31:32 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-12 20:31:32 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-12 20:31:32 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-12 20:31:32 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-12 20:31:32 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-12 20:31:32 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-12 20:31:32 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-12 20:31:32 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-12 20:31:32 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-12 20:31:32 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-12 20:31:32 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-12 20:31:32 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-12 20:31:32 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-12 20:31:32 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-12 20:31:54 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:31:57 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:31:57 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:31:59 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:01 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:02 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:05 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:32:06 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:07 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:08 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:09 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:12 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:13 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:16 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:24 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:25 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:25 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:27 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:28 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:31 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:34 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:36 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:36 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:38 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:41 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:41 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:42 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:42 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:43 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:46 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:32:47 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:50 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:53 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:54 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:54 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:32:55 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:56 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:57 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:32:58 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:32:59 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:00 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:33:01 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:02 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:03 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:05 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:07 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:09 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:12 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:13 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:14 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:16 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:17 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:18 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:20 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:21 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:23 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:25 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:27 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:29 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:32 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:33:33 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:33 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:34 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:37 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:37 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:40 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:33:40 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:33:42 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:43 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:43 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:45 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:45 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:46 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:47 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:49 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:51 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:53 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:53 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:54 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:55 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:57 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:57 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:59 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:33:59 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:01 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:02 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:03 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:06 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:34:06 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:07 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:08 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:10 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:34:10 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:11 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:14 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:14 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:16 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:19 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:19 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:34:20 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:22 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:24 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:25 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:34:25 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:27 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:29 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:31 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:32 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:33 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:35 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:35 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:34:46 [INFO] [SETTINGS] Entering settings from pause menu
+2024-11-12 20:34:53 [INFO] [SETTINGS] Saving settings
+2024-11-12 20:35:00 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:35:01 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:35:01 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:35:03 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:35:06 [INFO] [SETTINGS] Entering settings menu...
+2024-11-12 20:35:07 [INFO] [SETTINGS] Saving settings
+2024-11-12 20:35:07 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-12 20:35:16 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:35:22 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:35:22 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:35:24 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:35:26 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:35:26 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:35:28 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:35:28 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:35:30 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:35:32 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:35:34 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:35:36 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:35:37 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:35:40 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:35:42 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:35:42 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:35:44 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:35:46 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:35:46 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:35:47 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:35:48 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:35:49 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:35:50 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:35:52 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:35:52 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:35:54 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:35:54 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:35:56 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:35:58 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:35:58 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:36:00 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:36:00 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:36:02 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:36:04 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:36:05 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:36:06 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:36:08 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:36:09 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:36:10 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:36:12 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:36:14 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:36:16 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:36:18 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:36:20 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:36:22 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:36:23 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:36:26 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:36:29 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:36:32 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:36:33 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:36:34 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:36:35 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:36:38 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:36:39 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:36:41 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:36:44 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:36:45 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:36:47 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:36:53 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:36:55 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:36:56 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:36:57 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:37:06 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:37:08 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:37:09 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:37:19 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:37:21 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:37:22 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:37:23 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:37:29 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:37:43 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:37:47 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:37:49 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:37:54 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:37:55 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:37:57 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:37:59 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:38:01 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:38:02 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:03 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:38:05 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:38:06 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:07 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:09 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:10 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:11 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:12 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:38:13 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:15 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:15 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:38:18 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:19 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:21 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:21 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:38:23 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:25 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:27 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:38:29 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:38:32 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:33 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:34 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:35 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:38:36 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:38:37 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:39 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:38:39 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:41 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:43 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:45 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:38:45 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:47 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:49 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-12 20:38:51 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-12 20:38:53 [INFO] [SETTINGS] Entering settings menu...
+2024-11-12 20:38:55 [INFO] [SETTINGS] Saving settings
+2024-11-12 20:38:55 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-16 02:55:50 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-16 02:55:50 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-16 02:55:50 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-16 02:55:50 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-16 02:55:50 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-16 02:55:50 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-16 02:55:50 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-16 02:55:50 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-16 02:55:50 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-16 02:55:50 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-16 02:55:50 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-16 02:55:50 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-16 02:55:50 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-16 02:55:50 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-16 02:55:50 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-16 02:55:52 [INFO] [SETTINGS] Entering settings menu...
+2024-11-16 02:56:00 [INFO] Music volume set to 25
+2024-11-16 02:56:07 [INFO] Sound effects volume set to 10
+2024-11-16 02:56:16 [INFO] Fullscreen mode enabled
+2024-11-16 02:56:23 [INFO] Fullscreen mode disabled
+2024-11-16 02:56:26 [INFO] [SETTINGS] Saving settings
+2024-11-16 02:56:26 [ERROR] Unexpected error in settings menu: 'Settings' object has no attribute 'save'
+2024-11-16 02:56:26 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:38 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:39 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:40 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 02:56:41 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:04:34 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-16 03:04:34 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-16 03:04:34 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-16 03:04:34 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-16 03:04:34 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-16 03:04:34 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-16 03:04:34 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-16 03:04:34 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-16 03:04:34 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-16 03:04:34 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-16 03:04:34 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-16 03:04:34 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-16 03:04:34 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-16 03:04:34 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-16 03:04:34 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-16 03:04:35 [INFO] [SETTINGS] Entering settings menu...
+2024-11-16 03:04:35 [ERROR] Unexpected error in settings menu: 'SettingsMenu' object has no attribute 'input_rects'
+2024-11-16 03:04:35 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-16 03:04:35 [INFO] [SETTINGS] Entering settings menu...
+2024-11-16 03:04:35 [ERROR] Unexpected error in settings menu: 'SettingsMenu' object has no attribute 'input_rects'
+2024-11-16 03:04:35 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-16 03:04:35 [INFO] [SETTINGS] Entering settings menu...
+2024-11-16 03:04:35 [ERROR] Unexpected error in settings menu: 'SettingsMenu' object has no attribute 'input_rects'
+2024-11-16 03:04:35 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-16 03:06:56 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-16 03:06:56 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-16 03:06:56 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-16 03:06:56 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-16 03:06:56 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-16 03:06:56 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-16 03:06:56 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-16 03:06:56 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-16 03:06:56 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-16 03:06:56 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-16 03:06:56 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-16 03:06:56 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-16 03:06:56 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-16 03:06:56 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-16 03:06:56 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-16 03:06:56 [ERROR] [MENU] Failed to initialize settings menu: 'SettingsMenu' object has no attribute '_adjust_music_volume'
+2024-11-16 03:06:56 [ERROR] [MENU] Menu initialization completely failed: 'SettingsMenu' object has no attribute '_adjust_music_volume'
+2024-11-16 03:06:56 [ERROR] Traceback (most recent call last):
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\game\game.py", line 115, in initialize_menus
+    self.settings_menu = SettingsMenu(self.screen, current_settings)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\ui\interface.py", line 280, in __init__
+    'on_change': self._adjust_music_volume
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SettingsMenu' object has no attribute '_adjust_music_volume'
+
+2024-11-16 03:06:56 [ERROR] [INIT] Initialization failed: 'SettingsMenu' object has no attribute '_adjust_music_volume'
+2024-11-16 03:06:56 [ERROR] Traceback (most recent call last):
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\game\game.py", line 35, in __init__
+    self.initialize_menus()
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\game\game.py", line 115, in initialize_menus
+    self.settings_menu = SettingsMenu(self.screen, current_settings)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\ui\interface.py", line 280, in __init__
+    'on_change': self._adjust_music_volume
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SettingsMenu' object has no attribute '_adjust_music_volume'
+
+2024-11-16 03:06:56 [ERROR] [INIT] Initialization error: 'SettingsMenu' object has no attribute '_adjust_music_volume'
+2024-11-16 03:07:33 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-16 03:07:33 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-16 03:07:33 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-16 03:07:33 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-16 03:07:33 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-16 03:07:33 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-16 03:07:33 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-16 03:07:33 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-16 03:07:33 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-16 03:07:33 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-16 03:07:33 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-16 03:07:33 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-16 03:07:33 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-16 03:07:33 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-16 03:07:33 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-16 03:07:34 [INFO] [SETTINGS] Entering settings menu...
+2024-11-16 03:07:34 [ERROR] Unexpected error in settings menu: 'SettingsMenu' object has no attribute 'input_rects'
+2024-11-16 03:07:34 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-16 03:07:34 [INFO] [SETTINGS] Entering settings menu...
+2024-11-16 03:07:34 [ERROR] Unexpected error in settings menu: 'SettingsMenu' object has no attribute 'input_rects'
+2024-11-16 03:07:34 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-16 03:07:34 [INFO] [SETTINGS] Entering settings menu...
+2024-11-16 03:07:34 [ERROR] Unexpected error in settings menu: 'SettingsMenu' object has no attribute 'input_rects'
+2024-11-16 03:07:34 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-16 03:07:34 [INFO] [SETTINGS] Entering settings menu...
+2024-11-16 03:07:34 [ERROR] Unexpected error in settings menu: 'SettingsMenu' object has no attribute 'input_rects'
+2024-11-16 03:07:34 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-16 03:09:31 [ERROR] [GLOBAL] Uncaught exception: IndentationError: unindent does not match any outer indentation level (interface.py, line 312)
+2024-11-16 03:09:31 [ERROR] NoneType: None
+
+2024-11-16 03:09:43 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-16 03:09:43 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-16 03:09:43 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-16 03:09:43 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-16 03:09:43 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-16 03:09:43 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-16 03:09:43 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-16 03:09:44 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-16 03:09:44 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-16 03:09:44 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-16 03:09:44 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-16 03:09:44 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-16 03:09:44 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-16 03:09:44 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-16 03:09:44 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-16 03:09:44 [INFO] [SETTINGS] Entering settings menu...
+2024-11-16 03:09:54 [INFO] Sound effects volume set to 25
+2024-11-16 03:09:59 [INFO] Music volume set to 15
+2024-11-16 03:10:01 [INFO] Settings have been reset to default values.
+2024-11-16 03:11:00 [INFO] [SETTINGS] Saving settings
+2024-11-16 03:11:00 [ERROR] Unexpected error in settings menu: 'Settings' object has no attribute 'save'
+2024-11-16 03:11:00 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-16 03:11:02 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-16 03:11:02 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-16 03:11:02 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-16 03:11:02 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-16 03:11:02 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-16 03:11:02 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-16 03:11:02 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-16 03:11:02 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-16 03:11:02 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-16 03:11:02 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-16 03:11:02 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-16 03:11:02 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-16 03:11:02 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-16 03:11:02 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-16 03:11:02 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-16 03:11:03 [INFO] [SETTINGS] Entering settings menu...
+2024-11-16 03:11:06 [INFO] [SETTINGS] Saving settings
+2024-11-16 03:11:06 [ERROR] Unexpected error in settings menu: 'Settings' object has no attribute 'save'
+2024-11-16 03:11:06 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-16 03:11:09 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-16 03:11:09 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-16 03:11:09 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-16 03:11:09 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-16 03:11:09 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-16 03:11:09 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-16 03:11:09 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-16 03:11:09 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-16 03:11:09 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-16 03:11:09 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-16 03:11:09 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-16 03:11:09 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-16 03:11:09 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-16 03:11:09 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-16 03:11:09 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-16 03:11:10 [INFO] [SETTINGS] Entering settings menu...
+2024-11-16 03:11:18 [INFO] [SETTINGS] Saving settings
+2024-11-16 03:11:18 [ERROR] Unexpected error in settings menu: 'Settings' object has no attribute 'save'
+2024-11-16 03:11:18 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-16 03:11:31 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-16 03:11:31 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-16 03:11:31 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-16 03:11:31 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-16 03:11:31 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-16 03:11:31 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-16 03:11:31 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-16 03:11:31 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-16 03:11:31 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-16 03:11:31 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-16 03:11:31 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-16 03:11:31 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-16 03:11:31 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-16 03:11:31 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-16 03:11:31 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-16 03:11:33 [INFO] [SETTINGS] Entering settings menu...
+2024-11-16 03:12:19 [INFO] [SETTINGS] Settings menu result: quit
+2024-11-16 03:12:24 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-16 03:12:24 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-16 03:12:24 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-16 03:12:24 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-16 03:12:24 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-16 03:12:24 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-16 03:12:24 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-16 03:12:24 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-16 03:12:24 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-16 03:12:25 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-16 03:12:25 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-16 03:12:25 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-16 03:12:25 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-16 03:12:25 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-16 03:12:25 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-16 03:12:25 [INFO] [SETTINGS] Entering settings menu...
+2024-11-16 03:12:53 [INFO] [SETTINGS] Saving settings
+2024-11-16 03:12:53 [ERROR] Unexpected error in settings menu: 'Settings' object has no attribute 'save'
+2024-11-16 03:12:53 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-16 03:12:54 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:54 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:54 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:54 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:54 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:54 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:55 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:56 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:56 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:56 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:56 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:56 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:56 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:56 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:56 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:56 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:56 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:56 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:56 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:56 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:56 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:56 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:56 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:56 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:12:56 [ERROR] [WORLD] Error updating world scroll: 'Settings' object has no attribute 'get_level_scroll_multiplier'
+2024-11-16 03:16:28 [ERROR] [GLOBAL] Uncaught exception: AttributeError: 'Settings' object has no attribute 'setting_validations'
+2024-11-16 03:16:28 [ERROR] NoneType: None
+
+2024-11-16 03:19:00 [ERROR] [GLOBAL] Uncaught exception: AttributeError: 'Settings' object has no attribute 'setting_validations'
+2024-11-16 03:19:00 [ERROR] NoneType: None
+
+2024-11-16 03:20:44 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-16 03:20:44 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-16 03:20:44 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-16 03:20:44 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-16 03:20:44 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-16 03:20:44 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-16 03:20:44 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-16 03:20:44 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-16 03:20:44 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-16 03:20:44 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-16 03:20:44 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-16 03:20:44 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-16 03:20:44 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-16 03:20:44 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-16 03:20:44 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-16 03:20:45 [INFO] [SETTINGS] Entering settings menu...
+2024-11-16 03:20:47 [INFO] [SETTINGS] Saving settings
+2024-11-16 03:20:47 [ERROR] Unexpected error in settings menu: 'Settings' object has no attribute 'save'
+2024-11-16 03:20:47 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-16 03:20:48 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:48 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:48 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:48 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:48 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:48 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:48 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:48 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:48 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:48 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:48 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:48 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:48 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:48 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:48 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:48 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:49 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:50 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:20:51 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:57 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-16 03:21:57 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-16 03:21:57 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-16 03:21:57 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-16 03:21:57 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-16 03:21:57 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-16 03:21:57 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-16 03:21:57 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-16 03:21:57 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-16 03:21:57 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-16 03:21:57 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-16 03:21:57 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-16 03:21:57 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-16 03:21:57 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-16 03:21:57 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-16 03:21:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:21:59 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:22:00 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:22:00 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:22:00 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:22:00 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:22:00 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:22:00 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:22:00 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:22:00 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:22:00 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:22:00 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:22:00 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:22:00 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:33 [ERROR] [GLOBAL] Uncaught exception: IndentationError: unindent does not match any outer indentation level (setting.py, line 111)
+2024-11-16 03:23:33 [ERROR] NoneType: None
+
+2024-11-16 03:23:41 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-16 03:23:41 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-16 03:23:41 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-16 03:23:41 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-16 03:23:41 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-16 03:23:41 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-16 03:23:41 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-16 03:23:41 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-16 03:23:41 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-16 03:23:41 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-16 03:23:41 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-16 03:23:41 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-16 03:23:41 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-16 03:23:41 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-16 03:23:41 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-16 03:23:43 [INFO] [SETTINGS] Entering settings menu...
+2024-11-16 03:23:47 [INFO] Music volume 100
+2024-11-16 03:23:48 [INFO] [SETTINGS] Saving settings
+2024-11-16 03:23:48 [ERROR] Unexpected error in settings menu: 'Settings' object has no attribute 'save'
+2024-11-16 03:23:48 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:57 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:23:58 [ERROR] [WORLD] Error updating world scroll: Settings.get_level_scroll_multiplier() takes 1 positional argument but 2 were given
+2024-11-16 03:25:08 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-16 03:25:08 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-16 03:25:08 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-16 03:25:08 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-16 03:25:08 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-16 03:25:08 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-16 03:25:08 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-16 03:25:08 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-16 03:25:08 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-16 03:25:08 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-16 03:25:08 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-16 03:25:08 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-16 03:25:08 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-16 03:25:08 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-16 03:25:08 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format

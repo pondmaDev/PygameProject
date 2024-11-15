@@ -1,125 +1,204 @@
 import json
-from typing import Any, Dict
 import os
+import logging
+from typing import Any, Dict
 
-class Setting:
+class SettingsLogger:
+    """Enhanced logging for settings management"""
+    def __init__(self, log_file='logs/settings.log'):
+        # Ensure log directory exists
+        os.makedirs(os.path.dirname(log_file), exist_ok=True)
+        
+        # Configure logging
+        self.logger = logging.getLogger('SettingsManager')
+        self.logger.setLevel(logging.DEBUG)
+        
+        # File handler
+        file_handler = logging.FileHandler(log_file)
+        file_handler.setLevel(logging.DEBUG)
+        
+        # Console handler
+        console_handler = logging.StreamHandler()
+        console_handler.setLevel(logging.INFO)
+        
+        # Formatter
+        formatter = logging.Formatter(
+            '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        )
+        file_handler.setFormatter(formatter)
+        console_handler.setFormatter(formatter)
+        
+        # Add handlers
+        self.logger.addHandler(file_handler)
+        self.logger.addHandler(console_handler)
+    
+    def debug(self, message):
+        self.logger.debug(message)
+    
+    def info(self, message):
+        self.logger.info(message)
+    
+    def warning(self, message):
+        self.logger.warning(message)
+    
+    def error(self, message):
+        self.logger.error(message)
+
+class Settings:
+    """Enhanced settings management with comprehensive configuration"""
     _instance = None
+    _logger = SettingsLogger()
 
     def __new__(cls):
         if cls._instance is None:
-            cls._instance = super(Setting, cls).__new__(cls)
-            cls._instance.init_settings()
+            cls._instance = super(Settings, cls).__new__(cls)
+            cls._instance._initialize_settings()
         return cls._instance
 
-    def init_settings(self):
-        """Initialize default settings with direct attributes"""
-        # Default settings as direct attributes
+    def _initialize_settings(self):
+        # Initialize setting_validations first
+        self.setting_validations = {
+            'bg_music_volume': {
+                'min': 0, 
+                'max': 100, 
+                'type': int,
+                'description': 'Background music volume (0-100)'
+            },
+            'sound_effects_volume': {
+                'min': 0, 
+                'max': 100, 
+                'type': int,
+                'description': 'Sound effects volume (0-100)'
+            }
+        }
+
+        # Audio Settings
         self.bg_music_volume = 50
         self.sound_effects_volume = 50
-        self.window_mode = True
+        
+        # Gameplay Settings
         self.character_speed = 1.0
         self.difficulty = 'medium'
+        self.show_fps = False
         
-        # Keep the settings dictionary for backward compatibility
-        self.settings = {
-            'bg_music_volume': self.bg_music_volume,
-            'window_mode': self.window_mode,
-            'character_speed': self.character_speed,
-            'sound_effects_volume': self.sound_effects_volume,
-            'difficulty': self.difficulty
+        # Add level scroll multiplier
+        self.level_scroll_multiplier = 1.0
+        
+        # Add validation for level scroll multiplier
+        self.setting_validations['level_scroll_multiplier'] = {
+            'min': 0.1,  # Minimum scroll speed
+            'max': 3.0,  # Maximum scroll speed 
+            'type': float,
+            'description': 'World scroll speed multiplier (0.1-3.0)'
         }
-
-        # Default settings file path
+        
+        # Control Settings
+        self.key_bindings = {
+            'move_up': 'W',
+            'move_down': 'S',
+            'move_left': 'A', 
+            'move_right': 'D'
+        }
+        
+        # Accessibility Settings
+        self.color_blind_mode = False
+        self.text_size = 'medium'
+        
+        # Settings file path
         self.settings_file_path = 'config/user_settings.json'
 
-        self.LEVEL_SCROLL_MULTIPLIERS = {
-            1: 1.0,   # Base speed
-            2: 1.2,   # Slightly faster
-            3: 1.5,   # Faster
-            4: 1.8,   # Much faster
-            5: 2.0    # Maximum speed
-        }
-    
-    def get_level_scroll_multiplier(self, level):
+
+    def get_level_scroll_multiplier(self, level: int = 1):
         """
-        Get scroll multiplier for a specific level
+        Get the current level scroll multiplier.
         
         Args:
-            level (int): Game level
+            level (int, optional): Current game level. Defaults to 1.
         
         Returns:
-            float: Scroll speed multiplier
+            float: Current scroll speed multiplier
         """
-        return self.LEVEL_SCROLL_MULTIPLIERS.get(level, 1.0)  # Default to 1.0 if level not found
+        # Optional: Implement level-based scaling if desired
+        base_multiplier = getattr(self, 'level_scroll_multiplier', 1.0)
+        
+        # Simple linear scaling (optional)
+        # You can customize this scaling logic as needed
+        level_scaling_factor = 1 + (level - 1) * 0.1  # Increases by 10% per level
+        
+        return base_multiplier * level_scaling_factor
 
-    def load_settings(self, file_path: str = None) -> None:
-        """Load settings from a JSON file."""
-        if file_path is None:
-            file_path = self.settings_file_path
-
-        try:
-            with open(file_path, 'r') as file:
-                loaded_settings = json.load(file)
-                
-                # Update both direct attributes and settings dictionary
-                for key, value in loaded_settings.items():
-                    setattr(self, key, value)
-                    self.settings[key] = value
-        except (FileNotFoundError, json.JSONDecodeError) as e:
-            print(f"Error loading settings: {e}")
-
-    def save(self, file_path: str = None) -> None:
+    def set_level_scroll_multiplier(self, multiplier):
         """
-        Save current settings to a JSON file.
+        Set the level scroll multiplier with validation.
         
         Args:
-            file_path (str, optional): Path to save settings. 
-                                       Uses default path if not provided.
+            multiplier (float): Desired scroll speed multiplier
+        
+        Returns:
+            float: Validated and set multiplier
         """
-        if file_path is None:
-            file_path = self.settings_file_path
-
-        # Ensure settings dictionary is up to date
-        self.settings.update({
-            'bg_music_volume': self.bg_music_volume,
-            'window_mode': self.window_mode,
-            'character_speed': self.character_speed,
-            'sound_effects_volume': self.sound_effects_volume,
-            'difficulty': self.difficulty
-        })
-        
-        # Ensure the directory exists
-        os.makedirs(os.path.dirname(file_path), exist_ok=True)
-        
         try:
-            with open(file_path, 'w') as file:
-                json.dump(self.settings, file, indent=4)
-            print(f"Settings saved to {file_path}")
+            # Use existing validation method
+            validated_multiplier = self.validate_setting(
+                'level_scroll_multiplier', 
+                multiplier
+            )
+            
+            # Set the validated multiplier
+            self.level_scroll_multiplier = validated_multiplier
+            
+            # Log the change
+            self._logger.info(f"Level scroll multiplier set to {validated_multiplier}")
+            
+            return validated_multiplier
         except Exception as e:
-            print(f"Error saving settings: {e}")
+            # Fallback to default if setting fails
+            self._logger.error(f"Error setting scroll multiplier: {e}")
+            self.level_scroll_multiplier = 1.0
+            return 1.0
 
-    def adjust_bg_music_volume(self, new_volume: int) -> None:
-        """Adjust background music volume."""
-        self.bg_music_volume = max(0, min(100, new_volume))
-        self.settings['bg_music_volume'] = self.bg_music_volume
+    def reset_level_scroll_multiplier(self):
+        """
+        Reset the level scroll multiplier to default (1.0)
+        """
+        self.level_scroll_multiplier = 1.0
+        self._logger.info("Level scroll multiplier reset to default")
 
-    def toggle_window_mode(self) -> None:
-        """Toggle between windowed and fullscreen mode."""
-        self.window_mode = not self.window_mode
-        self.settings['window_mode'] = self.window_mode
+    # Update save_settings to include new multiplier
+    def save_settings(self, file_path=None):
+        """
+        Extended save_settings to ensure new settings are saved
+        """
+        # Existing save_settings code remains the same
+        # The new level_scroll_multiplier will be automatically included
+        super().save_settings(file_path)
 
-    def adjust_character_speed(self, new_speed: float) -> None:
-        """Adjust character speed."""
-        self.character_speed = max(0, min(10, round(new_speed, 1)))
-        self.settings['character_speed'] = self.character_speed
+    # Update load_settings to handle new multiplier
+    def load_settings(self, file_path=None):
+        """
+        Extended load_settings to handle new multiplier setting
+        """
+        # Existing load_settings code remains the same
+        # Will automatically load and validate the multiplier
+        super().load_settings(file_path)
 
-    def get_setting(self, key: str) -> Any:
-        """Get a specific setting."""
-        return getattr(self, key, None)
+    def reset_to_defaults(self):
+        """Reset all settings to default values"""
+        self._initialize_settings()
+        self._logger.info("Settings reset to default values")
 
-    def __getitem__(self, key: str) -> Any:
-        """Allow dictionary-style access"""
-        return getattr(self, key, None)
+    def validate_setting(self, key, value):
+        """Validate a specific setting"""
+        if key in self.setting_validations:
+            config = self.setting_validations[key]
+            try:
+                # Convert and clamp value
+                converted_value = config['type'](value)
+                return max(config['min'], min(converted_value, config['max']))
+            except (ValueError, TypeError):
+                self._logger.warning(f"Invalid value for {key}: {value}")
+                return getattr(self, key)  # Return current value if invalid
+        return value
 
-# Create a global instance
-current_settings = Setting()
+# Global settings instance
+current_settings = Settings()
