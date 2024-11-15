@@ -1,5 +1,6 @@
 import pygame
 import sys
+import time
 from src.game.game_state import current_game_state
 from config.setting import current_settings
 from src.utils.constant import Colors
@@ -127,10 +128,18 @@ class MainMenu(Menu):
             button_x = screen_width // 2 - button_width // 2
             
             # Title
-            font = pygame.font.Font(None, 74)
+            font = pygame.font.Font('assets/font/River Adventurer.ttf', 100)
             title_text = font.render('Collect Cat', True, Colors.BLACK)
+            if int(time.time() * 2) % 2 == 0:  # กระพริบข้อความทุกๆ ครึ่งวินาที
+                title_text = font.render('Collect Cat', True, pygame.Color(50, 50, 50))
+            else:
+                title_text = font.render('Collect Cat', True,  pygame.Color(139, 69, 19))
+
             title_rect = title_text.get_rect(center=(screen_width // 2, 100))
+            mouse_x, mouse_y = pygame.mouse.get_pos()
+            text_color = pygame.Color(128, 128, 128) if title_rect.collidepoint(mouse_x, mouse_y) else Colors.BLACK  
             self.screen.blit(title_text, title_rect)
+
 
             # Button positions
             start_button_y = 250
@@ -144,6 +153,11 @@ class MainMenu(Menu):
 
             # Settings Button
             if self.draw_button('Settings', button_x, settings_button_y, button_width, button_height, (200, 200, 200), (150, 150, 150)):
+                # font = pygame.font.Font(None, 36)  # ตั้งค่าฟอนต์และขนาด
+                # text = font.render('Settings', True, (50, 200, 200))  # สีข้อความ
+                # text_rect = text.get_rect(center=(button_x + button_width // 2, settings_button_y + button_height // 2))
+                # self.screen.blit(text, text_rect)
+
                 debug.log('menu', "Settings selected")
                 return 'settings'
 
