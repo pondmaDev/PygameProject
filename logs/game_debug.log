@@ -2025,3 +2025,76 @@ AttributeError: 'SettingsMenu' object has no attribute '_adjust_music_volume'
 2024-11-16 13:39:07 [INFO] [SETTINGS] Saving settings
 2024-11-16 13:39:07 [INFO] Settings saved to config/user_settings.json
 2024-11-16 13:39:07 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-16 14:10:41 [ERROR] [GLOBAL] Uncaught exception: ImportError: cannot import name 'DIRECTION_LTR' from 'pygame' (C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\venv\Lib\site-packages\pygame\__init__.py)
+2024-11-16 14:10:41 [ERROR] NoneType: None
+
+2024-11-16 14:20:45 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-16 14:20:45 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-16 14:20:45 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-16 14:20:45 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-16 14:20:45 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-16 14:20:45 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-16 14:20:45 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-16 14:20:45 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-16 14:20:45 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-16 14:20:45 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-16 14:20:45 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-16 14:20:45 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-16 14:20:45 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-16 14:20:45 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-16 14:20:45 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-16 14:20:48 [ERROR] [GAME] GAME LOOP LOGIC ERROR: 'Game' object has no attribute 'score'
+2024-11-16 14:20:48 [ERROR] [GAME] Full traceback: Traceback (most recent call last):
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\game\game.py", line 391, in game_loop
+    game_over_result = self.check_collisions()
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\game\game.py", line 275, in check_collisions
+    return self.show_game_over_screen()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject\src\game\game.py", line 688, in show_game_over_screen
+    debug.log('game', f"Showing game over screen. Final score: {self.score}")
+                                                                ^^^^^^^^^^
+AttributeError: 'Game' object has no attribute 'score'
+
+2024-11-16 14:23:24 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-16 14:23:24 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-16 14:23:24 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-16 14:23:24 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-16 14:23:24 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-16 14:23:24 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-16 14:23:24 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-16 14:23:24 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-16 14:23:24 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-16 14:23:24 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-16 14:23:24 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-16 14:23:24 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-16 14:23:24 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-16 14:23:24 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-16 14:23:24 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-16 14:25:05 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-16 14:25:05 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-16 14:25:05 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-16 14:25:05 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-16 14:25:05 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-16 14:25:05 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-16 14:25:05 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-16 14:25:05 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-16 14:25:05 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-16 14:25:05 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-16 14:25:05 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-16 14:25:05 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-16 14:25:05 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-16 14:25:05 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-16 14:25:05 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-16 14:25:22 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:25:25 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:25:35 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:25:40 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:25:51 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:25:52 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:25:56 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:25:59 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:26:05 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:26:08 [INFO] [SETTINGS] Entering settings from pause menu
+2024-11-16 14:26:09 [INFO] [SETTINGS] Saving settings
+2024-11-16 14:26:09 [INFO] Settings saved to config/user_settings.json
