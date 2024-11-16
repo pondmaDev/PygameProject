@@ -164,23 +164,73 @@ class Settings:
         self.level_scroll_multiplier = 1.0
         self._logger.info("Level scroll multiplier reset to default")
 
+    def save(self, file_path=None):
+        """
+        Save settings to a file.
+        If no file path is provided, use the default settings file path.
+        """
+        try:
+            # Use the default settings file path if not provided
+            if file_path is None:
+                file_path = self.settings_file_path
+            
+            # Ensure the directory exists
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
+            
+            # Call the extended save_settings method
+            self.save_settings(file_path)
+            
+            # Log successful save
+            self._logger.info(f"Settings saved to {file_path}")
+        except Exception as e:
+            # Log the error
+            self._logger.error(f"Error saving settings: {e}")
+            print(f"Error saving settings: {e}")
+
+    def load(self, file_path):
+        """
+        Load settings from a file.
+        """
+        try:
+            # Call the extended load_settings method
+            self.load_settings(file_path)
+        except Exception as e:
+            print(f"Error loading settings: {e}")
+
     # Update save_settings to include new multiplier
     def save_settings(self, file_path=None):
         """
         Extended save_settings to ensure new settings are saved
         """
-        # Existing save_settings code remains the same
-        # The new level_scroll_multiplier will be automatically included
-        super().save_settings(file_path)
+        settings_data = {
+            'level_scroll_multiplier': self.level_scroll_multiplier,
+            # Add other settings attributes here
+        }
+        
+        if file_path:
+            with open(file_path, 'w') as f:
+                json.dump(settings_data, f)
+        else:
+            # Handle the case where no file_path is provided
+            print("No file path provided for saving settings.")
 
-    # Update load_settings to handle new multiplier
     def load_settings(self, file_path=None):
         """
         Extended load_settings to handle new multiplier setting
         """
-        # Existing load_settings code remains the same
-        # Will automatically load and validate the multiplier
-        super().load_settings(file_path)
+        if file_path:
+            try:
+                with open(file_path, 'r') as f:
+                    settings_data = json.load(f)
+                    self.level_scroll_multiplier = settings_data.get('level_scroll_multiplier', 1.0)
+                    # Load other settings attributes here
+            except FileNotFoundError:
+                print("Settings file not found.")
+            except json.JSONDecodeError:
+                print("Error decoding JSON from settings file.")
+        else:
+            # Handle the case where no file_path is provided
+            print("No file path provided for loading settings.")
 
     def reset_to_defaults(self):
         """Reset all settings to default values"""
