@@ -2098,3 +2098,169 @@ AttributeError: 'Game' object has no attribute 'score'
 2024-11-16 14:26:08 [INFO] [SETTINGS] Entering settings from pause menu
 2024-11-16 14:26:09 [INFO] [SETTINGS] Saving settings
 2024-11-16 14:26:09 [INFO] Settings saved to config/user_settings.json
+2024-11-16 14:35:13 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-16 14:35:13 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-16 14:35:13 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-16 14:35:13 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-16 14:35:13 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-16 14:35:13 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-16 14:35:13 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-16 14:35:13 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-16 14:35:13 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-16 14:35:13 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-16 14:35:13 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-16 14:35:13 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-16 14:35:13 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-16 14:35:13 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-16 14:35:13 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-16 14:35:27 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:35:27 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:35:29 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:35:32 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:35:32 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:35:34 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:35:35 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:35:36 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:35:38 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:35:38 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:35:39 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:35:40 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:35:41 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:35:42 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:35:44 [INFO] [COLLISION] Collision detected! Item points: 15
+2024-11-16 14:35:45 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:35:47 [INFO] [COLLISION] Collision detected! Item points: -100
+2024-11-16 14:35:50 [INFO] [COLLISION] Collision detected! Item points: 15
+2024-11-16 14:35:51 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:35:51 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:35:52 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:35:54 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:35:56 [INFO] [COLLISION] Collision detected! Item points: 15
+2024-11-16 14:35:59 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:41:37 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-16 14:41:37 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-16 14:41:37 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-16 14:41:37 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-16 14:41:37 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-16 14:41:37 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-16 14:41:37 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-16 14:41:37 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-16 14:41:37 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-16 14:41:37 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-16 14:41:37 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-16 14:41:37 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-16 14:41:37 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-16 14:41:37 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-16 14:41:37 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-16 14:41:48 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:41:49 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:41:50 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:41:51 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:41:53 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:41:56 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:42:00 [INFO] [COLLISION] Collision detected! Item points: 15
+2024-11-16 14:42:02 [INFO] [COLLISION] Collision detected! Item points: 15
+2024-11-16 14:42:03 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:42:04 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:42:06 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:42:06 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:42:08 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:42:10 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:42:12 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:42:12 [INFO] [COLLISION] Collision detected! Item points: -100
+2024-11-16 14:42:12 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:42:12 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:42:14 [INFO] [COLLISION] Collision detected! Item points: 15
+2024-11-16 14:42:17 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:43:47 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-16 14:43:47 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-16 14:43:47 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-16 14:43:47 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-16 14:43:47 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-16 14:43:47 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-16 14:43:47 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-16 14:43:47 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-16 14:43:47 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-16 14:43:47 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-16 14:43:47 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-16 14:43:47 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-16 14:43:47 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-16 14:43:47 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-16 14:43:47 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-16 14:43:52 [INFO] [COLLISION] Collision detected! Item points: -100
+2024-11-16 14:43:59 [ERROR] [ITEM_SPAWNER] Error in item spawning: 'ItemSpawner' object has no attribute '_calculate_dynamic_speed'
+2024-11-16 14:44:03 [ERROR] [ITEM_SPAWNER] Error in item spawning: 'ItemSpawner' object has no attribute '_calculate_dynamic_speed'
+2024-11-16 14:44:03 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:44:05 [ERROR] [ITEM_SPAWNER] Error in item spawning: 'ItemSpawner' object has no attribute '_calculate_dynamic_speed'
+2024-11-16 14:49:00 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-16 14:49:00 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-16 14:49:00 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-16 14:49:00 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-16 14:49:00 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-16 14:49:00 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-16 14:49:00 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-16 14:49:00 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-16 14:49:00 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-16 14:49:00 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-16 14:49:00 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-16 14:49:00 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-16 14:49:00 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-16 14:49:00 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-16 14:49:00 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-16 14:49:12 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:49:12 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:49:14 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:49:16 [INFO] [COLLISION] Collision detected! Item points: 15
+2024-11-16 14:49:17 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:49:21 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-16 14:49:21 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:49:22 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:49:24 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:49:28 [INFO] [COLLISION] Collision detected! Item points: 15
+2024-11-16 14:49:29 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:49:32 [INFO] [COLLISION] Collision detected! Item points: -100
+2024-11-16 14:49:32 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-16 14:49:36 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:49:38 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:49:40 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:49:40 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:52:25 [ERROR] [AUDIO] Failed to load background music: No file 'path/to/your/background_music.mp3' found in working directory 'C:\Users\param\OneDrive\Documents\GitHub\Selection-Lesson\PygameProject'.
+2024-11-16 14:52:25 [INFO] [RESOURCES] Attempting to load image: character_idle from assets/Image/Character/Idle/Idle_down.png
+2024-11-16 14:52:25 [INFO] [RESOURCES] Successfully loaded image: character_idle
+2024-11-16 14:52:25 [INFO] [RESOURCES] Attempting to load image: character_run from assets/Image/Character/running/running1.png
+2024-11-16 14:52:25 [INFO] [RESOURCES] Successfully loaded image: character_run
+2024-11-16 14:52:25 [INFO] [RESOURCES] Attempting to load image: main_background from assets/Image/Background/background-image.png
+2024-11-16 14:52:25 [INFO] [RESOURCES] Successfully loaded image: main_background
+2024-11-16 14:52:25 [INFO] [RESOURCES] Attempting to load image: blue_item from assets/Image/items/good_thing.jpg
+2024-11-16 14:52:25 [INFO] [RESOURCES] Successfully loaded image: blue_item
+2024-11-16 14:52:25 [INFO] [RESOURCES] Attempting to load image: green_item from assets/Image/items/tressure_thing.jpg
+2024-11-16 14:52:25 [INFO] [RESOURCES] Successfully loaded image: green_item
+2024-11-16 14:52:25 [INFO] [RESOURCES] Attempting to load image: red_item from assets/Image/items/bad_thing.jpg
+2024-11-16 14:52:25 [INFO] [RESOURCES] Successfully loaded image: red_item
+2024-11-16 14:52:25 [INFO] [RESOURCES] Failed to load sound collect: Unrecognized audio format
+2024-11-16 14:52:25 [INFO] [RESOURCES] Failed to load sound hit: Unrecognized audio format
+2024-11-16 14:52:35 [INFO] [SETTINGS] Entering settings menu...
+2024-11-16 14:52:39 [INFO] Sound effects 25
+2024-11-16 14:52:41 [INFO] [SETTINGS] Saving settings
+2024-11-16 14:52:41 [INFO] Settings saved to config/user_settings.json
+2024-11-16 14:52:41 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-16 14:52:41 [INFO] [SETTINGS] Entering settings menu...
+2024-11-16 14:52:44 [INFO] [SETTINGS] Saving settings
+2024-11-16 14:52:44 [INFO] Settings saved to config/user_settings.json
+2024-11-16 14:52:44 [INFO] [SETTINGS] Settings menu result: main_menu
+2024-11-16 14:52:55 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:52:59 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-16 14:53:00 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:53:02 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:53:06 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:53:08 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:53:11 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:53:20 [INFO] [COLLISION] Collision detected! Item points: 15
+2024-11-16 14:53:27 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:53:33 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:53:35 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:53:41 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:53:47 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:53:49 [INFO] [COLLISION] Collision detected! Item points: 10
+2024-11-16 14:53:51 [INFO] [COLLISION] Collision detected! Item points: -5
+2024-11-16 14:53:53 [INFO] [COLLISION] Collision detected! Item points: -5

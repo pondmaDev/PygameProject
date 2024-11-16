@@ -22,6 +22,18 @@ class ItemType:
         'weight': 1,
         'size': 40
     }
+    BAD_YELLOW = {
+        'color': (255, 255, 0),
+        'is_good': False,
+        'weight': 100,
+        'size': 40
+    }
+    GOOD_PURPLE = {
+        'color': (128, 0, 128),
+        'is_good': True,
+        'weight': 15,
+        'size': 40
+    }
 
 class Item:
     """Represents a game item that falls from the top of the screen"""
@@ -103,7 +115,10 @@ class Item:
         Returns:
             int: Points for collecting the item
         """
-        return 10 if self.is_good else -5
+        if self.is_good:
+            return 15 if self.color == (128, 0, 128) else 10  # Purple gives 15 points
+        else:
+            return -100 if self.color == (255, 255, 0) else -5  # Yellow gives -100 points
 
     def draw(self, screen):
         """
