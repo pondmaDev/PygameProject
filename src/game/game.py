@@ -13,6 +13,7 @@ from src.utils.constant import Colors
 from src.system.movement import move_character
 from src.utils.resource_manager import ResourceManager
 from src.system.collision import CollisionManager
+from src.ui.score_ui import ScoreUI
 
 class Game:
     def __init__(self):
@@ -39,6 +40,9 @@ class Game:
             
             debug.log('init', "Attempting to initialize character")
             self.initialize_character()
+
+            debug.log('init', 'Attempting to initialize user interface')
+            self.user_interface()
             
         except Exception as e:
             print(f"Initialization error: {e}")
@@ -175,6 +179,9 @@ class Game:
         except Exception as e:
             debug.error('character_init', f"Character initialization failed: {e}")
             raise
+    
+    def user_interface(self):
+        self.score_ui = ScoreUI(self.screen_width, self.screen_height)
                 
     #HANDLE EVENT SESSION
     def handle_input(self, keys_pressed):
@@ -255,22 +262,19 @@ class Game:
         )
         
         if collision_results:
-            # Update score
-            new_score = self.score + collision_results['score_change']
+            # Update score using the new method
+            self.score_ui.add_score(collision_results['score_change'])
             
             # Remove collected items
             for item in collision_results['items_to_remove']:
                 self.items.remove(item)
             
             # Check for game over
-            if CollisionManager.is_game_over(new_score):
-                debug.log('game', f"Game over. Final score: {new_score}")
+            if self.score_ui.total_score < 0:  # Game over if score is less than 0
+                debug.log('game', f"Game over. Final score: {self.score_ui.total_score}")
                 return self.show_game_over_screen()
             
-            # Update score if not game over
-            self.score = new_score
-        
-        return None  # Continue game if no game over
+        return None
 
     # RENDER SESSION#
     def draw_lanes(self):
@@ -290,10 +294,11 @@ class Game:
         debug.log('game', "Items drawn")
     
     def draw_score(self):
-        font = pygame.font.Font(None, 36)
-        score_text = font.render(f"Score: {self.score}", True, self.BLACK)
-        self.screen.blit(score_text, (10, 10))
-        debug.log('game', f"Current score: {self.score}")
+        """
+        Draw the score using the new ScoreUI
+        """
+        # Update the score UI
+        self.score_ui.draw(self.screen)
     
     def draw_game_state(self):
         self.world.draw(self.screen)
@@ -341,6 +346,7 @@ class Game:
                 # Calculate delta time
                 current_time = pygame.time.get_ticks()
                 dt = (current_time - last_time) / 1000.0  # Convert to seconds
+                self.score_ui.update(dt)
                 last_time = current_time
                 
                 # Extensive logging for each frame
@@ -394,8 +400,10 @@ class Game:
                     if self.character:
                         self.character.draw(self.screen)
                     self.draw_items()
-                    self.draw_score()
-
+                    
+                    # Draw the new score UI
+                    self.score_ui.draw(self.screen)
+                    
                     pygame.display.flip()
                     
                     # Performance monitoring
@@ -442,7 +450,8 @@ class Game:
             
             # FULL RESET OF GAME STATE
             # Reset all critical game variables
-            self.score = 10  # Reset starting score
+            # Reset the score UI
+            self.score_ui.reset_score()
             self.items = []  # Clear existing items
             self.game_speed = 3.0  # Reset game speed
             
@@ -522,6 +531,17 @@ class Game:
         self.items.append(new_item)
         debug.log('items', f"New item spawned in lane {lane} with color {color}")
     
+    def update_items(self):
+        items_to_remove = []
+        for item in self.items:
+            item.fall()
+            if item.y > self.screen_height:
+                items_to_remove.append(item)
+        for item in items_to_remove:
+            self.items.remove(item)
+        debug.log('items', "Items updated")
+    
+    
     def show_settings(self):
         """
         Display the settings menu with comprehensive error handling
@@ -573,15 +593,6 @@ class Game:
             debug.error('settings', f"Unexpected error in show_settings: {unexpected_error}")
             return 'main_menu'
     
-    def update_items(self):
-        items_to_remove = []
-        for item in self.items:
-            item.fall()
-            if item.y > self.screen_height:
-                items_to_remove.append(item)
-        for item in items_to_remove:
-            self.items.remove(item)
-        debug.log('items', "Items updated")
 
     def update_game_state(self, dt):
         # Validate delta time
@@ -672,19 +683,20 @@ class Game:
         else:
             pygame.display.set_mode((self.screen_width, self.screen_height), pygame.FULLSCREEN)
         
-        # Apply character speed
-        if self.character:
-            self.character.speed = self.settings.character_speed
-        debug.log('settings', "Settings applied")
     
     def show_game_over_screen(self):
-        debug.log('game', f"Showing game over screen. Final score: {self.score}")
+        # Use total_score from score_ui instead of self.score
+        debug.log('game', f"Showing game over screen. Final score: {self.score_ui.total_score}")
+        
         font = pygame.font.Font(None, 74)
         game_over_text = font.render("Game Over", True, (255, 0, 0))
         
         font = pygame.font.Font(None, 36)
         restart_text = font.render("Restart", True, (0, 0, 0))
         menu_text = font.render("Main Menu", True, (0, 0, 0))
+        
+        # Optional: Render final score
+        score_text = font.render(f"Score: {int(self.score_ui.total_score)}", True, (0, 0, 0))
         
         restart_rect = pygame.Rect(200, 300, 140, 50)
         menu_rect = pygame.Rect(460, 300, 140, 50)
@@ -701,12 +713,20 @@ class Game:
                     return 'quit'
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if restart_rect.collidepoint(event.pos):
+                        # Reset score when restarting
+                        self.score_ui.reset_score()
                         return 'restart'
                     elif menu_rect.collidepoint(event.pos):
                         return 'main_menu'
             
             self.screen.fill((255, 255, 255))
+            
+            # Render game over text
             self.screen.blit(game_over_text, (400 - game_over_text.get_width() // 2, 200))
+            
+            # Render final score
+            score_rect = score_text.get_rect(center=(400, 250))
+            self.screen.blit(score_text, score_rect)
             
             # Draw shadows for hovered buttons
             if restart_hovered:

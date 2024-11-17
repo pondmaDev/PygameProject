@@ -45,9 +45,9 @@ class ItemSpawner:
         
         # Level-based bad item spawn rates
         self.bad_item_spawn_rates = {
-            1: 0.2,   # 20% chance of bad items in level 1
-            2: 0.4,   # 30% chance of bad items in level 2
-            3: 0.6,   # 40% chance of bad items in level 3
+            1: 0.4,   # 20% chance of bad items in level 1
+            2: 0.5,   # 30% chance of bad items in level 2
+            3: 0.7,   # 40% chance of bad items in level 3
         }
 
     def update(self, game_speed: float, current_items: List[Item] = None) -> Optional[List[Item]]:
@@ -142,20 +142,22 @@ class ItemSpawner:
         # Update minimum fall speed tracking
         if self.minimum_fall_speed == 0 or fall_speed < self.minimum_fall_speed:
             self.minimum_fall_speed = fall_speed
-        
+
         # Determine item type based on probability
-        if random.random() < bad_item_rate:
-            # Spawn a bad item
-            item_type = ItemType.BAD_RED
+        item_type_choice = random.random()
+        if item_type_choice < bad_item_rate:
+            # Spawn a bad item (red or yellow)
+            if random.random() < 0.7:  # Increased chance for red item
+                item_type = ItemType.BAD_RED
+                fall_speed = fall_speed  # Use the calculated fall speed for the red item
+            else:
+                item_type = ItemType.BAD_YELLOW
+                fall_speed = self.minimum_fall_speed * 10  # Set yellow item speed to 10 times the minimum speed
+        elif item_type_choice < bad_item_rate + 0.05:  # Decreased chance for purple item
+            item_type = ItemType.GOOD_PURPLE
         else:
-            # Spawn a good item (randomly between green and blue)
+            # Spawn a good item (green or blue)
             item_type = random.choice([ItemType.GOOD_GREEN, ItemType.GOOD_BLUE])
-        
-        # Calculate dynamic fall speed
-        base_speed = 5
-        level_speed_multiplier = 1 + (self.current_level * 0.5)
-        speed_variation = random.uniform(0.9, 1.1)
-        fall_speed = base_speed * level_speed_multiplier * speed_variation
         
         return Item(
             lane=lane,
@@ -165,7 +167,7 @@ class ItemSpawner:
             fall_speed=fall_speed,
             level=self.current_level
         )
-    
+            
     def get_minimum_fall_speed(self) -> float:
         """
         Get the current minimum fall speed
