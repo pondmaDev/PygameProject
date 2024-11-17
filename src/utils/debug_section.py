@@ -11,28 +11,16 @@ class DebugLogger:
     """
     
     def __init__(self, 
-                 log_file: Optional[str] = None, 
                  enabled: bool = True, 
                  log_level: int = logging.DEBUG):
         """
         Initialize the debug logger with configurable settings
         
         Args:
-            log_file (str, optional): Path to the log file
             enabled (bool): Global debug mode toggle
             log_level (int): Logging level from logging module
         """
         self.enabled = enabled
-        
-        # Set default log file path if not provided
-        if log_file is None:
-            # Use project root directory or a default logs folder
-            project_root = self._find_project_root()
-            logs_dir = os.path.join(project_root, 'logs')
-            os.makedirs(logs_dir, exist_ok=True)
-            log_file = os.path.join(logs_dir, 'game_debug.log')
-        
-        self.log_file = log_file
         
         # Configurable debug sections with more flexibility
         self.sections: Dict[str, bool] = {
@@ -50,52 +38,19 @@ class DebugLogger:
         # Configure logging
         self._configure_logging(log_level)
     
-    def _find_project_root(self) -> str:
-        """
-        Find the root directory of the project
-        
-        Returns:
-            str: Path to the project root
-        """
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        # Go up multiple levels to find a suitable root
-        for _ in range(3):  # Adjust this if needed
-            parent_dir = os.path.dirname(current_dir)
-            if os.path.exists(os.path.join(parent_dir, 'main.py')):
-                return parent_dir
-            current_dir = parent_dir
-        
-        # Fallback to a default logs directory in the user's home directory
-        return os.path.join(os.path.expanduser('~'), 'PygameProjectLogs')
-
-
     def _configure_logging(self, log_level: int):
         """
-        Configure logging with file and console handlers
+        Configure logging with console handler only
         
         Args:
             log_level (int): Logging level
         """
-        # Ensure log directory exists
-        log_dir = os.path.dirname(self.log_file)
-        os.makedirs(log_dir, exist_ok=True)
-        
-        # Configure logging
+        # Configure logging to output to console only
         logging.basicConfig(
             level=log_level,
             format='%(asctime)s [%(levelname)s] %(message)s',
             datefmt='%Y-%m-%d %H:%M:%S'
         )
-        
-        # File handler
-        file_handler = logging.FileHandler(self.log_file, encoding='utf-8')
-        file_handler.setFormatter(logging.Formatter(
-            '%(asctime)s [%(levelname)s] %(message)s',
-            datefmt='%Y-%m-%d %H:%M:%S'
-        ))
-        
-        # Add file handler to root logger
-        logging.getLogger().addHandler(file_handler)
 
     def debug_print(self, message: str):
         """
