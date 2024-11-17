@@ -40,11 +40,11 @@ class DebugLogger:
             'menu': False,
             'game': False,
             'character': False,
-            'items': True,
-            'collision': True,
-            'settings': True,
+            'items': False,
+            'collision': False,
+            'settings': False,
             'performance': False,
-            'resources': True
+            'resources': False
         }
         
         # Configure logging
