@@ -25,7 +25,7 @@ class DebugLogger:
         # Configurable debug sections with more flexibility
         self.sections: Dict[str, bool] = {
             'init': False,
-            'menu': False,
+            'menu': True,
             'game': False,
             'character': False,
             'items': True,
