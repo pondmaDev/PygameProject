@@ -15,6 +15,7 @@ from src.utils.resource_manager import ResourceManager
 from src.system.collision import CollisionManager
 from src.ui.score_ui import ScoreUI
 from src.ui.game_over_screen import GameOverScreen
+from src.game.game_state import current_game_state
 import sys
 class Game:
     def __init__(self):
@@ -264,17 +265,22 @@ class Game:
         
         if collision_results:
             # Update score using the new method
-            self.score_ui.add_score(collision_results['score_change'])
+            win_triggered = self.score_ui.add_score(collision_results['score_change'])
             
             # Remove collected items
             for item in collision_results['items_to_remove']:
                 self.items.remove(item)
             
-            # Check for game over
+            # Check for game over or win condition
             if self.score_ui.total_score < 0:  # Game over if score is less than 0
                 debug.log('game', f"Game over. Final score: {self.score_ui.total_score}")
                 return self.show_game_over_screen()
             
+            # Win condition check based on current level
+            if win_triggered:
+                debug.log('game', f"Level {current_game_state.get_level()} completed!")
+                return self.show_game_over_screen(is_win=True)
+        
         return None
 
     # RENDER SESSION#
@@ -301,15 +307,27 @@ class Game:
         # Update the score UI
         self.score_ui.draw(self.screen)
     
+    # In game.py, modify draw_game_state method
     def draw_game_state(self):
-        self.world.draw(self.screen)
-        self.draw_lanes()
-        if self.character:
-            self.character.update()
-            self.character.draw(self.screen)
-        self.draw_items()
-        self.draw_score()
-        debug.log('game', "Game state drawn")
+        try:
+            # Clear the screen
+            self.screen.fill(self.WHITE)
+            # Draw world background
+            self.world.draw(self.screen)
+            # Draw lanes
+            self.draw_lanes()
+            # Draw items
+            self.draw_items()
+            # Draw character
+            if self.character:
+                self.character.draw(self.screen)
+            # Draw score
+            self.draw_score()
+            
+            # Debug level display
+        
+        except Exception as e:
+            debug.error('game', f"Error in draw_game_state: {e}")
     
     def draw_lane_debug(self, screen):
         """
@@ -685,22 +703,42 @@ class Game:
             pygame.display.set_mode((self.screen_width, self.screen_height), pygame.FULLSCREEN)
         
     
-    def show_game_over_screen(self):
-        # Use total_score from score_ui instead of self.score
-        debug.log('game', f"Showing game over screen. Final score: {self.score_ui.total_score}")
+    def show_game_over_screen(self, is_win=False):
+        """
+        Show game over or win screen
         
-        # Create and display the game over screen
-        game_over_screen = GameOverScreen(self.screen, int(self.score_ui.total_score))
+        Args:
+            is_win (bool): Whether the player won the level
+        
+        Returns:
+            str: Result of game over screen interaction
+        """
+        current_level = current_game_state.get_level()
+        
+        # Create and display the game over/win screen
+        game_over_screen = GameOverScreen(
+            self.screen, 
+            is_win=is_win,
+            level=current_level
+        )
         result = game_over_screen.display()
         
         debug.log('game', f"Game over screen result: {result}")
         
-        if result == 'restart':
+        # Handle different result scenarios
+        if isinstance(result, int):
+            # If result is an integer, it means next level
+            debug.log('game', f"Progressing to level {result}")
+            return self.start_game(result)
+        elif result == 'restart':
             # Reset score when restarting
             self.score_ui.reset_score()
-            return 'restart'
+            return self.start_game(current_level)
         elif result == 'main_menu':
             return 'main_menu'
-        elif result == ' quit':
+        elif result == 'quit':
             pygame.quit()
             sys.exit()
+        
+        # Fallback to main menu
+        return 'main_menu'

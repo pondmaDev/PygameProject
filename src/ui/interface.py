@@ -310,9 +310,14 @@ class LevelSelectionMenu(Menu):
                 
                 # Mouse click handling
                 if event.type == pygame.MOUSEBUTTONDOWN:
+                    mouse_pos = event.pos
                     level = self._handle_mouse_click(event.pos)
                     if level:
                         return level
+                    
+                    # Check back button click
+                    if back_button_rect.collidepoint(mouse_pos):
+                        return 'main_menu'
             
             # Clear screen
             self.screen.fill(Colors.WHITE)
@@ -357,7 +362,7 @@ class LevelSelectionMenu(Menu):
                 pygame.draw.rect(level_surface, Colors.BLACK, level_surface.get_rect(), 2)
                 
                 # Level number (smaller and centered)
-                number_font = pygame.font.Font(None, 40)
+                number_font = pygame.font.Font('assets/font/River Adventurer.ttf', 40)
                 number_text = number_font.render(str(i), True, Colors.WHITE)
                 number_rect = number_text.get_rect(center=(button_width // 2, button_height // 2))
                 level_surface.blit(number_text, number_rect)
@@ -395,23 +400,60 @@ class LevelSelectionMenu(Menu):
                 )
                 self.screen.blit(desc_surface, desc_rect)
 
-            # Back Button
+           # Back Button 
             back_button_width = 200
-            back_button_height = 50
-            back_button_x = screen_width // 2 - back_button_width // 2
-            back_button_y = screen_height - 100
+            back_button_height = 60
+            back_button_x = 50  # Padding from left side
+            back_button_y = screen_height - 100  # Positioned at bottom
 
-            # Draw back button
-            back_surface = pygame.Surface((back_button_width, back_button_height), pygame.SRCALPHA)
-            back_surface.fill((200, 200, 200, 200))
-            pygame.draw.rect(back_surface, Colors.BLACK, back_surface.get_rect(), 2, border_radius=10)
-            
-            back_font = pygame.font.Font(None, 36)
-            back_text = back_font.render('Back', True, Colors.BLACK)
-            back_text_rect = back_text.get_rect(center=(back_button_width // 2, back_button_height // 2))
-            back_surface.blit(back_text, back_text_rect)
-            
-            self.screen.blit(back_surface, (back_button_x, back_button_y))
+            # Create button rectangle
+            back_button_rect = pygame.Rect(back_button_x, back_button_y, back_button_width, back_button_height)
+
+            # Mouse position for hover effect
+            mouse_pos = pygame.mouse.get_pos()
+
+            # Color palette
+            base_color = (70, 70, 90)  # Soft dark blue-gray
+            hover_color = (90, 90, 110)  # Slightly lighter on hover
+            text_color = (255, 255, 255)  # White text
+
+            # Hover effect
+            current_color = hover_color if back_button_rect.collidepoint(mouse_pos) else base_color
+
+            # Draw button with rounded corners
+            pygame.draw.rect(
+                self.screen, 
+                current_color, 
+                back_button_rect, 
+                border_radius=15  # Rounded corners
+            )
+
+            # Add subtle shadow effect
+            shadow_rect = pygame.Rect(
+                back_button_x + 2, 
+                back_button_y + 2, 
+                back_button_width, 
+                back_button_height
+            )
+            pygame.draw.rect(
+                self.screen, 
+                (50, 50, 70),  # Darker shadow 
+                shadow_rect, 
+                border_radius=15
+            )
+
+            # Load custom font or fallback
+            try:
+                back_font = pygame.font.Font('assets/font/River Adventurer.ttf', 36)
+            except Exception:
+                back_font = pygame.font.Font(None, 36)
+
+            # Render text
+            back_text = back_font.render("Back", True, text_color)
+            text_rect = back_text.get_rect(center=back_button_rect.center)
+
+            # Draw text
+            self.screen.blit(back_text, text_rect)
 
             # Update display
             pygame.display.flip()
@@ -490,6 +532,68 @@ class LevelSelectionMenu(Menu):
             return 'main_menu'
 
         return None
+    
+    def draw_back_button(self):
+        """
+        Draw an improved back button with modern UI design
+        """
+        # Button dimensions and positioning
+        button_width = 200
+        button_height = 60
+        button_x = 50  # Padding from left side
+        button_y = self.screen.get_height() - 100  # Positioned at bottom
+
+        # Create button rectangle
+        back_button_rect = pygame.Rect(button_x, button_y, button_width, button_height)
+
+        # Mouse position for hover effect
+        mouse_pos = pygame.mouse.get_pos()
+
+        # Color palette
+        base_color = (70, 70, 90)  # Soft dark blue-gray
+        hover_color = (90, 90, 110)  # Slightly lighter on hover
+        text_color = (255, 255, 255)  # White text
+        
+        # Hover effect
+        current_color = hover_color if back_button_rect.collidepoint(mouse_pos) else base_color
+
+        # Draw button with rounded corners
+        pygame.draw.rect(
+            self.screen, 
+            current_color, 
+            back_button_rect, 
+            border_radius=15  # Rounded corners
+        )
+
+        # Add subtle shadow effect
+        shadow_rect = pygame.Rect(
+            button_x + 2, 
+            button_y + 2, 
+            button_width, 
+            button_height
+        )
+        pygame.draw.rect(
+            self.screen, 
+            (50, 50, 70),  # Darker shadow 
+            shadow_rect, 
+            border_radius=15
+        )
+
+        # Load custom font or fallback
+        try:
+            back_font = pygame.font.Font('assets/font/River Adventurer.ttf', 36)
+        except Exception:
+            back_font = pygame.font.Font(None, 36)
+
+        # Render text
+        back_text = back_font.render("Back", True, text_color)
+        text_rect = back_text.get_rect(center=back_button_rect.center)
+
+        # Draw text
+        self.screen.blit(back_text, text_rect)
+
+        # Return button rect for click detection
+        return back_button_rect
 
 class SettingsMenu(Menu):
 
@@ -523,20 +627,22 @@ class SettingsMenu(Menu):
         # Setting configurations
         self.setting_configs = {
             'bg_music_volume': {
-                'label': 'Music Volume',
-                'min': 0,
-                'max': 100,
+                'label': 'Music Volume', 
+                'min': 0, 
+                'max': 100, 
                 'type': int,
                 'description': 'Adjust background music volume (0-100)',
-                'on_change': self._adjust_music_volume
+                'placeholder': '0-100',
+                'on_change': self._adjust_music_volume 
             },
             'sound_effects_volume': {
-                'label': 'Sound Effects',
-                'min': 0,
-                'max': 100,
+                'label': 'Sound Effects', 
+                'min': 0, 
+                'max': 100, 
                 'type': int,
                 'description': 'Adjust sound effects volume (0-100)',
-                'on_change': self._adjust_sound_effects_volume
+                'placeholder': '0-100',
+                'on_change': self._adjust_sound_effects_volume 
             }
         }
         
@@ -733,34 +839,92 @@ class SettingsMenu(Menu):
             return getattr(self.settings, self.current_input_field), False
 
     def display(self):
-        """
-        Display the settings menu
-        """
         clock = pygame.time.Clock()
-        
+
         while True:
             # Event handling
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     return 'quit'
-                
+
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         return self.handle_exit()
-                
+
                 # Handle input for active field
                 self.handle_input(event)
-                
+
                 # Mouse click handling
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     self._handle_mouse_click(event.pos)
-            
+                    
+                    # Add back button click detection
+                    if back_button_rect.collidepoint(event.pos):
+                        return self.handle_exit()
+
             # Clear screen
             self.screen.fill(Colors.WHITE)
-            
+
             # Render the settings fields
             self._render_settings_fields()
-            
+
+            # Back Button 
+            screen_width = self.screen.get_width()
+            screen_height = self.screen.get_height()
+            back_button_width = 200
+            back_button_height = 60
+            back_button_x = 50  # Padding from left side
+            back_button_y = screen_height - 100  # Positioned at bottom
+
+            # Create button rectangle
+            back_button_rect = pygame.Rect(back_button_x, back_button_y, back_button_width, back_button_height)
+
+            # Mouse position for hover effect
+            mouse_pos = pygame.mouse.get_pos()
+
+            # Color palette
+            base_color = (70, 70, 90)  # Soft dark blue-gray
+            hover_color = (90, 90, 110)  # Slightly lighter on hover
+            text_color = (255, 255, 255)  # White text
+
+            # Hover effect
+            current_color = hover_color if back_button_rect.collidepoint(mouse_pos) else base_color
+
+            # Draw button with rounded corners
+            pygame.draw.rect(
+                self.screen, 
+                current_color, 
+                back_button_rect, 
+                border_radius=15  # Rounded corners
+            )
+
+            # Add subtle shadow effect
+            shadow_rect = pygame.Rect(
+                back_button_x + 2, 
+                back_button_y + 2, 
+                back_button_width, 
+                back_button_height
+            )
+            pygame.draw.rect(
+                self.screen, 
+                (50, 50, 70),  # Darker shadow 
+                shadow_rect, 
+                border_radius=15
+            )
+
+            # Load custom font or fallback
+            try:
+                back_font = pygame.font.Font('assets/font/River Adventurer.ttf', 36)
+            except Exception:
+                back_font = pygame.font.Font(None, 36)
+
+            # Render text
+            back_text = back_font.render("Back", True, text_color)
+            text_rect = back_text.get_rect(center=back_button_rect.center)
+
+            # Draw text
+            self.screen.blit(back_text, text_rect)
+
             # Update display
             pygame.display.flip()
             clock.tick(60)
@@ -877,108 +1041,136 @@ class SettingsMenu(Menu):
         self._render_action_buttons()
 
     def _render_title(self):
-        """
-        Render the settings menu title
+        """ 
+        Render the settings menu title with improved positioning
         """
         title = self.input_font.render("Settings", True, Colors.BLACK)
-        title_rect = title.get_rect(center=(self.screen.get_width() // 2, 50))
+        title_rect = title.get_rect(
+            center=(self.screen.get_width() // 2, self.screen.get_height() // 6)
+        )
         self.screen.blit(title, title_rect)
 
     def _render_settings_fields(self):
-        """
-        Render individual settings fields with enhanced error handling
+        """ 
+        Render individual settings fields with enhanced styling and positioning
         """
         try:
-            y_start = 180
-            spacing = 120
-            
+            # Screen dimensions
+            screen_width = self.screen.get_width()
+            screen_height = self.screen.get_height()
+
+            # Positioning constants
+            y_start = screen_height // 4  # Start lower on the screen
+            spacing = 100  # Reduced spacing between settings
+            input_width = 200  # Consistent input field width
+            input_height = 40  # Consistent input field height
+
             for i, (setting_key, config) in enumerate(self.setting_configs.items()):
                 current_value = getattr(self.settings, setting_key)
-                
-                # Render label with improved styling
+
+                # Centered layout
+                center_x = screen_width // 2
+
+                # Label positioning
                 label = self.label_font.render(config['label'], True, self.colors['label'])
-                label_rect = label.get_rect(midleft=(
-                    self.screen.get_width() // 2 - 200, 
-                    y_start + i * spacing
-                ))
-                self.screen.blit(label, label_rect)
-                
-                # Create and store input rect with rounded look
-                input_rect = pygame.Rect(
-                    self.screen.get_width() // 2 + 20, 
-                    y_start + i * spacing - 15, 
-                    180, 
-                    40
+                label_rect = label.get_rect(
+                    midright=(center_x - 20, y_start + i * spacing + 20)
                 )
-                # Ensure input_rects is a dictionary before setting
+                self.screen.blit(label, label_rect)
+
+                # Input field positioning
+                input_rect = pygame.Rect(
+                    center_x + 20,
+                    y_start + i * spacing,
+                    input_width,
+                    input_height
+                )
+                
+                # Ensure input_rects is a dictionary
                 if not hasattr(self, 'input_rects'):
                     self.input_rects = {}
                 self.input_rects[setting_key] = input_rect
-                
-                # Draw input field with rounded corners and dynamic coloring
+
+                # Draw input field with rounded corners
                 input_color = (
-                    self.colors['input_active'] if self.current_input_field == setting_key 
+                    self.colors['input_active'] if self.current_input_field == setting_key
                     else self.colors['input_inactive']
                 )
-                pygame.draw.rect(self.screen, input_color, input_rect, border_radius=10)
-                
-                # Render input text
+                pygame.draw.rect(
+                    self.screen, 
+                    input_color, 
+                    input_rect, 
+                    border_radius=10
+                )
+
+                # Render input text with placeholder handling
                 display_text = (
-                    self.input_text if self.current_input_field == setting_key 
+                    self.input_text if self.current_input_field == setting_key
                     else str(current_value)
                 )
-                text_surface = self.input_font.render(display_text, True, self.colors['text'])
+                
+                # Use a placeholder if no value
+                if not display_text and self.current_input_field != setting_key:
+                    display_text = config.get('placeholder', 'Enter value')
+                    text_color = (150, 150, 150)  # Muted color for placeholder
+                else:
+                    text_color = self.colors['text']
+
+                text_surface = self.input_font.render(display_text, True, text_color)
                 text_rect = text_surface.get_rect(center=input_rect.center)
                 self.screen.blit(text_surface, text_rect)
-                
-                # Render description with softer color
+
+                # Description positioning
                 description = self.description_font.render(
                     config['description'], 
                     True, 
                     self.colors['description']
                 )
                 description_rect = description.get_rect(
-                    center=(self.screen.get_width() // 2, y_start + i * spacing + 50)
+                    center=(screen_width // 2, y_start + i * spacing + 70)
                 )
                 self.screen.blit(description, description_rect)
-        
+
         except Exception as e:
             self.logger.error(f"Error in rendering settings fields: {e}")
             import traceback
             self.logger.error(traceback.format_exc())
 
     def _render_action_buttons(self):
+        """ 
+        Render action buttons with modern UI styling 
         """
-        Render action buttons with modern UI styling
-        """
-        # Back button
+        screen_width = self.screen.get_width()
+        screen_height = self.screen.get_height()
+
+        # Back button 
         back_text = 'Back to Game' if self.from_pause else 'Back'
         back_button_rect = pygame.Rect(
-            self.screen.get_width() // 2 - 100, 
-            self.screen.get_height() - 120, 
-            200, 
-            50
+            screen_width // 2 - 150,  # Centered with offset
+            screen_height - 150,  # Lower on the screen
+            150,  # Slightly wider
+            50 
         )
-        
-        # Reset to default button
+
+        # Reset to default button 
         reset_button_rect = pygame.Rect(
-            self.screen.get_width() // 2 - 250, 
-            self.screen.get_height() - 120, 
-            120, 
-            50
+            screen_width // 2 + 20,  # Next to back button
+            screen_height - 150,  # Same vertical position
+            150,  # Matching width
+            50 
         )
-        
-        # Hover and click detection
-        mouse_pos = pygame.mouse.get_pos()
-        
-        # Draw Back button
+
+        # Hover and click detection 
+        mouse_pos = pygame.mouse.get_pos() 
+
+        # Draw Back button 
         back_color = (180, 180, 180) if back_button_rect.collidepoint(mouse_pos) else (200, 200, 200)
         pygame.draw.rect(self.screen, back_color, back_button_rect, border_radius=10)
         back_button_text = self.label_font.render(back_text, True, self.colors['text'])
         back_text_rect = back_button_text.get_rect(center=back_button_rect.center)
         self.screen.blit(back_button_text, back_text_rect)
-        
-        # Draw Reset button
+
+        # Draw Reset button 
         reset_color = (200, 100, 100) if reset_button_rect.collidepoint(mouse_pos) else (220, 120, 120)
         pygame.draw.rect(self.screen, reset_color, reset_button_rect, border_radius=10)
         reset_button_text = self.label_font.render('Reset', True, self.colors['text'])
@@ -1100,59 +1292,155 @@ class PauseMenu(Menu):
         super().__init__(screen)
         self.previous_screen = previous_screen
         self.settings = settings
+        
+        # Screen dimensions
         self.screen_width = screen.get_width()
         self.screen_height = screen.get_height()
         
-        button_width = 200
-        button_height = 50
-        button_x = self.screen_width // 2 - button_width // 2
-        spacing = 20
+        # Color Palette
+        self.OVERLAY_COLOR = (0, 0, 0, 128)
+        self.BACKGROUND_COLOR = (40, 40, 60)
+        self.BUTTON_COLORS = {
+            'normal': (100, 100, 120),
+            'hover': (120, 120, 140),
+            'text_normal': (255, 255, 255),
+            'text_hover': (200, 200, 255)
+        }
         
-        self.resume_button = pygame.Rect(button_x, 200, button_width, button_height)
-        self.settings_button = pygame.Rect(button_x, 200 + button_height + spacing, button_width, button_height)
-        self.main_menu_button = pygame.Rect(button_x, 200 + (button_height + spacing) * 2, button_width, button_height)
+        # Fonts
+        try:
+            self.title_font = pygame.font.Font('assets/font/River Adventurer.ttf', 72)
+            self.button_font = pygame.font.Font('assets/font/River Adventurer.ttf', 48)
+        except Exception as e:
+            debug.warning('pause_menu', f"Failed to load custom font: {e}")
+            self.title_font = pygame.font.Font(None, 72)
+            self.button_font = pygame.font.Font(None, 48)
         
+        # Button Configuration
+        self.button_width = 300
+        self.button_height = 70
+        self.button_spacing = 30
+        
+        # Buttons with icons (you can add icon loading logic later)
+        self.buttons = [
+            {"text": "Resume", "action": "resume", "icon": None},
+            {"text": "Settings", "action": "settings", "icon": None},
+            {"text": "Main Menu", "action": "main_menu", "icon": None}
+        ]
+        
+        # Button state management
+        self.selected_button = 0
+        self.hover_button = None
+        
+        # Input management
+        self.input_cooldown = 250
+        self.last_input_time = 0
+        
+        # Precalculate button positions
+        self.calculate_button_positions()
+    
+    def calculate_button_positions(self):
+        """Calculate button positions centered on the screen"""
+        total_height = (self.button_height * len(self.buttons)) + \
+                       (self.button_spacing * (len(self.buttons) - 1))
+        start_y = (self.screen_height - total_height) // 2 + 50  # Slightly lower on the screen
+        
+        self.button_rects = []
+        for i in range(len(self.buttons)):
+            x = (self.screen_width - self.button_width) // 2
+            y = start_y + i * (self.button_height + self.button_spacing)
+            self.button_rects.append(pygame.Rect(x, y, self.button_width, self.button_height))
+    
     def display(self):
-        running = True
-        while running:
-            mouse_pos = pygame.mouse.get_pos()
+        clock = pygame.time.Clock()
+        
+        while True:
+            # Handle input
+            action = self.handle_input()
             
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    return 'quit'
-                if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-                    return 'resume'
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    if self.resume_button.collidepoint(event.pos):
-                        debug.log('menu', "Pause Menu: Resuming game")
-                        return 'resume'
-                    elif self.settings_button.collidepoint(event.pos):
-                        debug.log('menu', "Pause Menu: Entering Settings")
-                        return 'settings'
-                    elif self.main_menu_button.collidepoint(event.pos):
-                        debug.log('menu', "Pause Menu: Returning to Main Menu")
-                        return 'main_menu'
+            if action:
+                pygame.time.delay(250)
+                debug.log('pause_menu', f"Selected action: {action}")
+                return action
             
-            # Create a semi-transparent overlay
-            overlay = pygame.Surface((self.screen_width, self.screen_height))
-            overlay.fill((0, 0, 0))
-            overlay.set_alpha(128)
-            self.screen.blit(overlay, (0, 0))
+            # Clear screen with gradient background
+            self.draw_gradient_background()
+            
+            # Draw title
+            self.draw_title()
             
             # Draw buttons
-            if self.draw_button("Resume", self.resume_button.x, self.resume_button.y, 
-                                self.resume_button.width, self.resume_button.height, 
-                                (200, 200, 200), (150, 150, 150)):
-                return 'resume'
-            
-            if self.draw_button("Settings", self.settings_button.x, self.settings_button.y, 
-                                self.settings_button.width, self.settings_button.height, 
-                                (200, 200, 200), (150, 150, 150)):
-                return 'settings'
-            
-            if self.draw_button("Main Menu", self.main_menu_button.x, self.main_menu_button.y, 
-                                self.main_menu_button.width, self.main_menu_button.height, 
-                                (200, 200, 200), (150, 150, 150)):
-                return 'main_menu'
+            self.draw_buttons()
             
             pygame.display.flip()
+            clock.tick(60)
+    
+    def draw_gradient_background(self):
+        """Create a gradient background"""
+        for y in range(self.screen_height):
+            # Create a gradient from dark blue to dark purple
+            r = int(40 * (1 - y / self.screen_height) + 40)
+            g = int(40 * (1 - y / self.screen_height) + 40)
+            b = int(60 * (1 - y / self.screen_height) + 60)
+            pygame.draw.line(self.screen, (r, g, b), (0, y), (self.screen_width, y))
+    
+    def draw_title(self):
+        """Draw the pause menu title"""
+        title_text = self.title_font.render("PAUSED", True, (255, 255, 255))
+        title_rect = title_text.get_rect(
+            centerx=self.screen_width // 2, 
+            centery=100
+        )
+        self.screen.blit(title_text, title_rect)
+    
+    def draw_buttons(self):
+        """Draw interactive buttons with hover effects"""
+        mouse_pos = pygame.mouse.get_pos()
+        
+        for i, (button, button_rect) in enumerate(zip(self.buttons, self.button_rects)):
+            # Determine button state
+            is_hover = button_rect.collidepoint(mouse_pos)
+            
+            # Button background
+            button_color = (self.BUTTON_COLORS['hover'] if is_hover 
+                            else self.BUTTON_COLORS['normal'])
+            pygame.draw.rect(
+                self.screen, 
+                button_color, 
+                button_rect, 
+                border_radius=15
+            )
+            
+            # Button text
+            text_color = (self.BUTTON_COLORS['text_hover'] if is_hover 
+                          else self.BUTTON_COLORS['text_normal'])
+            text_surface = self.button_font.render(button['text'], True, text_color)
+            text_rect = text_surface.get_rect(center=button_rect.center)
+            self.screen.blit(text_surface, text_rect)
+    
+    def handle_input(self):
+        """Handle user input with keyboard and mouse support"""
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return 'main_menu'
+            
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    return 'resume'
+                
+                # Keyboard navigation
+                if event.key == pygame.K_UP:
+                    self.selected_button = (self.selected_button - 1) % len(self.buttons)
+                elif event.key == pygame.K_DOWN:
+                    self.selected_button = (self.selected_button + 1) % len(self.buttons)
+                elif event.key == pygame.K_RETURN:
+                    return self.buttons[self.selected_button]['action']
+            
+            # Mouse input
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_pos = event.pos
+                for i, button_rect in enumerate(self.button_rects):
+                    if button_rect.collidepoint(mouse_pos):
+                        return self.buttons[i]['action']
+        
+        return None
