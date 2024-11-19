@@ -160,8 +160,8 @@ class Game:
             self.character = Character(
                 x=initial_x,
                 y=self.screen_height - 100,
-                width=50,
-                height=50,
+                width=80,
+                height=80,
                 color='RED'
             )
             

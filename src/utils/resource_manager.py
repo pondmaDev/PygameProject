@@ -71,7 +71,7 @@ class ResourceManager:
             },
             'character_run': {
                 'path': 'assets/Image/Character/running/running1.png', 
-                'size': (50, 50)
+                'size': (80, 80)
             },
             'main_background': {
                 'path': 'assets/Image/Background/background-image.png', 
@@ -93,15 +93,18 @@ class ResourceManager:
                 'fallback_color': (255, 0, 0)
             }
         }
-        
-        sound_resources = {
-            'collect': 'assets/sounds/collect-sound.m4a',
-            'hit': 'assets/sounds/hit-sound.m4a'
-        }
-        
         for key, resource in image_resources.items():
          self.load_image(key, resource['path'], resource.get('size'))
+        
+        sound_resources = {
+            'collect_good_item': 'assets/sounds/effect/good_thing.mp3',  # Positive sound
+            'collect_bad_item': 'assets/sounds/effect/bad_thing.mp3',    # Negative sound
+            'win_sound' : 'assets/sounds/effect/bad_thing.mp3',
+            'lost_sound' : 'assets/sounds/effect/losing.mp3'
+        }
         self.load_sounds(sound_resources)
+
+       
 
     def load_images(self, image_resources):
         """
@@ -162,38 +165,6 @@ class ResourceManager:
             debug.log('resources', f"Failed to load image {key}: {e}")
             return False
 
-    def load_sounds(self, sound_resources):
-        """
-        Load multiple sound files.
-        
-        Args:
-            sound_resources (dict): Dictionary of sound resources to load
-        """
-        for key, path in sound_resources.items():
-            self.load_sound(key, path)
-
-    def load_sound(self, key, path):
-        """
-        Load a single sound file with error handling.
-        
-        Args:
-            key (str): Unique identifier for the sound
-            path (str): Path to the sound file
-        
-        Returns:
-            bool: True if sound loaded successfully, False otherwise
-        """
-        if not os.path.isfile(path):
-            debug.log('resources', f"No sound file '{path}' found.")
-            return False
-        
-        try:
-            self.sounds[key] = pygame.mixer.Sound(path)
-            debug.log('resources', f"Loaded sound: {key}")
-            return True
-        except Exception as e:
-            debug.log('resources', f"Failed to load sound {key}: {e}")
-            return False
 
     def get_image(self, key):
         """
@@ -231,15 +202,68 @@ class ResourceManager:
         """
         return self.sounds.get(key)
 
-    def play_sound(self, sound_key):
+    def load_sounds(self, sound_resources):
         """
-        Play a sound by key.
+        Load multiple sound files with error handling
+        
+        Args:
+            sound_resources (dict): Dictionary of sound resources to load
+        """
+        for key, path in sound_resources.items():
+            self.load_sound(key, path)
+
+    def load_sound(self, key, path):
+        """
+        Load a single sound file with comprehensive error handling
+        
+        Args:
+            key (str): Unique identifier for the sound
+            path (str): Path to the sound file
+        
+        Returns:
+            bool: True if sound loaded successfully, False otherwise
+        """
+        # Ensure pygame mixer is initialized
+        if not pygame.mixer.get_init():
+            pygame.mixer.init()
+
+        if not os.path.exists(path):
+            debug.warning('resources', f"Sound file not found: {path}")
+            return False
+        
+        try:
+            # Load sound with volume control
+            sound = pygame.mixer.Sound(path)
+            
+            # Store the sound
+            self.sounds[key] = sound
+            
+            debug.log('resources', f"Successfully loaded sound: {key}")
+            return True
+        
+        except Exception as e:
+            debug.warning('resources', f"Failed to load sound {key}: {e}")
+            return False
+
+    def play_sound(self, sound_key, volume=0.5):
+        """
+        Play a sound with volume control and error handling
         
         Args:
             sound_key (str): Key of the sound to play
+            volume (float): Volume of the sound (0.0 to 1.0)
         """
-        sound = self.sounds.get(sound_key)
-        if sound:
+        try:
+            # Retrieve the sound
+            sound = self.sounds.get(sound_key)
+            
+            if sound is None:
+                debug.warning('resources', f"Sound not found: {sound_key}")
+                return
+            
+            # Set volume and play
+            sound.set_volume(volume)
             sound.play()
-        else:
-            debug.log('game', f"Sound not found: {sound_key}")
+        
+        except Exception as e:
+            debug.error('resources', f"Error playing sound {sound_key}: {e}")

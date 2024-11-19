@@ -4,25 +4,34 @@ from src.utils.constant import Colors
 from src.utils.resource_manager import ResourceManager
 
 class Character:
-    def __init__(self, x, y, width, height, color, idle_image_key='character_idle', running_image_key='character_run'):
+    def __init__(
+        self, 
+        x, 
+        y, 
+        width=80,  # Default width
+        height=80,  # Default height
+        color='RED', 
+        idle_image_key='character_idle', 
+        running_image_key='character_run'
+    ):
         # Get resource manager instance
         self.resource_manager = ResourceManager.get_instance()
         
         # Use the Colors dictionary to get the color tuple
         self.color = Colors.get(color)
         
+        # Position and dimensions
         self.x = x
         self.y = y
         self.width = width
         self.height = height
         
         # Image keys for resource management
-        self.idle_image_key = 'character_idle'
-        self.run_image_key = 'character_run'
+        self.idle_image_key = idle_image_key
+        self.run_image_key = running_image_key
         
-        # Rest of initialization remains the same
+        # Animation and state variables
         self.game_speed = 0
-        
         self.idle_images = []
         self.running_images = []
         
@@ -39,44 +48,42 @@ class Character:
         # Load character images
         self.load_character_images()
 
-        # Add a safeguard
-        if self.width is None:
-            self.width = 50  # Default width
-        if self.height is None:
-            self.height = 50  # Default height
-
     def load_character_images(self):
-        """Load character images using ResourceManager"""
+        """
+        Load and resize character images with comprehensive error handling
+        """
         debug.log('character', "Starting to load character images")
         
         # Clear existing images
         self.idle_images = []
         self.running_images = []
         
-        # Standardize image keys
+        # Image keys
         idle_key = 'character_idle'
         run_key = 'character_run'
         
-        # Try to load idle images
+        # Try to load and resize idle image
         try:
             idle_image = self.resource_manager.get_image(idle_key)
-            self.idle_images = [idle_image]
-            debug.log('character', f"Loaded idle image: {idle_key}")
-        except KeyError as e:
+            resized_idle = pygame.transform.scale(idle_image, (self.width, self.height))
+            self.idle_images = [resized_idle]
+            debug.log('character', f"Loaded and resized idle image: {idle_key}")
+        except Exception as e:
+            debug.warning('character', f"Error loading idle image: {e}")
             # Create fallback idle image
-            debug.log('character', f"Error loading idle image: {e}")
             fallback = pygame.Surface((self.width, self.height))
             fallback.fill(self.color)
             self.idle_images = [fallback]
         
-        # Try to load running images
+        # Try to load and resize running image
         try:
             running_image = self.resource_manager.get_image(run_key)
-            self.running_images = [running_image]
-            debug.log('character', f"Loaded running image: {run_key}")
-        except KeyError as e:
+            resized_running = pygame.transform.scale(running_image, (self.width, self.height))
+            self.running_images = [resized_running]
+            debug.log('character', f"Loaded and resized running image: {run_key}")
+        except Exception as e:
+            debug.warning('character', f"Error loading running image: {e}")
             # Create fallback running image
-            debug.log('character', f"Error loading running image: {e}")
             fallback = pygame.Surface((self.width, self.height))
             fallback.fill(self.color)
             self.running_images = [fallback]
@@ -128,7 +135,7 @@ class Character:
     
     def draw(self, screen):
         """
-        Draw the character on the screen with more advanced rendering
+        Draw the character on the screen with resizing support
         
         Args:
             screen (pygame.Surface): The surface to draw the character on
@@ -136,22 +143,39 @@ class Character:
         # Get the current animation frame
         current_image = self.get_current_image()
         
-        # Optional: Resize image if needed
+        # Ensure image is scaled to current width and height
         scaled_image = pygame.transform.scale(current_image, (self.width, self.height))
         
         # Draw the character image
         screen.blit(scaled_image, (self.x, self.y))
         
-        # Optional: Draw hitbox or debug information
-        if debug.is_debug_mode('character'):  # Specify the section
+        # Optional: Draw debug information
+        if debug.sections.get('character', False):
             # Draw a rectangle around the character
             pygame.draw.rect(screen, Colors.RED, 
                             (self.x, self.y, self.width, self.height), 
                             2)  # 2 pixel border
             
-            # Optional: Draw center point
+            # Draw center point
             center_x = self.x + self.width // 2
             center_y = self.y + self.height // 2
             pygame.draw.circle(screen, Colors.GREEN, (center_x, center_y), 3)
         
         debug.log('character', f"Drawing character at ({self.x}, {self.y})")
+    
+    def resize_character(self, new_width, new_height):
+        """
+        Dynamically resize the character
+        
+        Args:
+            new_width (int): New width of the character
+            new_height (int): New height of the character
+        """
+        debug.log('character', f"Resizing character to {new_width}x{new_height}")
+        
+        # Update dimensions
+        self.width = new_width
+        self.height = new_height
+        
+        # Reload images with new size
+        self.load_character_images()

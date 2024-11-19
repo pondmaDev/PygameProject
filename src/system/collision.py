@@ -4,6 +4,7 @@ from typing import List, Optional
 from src.character.character import Character
 from src.items.item import Item
 from src.utils.debug_section import debug
+from src.utils.resource_manager import ResourceManager
 
 class CollisionManager:
     @staticmethod
@@ -21,6 +22,10 @@ class CollisionManager:
         Returns:
             Optional[dict]: Collision result with score change and items to remove
         """
+
+         # Get resource manager instance
+        resource_manager = ResourceManager.get_instance()
+
         if not character:
             return None
 
@@ -47,6 +52,19 @@ class CollisionManager:
             if char_rect.colliderect(item_rect):
                 # Calculate score based on item type
                 score_change = item.get_points()
+                
+                # Play sound effect based on item type
+                try:
+                    if score_change > 0:
+                        # Good item collected
+                        resource_manager.play_sound('collect_good_item')
+                        debug.log('collision', f"Good item collected! Points: {score_change}")
+                    else:
+                        # Bad item collected
+                        resource_manager.play_sound('collect_bad_item')
+                        debug.log('collision', f"Bad item collected! Points: {score_change}")
+                except Exception as e:
+                    debug.error('collision', f"Error playing collision sound: {e}")
                 
                 debug.log('collision', f"Collision detected! Item points: {score_change}")
                 
