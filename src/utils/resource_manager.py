@@ -66,8 +66,8 @@ class ResourceManager:
         """Load all game resources."""
         image_resources = {
             'character_idle': {
-                'path': 'assets/Image/Character/Idle/Idle_down.png', 
-                'size': (50, 50)
+                'path': 'assets/Image/Character/Idle/knightt.png', 
+                'size': (100, 100)
             },
             'character_run': {
                 'path': 'assets/Image/Character/running/running1.png', 

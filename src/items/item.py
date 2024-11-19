@@ -6,37 +6,39 @@ from src.utils.debug_section import debug
 class ItemType:
     """Enum-like class to define item types"""
     GOOD_GREEN = {
-        'image': 'assets/Image/items/images.png',
+        'image': 'assets/Image/items/fire_sword_remove.png',
         'color': (0, 255, 0),
         'is_good': True,
         'weight': 3,
         'size': 80
     }
     GOOD_BLUE = {
-        'image': 'assets/Image/items/swordd.jpg',
+        'image': 'assets/Image/items/electric_sword_remove.png',
         'color': (0, 0, 255),
         'is_good': True,
         'weight': 3,
         'size': 80
     }
     BAD_RED = {
-        'image': 'assets/Image/items/bom5.jpg',
+        'image': 'assets/Image/items/bom_remove.png',
         'color': (255, 0, 0),
         'is_good': False,
         'weight': 1,
-        'size': 90
+        'size': 80
     }
     BAD_YELLOW = {
+        'image': 'assets/Image/items/ice_sword_remove.png',
         'color': (255, 255, 0),
         'is_good': False,
         'weight': 100,
-        'size': 40
+        'size': 80
     }
     GOOD_PURPLE = {
+        'image': 'assets/Image/items/bbbbbbomm.png',
         'color': (128, 0, 128),
         'is_good': True,
         'weight': 15,
-        'size': 40
+        'size': 80
     }
 
 class Item:
