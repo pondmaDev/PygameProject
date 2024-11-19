@@ -6,7 +6,7 @@ from src.utils.constant import Colors
 from src.utils.debug_section import debug
 
 class GameOverScreen:
-    def __init__(self, screen, final_score=0, is_win=False, level=1):
+    def __init__(self, screen, is_win=False, level=1):
         self.screen = screen
         self.screen_width = screen.get_width()
         self.screen_height = screen.get_height()
@@ -35,8 +35,7 @@ class GameOverScreen:
             self.subtitle_font = pygame.font.Font(None, 36)
             self.button_font = pygame.font.Font(None, 40)
         
-        # Final score and win status
-        self.final_score = final_score
+        # Win status and current level
         self.is_win = is_win
         self.current_level = level
         
@@ -113,11 +112,6 @@ class GameOverScreen:
             subtitle = self.subtitle_font.render(subtitle_text, True, self.TEXT_COLOR)
             subtitle_rect = subtitle.get_rect(centerx=self.screen_width // 2, centery=200)
             self.screen.blit(subtitle, subtitle_rect)
-            
-            # Score Display (optional)
-            score_text = self.subtitle_font.render(f"Final Score: {int(self.final_score)}", True, self.TEXT_COLOR)
-            score_rect = score_text.get_rect(centerx=self.screen_width // 2, centery=250)
-            self.screen.blit(score_text, score_rect)
             
             # Draw buttons
             for i, button_info in enumerate(self.buttons):

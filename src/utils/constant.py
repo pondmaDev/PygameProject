@@ -8,11 +8,10 @@ class Colors:
     GREEN = (0, 255, 0)
     BLUE = (0, 0, 255)
     GRAY = (128, 128, 128)
-    GRAY_HOVER = (125, 123,164)
+    GRAY_HOVER = (125, 123, 164)
     YELLOW = (255, 255, 0)
     PURPLE = (128, 0, 128)
-    LIGHTGRAY = (211,211,211)
-
+    LIGHTGRAY = (211, 211, 211)
     @classmethod
     def get(cls, color_name):
         """
@@ -30,8 +29,33 @@ class Colors:
         except AttributeError:
             # Fallback to black if color not found
             print(f"Warning: Color {color_name} not found. Using BLACK.")
-            return cls.RED
+            return cls.BLACK
 
+    @classmethod
+    def validate_color(cls, color):
+        """
+        Validate and convert color to RGB tuple
+        
+        Args:
+            color (tuple or str): Color to validate
+        
+        Returns:
+            tuple: Valid RGB color tuple
+        """
+        # If it's already a valid RGB tuple, return it
+        if isinstance(color, tuple) and len(color) in (3, 4) and all(0 <= c <= 255 for c in color):
+            return color
+        
+        # If it's a string, try to get color from class
+        if isinstance(color, str):
+            try:
+                return cls.get(color)
+            except Exception:
+                return cls.BLACK
+        
+        # If all else fails, return black
+        return cls.BLACK
+    
     @classmethod
     def get_color_name(cls, color_tuple):
         """

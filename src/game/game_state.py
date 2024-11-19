@@ -12,9 +12,23 @@ class GameState:
         return self.current_screen
 
     def set_level(self, level):
-        self.level = level
+        """
+        Set the current game level
+        
+        Args:
+            level (int): Level to set
+        """
+        # Ensure level is between 1 and 3
+        self.level = max(1, min(level, 3))
+        debug.log('game_state', f"Level set to {self.level}")
 
     def get_level(self):
+        """
+        Get the current game level
+        
+        Returns:
+            int: Current game level
+        """
         return self.level
 
     def trigger_win_condition(self):

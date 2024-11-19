@@ -307,15 +307,27 @@ class Game:
         # Update the score UI
         self.score_ui.draw(self.screen)
     
+    # In game.py, modify draw_game_state method
     def draw_game_state(self):
-        self.world.draw(self.screen)
-        self.draw_lanes()
-        if self.character:
-            self.character.update()
-            self.character.draw(self.screen)
-        self.draw_items()
-        self.draw_score()
-        debug.log('game', "Game state drawn")
+        try:
+            # Clear the screen
+            self.screen.fill(self.WHITE)
+            # Draw world background
+            self.world.draw(self.screen)
+            # Draw lanes
+            self.draw_lanes()
+            # Draw items
+            self.draw_items()
+            # Draw character
+            if self.character:
+                self.character.draw(self.screen)
+            # Draw score
+            self.draw_score()
+            
+            # Debug level display
+        
+        except Exception as e:
+            debug.error('game', f"Error in draw_game_state: {e}")
     
     def draw_lane_debug(self, screen):
         """
@@ -706,7 +718,6 @@ class Game:
         # Create and display the game over/win screen
         game_over_screen = GameOverScreen(
             self.screen, 
-            int(self.score_ui.total_score), 
             is_win=is_win,
             level=current_level
         )
@@ -714,12 +725,20 @@ class Game:
         
         debug.log('game', f"Game over screen result: {result}")
         
-        if result == 'restart':
+        # Handle different result scenarios
+        if isinstance(result, int):
+            # If result is an integer, it means next level
+            debug.log('game', f"Progressing to level {result}")
+            return self.start_game(result)
+        elif result == 'restart':
             # Reset score when restarting
             self.score_ui.reset_score()
-            return 'restart'
+            return self.start_game(current_level)
         elif result == 'main_menu':
             return 'main_menu'
         elif result == 'quit':
             pygame.quit()
             sys.exit()
+        
+        # Fallback to main menu
+        return 'main_menu'
