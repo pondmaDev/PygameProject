@@ -99,9 +99,16 @@ class ResourceManager:
         sound_resources = {
             'collect_good_item': 'assets/sounds/effect/good_thing.mp3',  # Positive sound
             'collect_bad_item': 'assets/sounds/effect/bad_thing.mp3',    # Negative sound
-            'win_sound' : 'assets/sounds/effect/bad_thing.mp3',
-            'lost_sound' : 'assets/sounds/effect/losing.mp3'
+            'win_sound' : 'assets/sounds/effect/winsound.mp3',
+            'lost_sound' : 'assets/sounds/effect/losing.mp3',
+            'applause' : 'assets/sounds/effect/applause.mp3',
+            'failing' : 'assets/sounds/effect/losing-extra-sound.mp3',
+            'level_1': 'assets/sounds/background/level_1.mp3',
+            'level_2': 'assets/sounds/background/level_2.mp3',
+            'level_3': 'assets/sounds/background/level_3.mp3',
+            'background-menu': 'assets/sounds/background/background_menu.mp3'
         }
+        self.music_volume = 0.5  # Default volume
         self.load_sounds(sound_resources)
 
        

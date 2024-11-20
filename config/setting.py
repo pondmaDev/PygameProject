@@ -56,7 +56,6 @@ class Settings:
         return cls._instance
 
     def _initialize_settings(self):
-        # Initialize setting_validations first
         self.setting_validations = {
             'bg_music_volume': {
                 'min': 0, 

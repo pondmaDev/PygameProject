@@ -4,14 +4,21 @@ import sys
 import time
 from src.utils.constant import Colors
 from src.utils.debug_section import debug
+from src.utils.resource_manager import ResourceManager
 
 class GameOverScreen:
     def __init__(self, screen, is_win=False, level=1):
+        # Get resource manager instance
+        self.resource_manager = ResourceManager.get_instance()
+        
         self.screen = screen
         self.screen_width = screen.get_width()
         self.screen_height = screen.get_height()
         
-        # Colors with more vibrant winning colors
+        # Is this a win or lose scenario
+        self.is_win = is_win
+        
+        # Colors with more vibrant winning/losing colors
         self.BACKGROUND_COLOR = (50, 200, 50) if is_win else (40, 40, 60)  # Green for win, dark blue for lose
         self.TEXT_COLOR = (255, 255, 255)
         self.HIGHLIGHT_COLOR = (255, 100, 100)
@@ -35,8 +42,7 @@ class GameOverScreen:
             self.subtitle_font = pygame.font.Font(None, 36)
             self.button_font = pygame.font.Font(None, 40)
         
-        # Win status and current level
-        self.is_win = is_win
+        # Current level
         self.current_level = level
         
         # Dynamically set buttons based on win/lose state
@@ -66,7 +72,13 @@ class GameOverScreen:
         self.input_cooldown = 250
         self.last_input_time = 0
 
+        # Play appropriate sound effect
+        self._play_game_result_sound()
+
     def display(self):
+        # Ensure music is paused during game over screen
+        pygame.mixer.music.pause()
+        
         clock = pygame.time.Clock()
         
         while True:
@@ -83,8 +95,13 @@ class GameOverScreen:
                     # Increment level, but cap at maximum level
                     next_level = min(self.current_level + 1, 3)
                     debug.log('game_over', f"Progressing to level {next_level}")
+                    
+                    # Resume background music
+                    pygame.mixer.music.unpause()
                     return next_level
                 
+                # Resume background music for other actions
+                pygame.mixer.music.unpause()
                 return action
             
             # Clear screen
@@ -276,3 +293,21 @@ class GameOverScreen:
             if button_rect.collidepoint(mouse_pos):
                 return button_info["action"]
         return None
+    
+    def _play_game_result_sound(self):
+        """
+        Play sound effect based on win or lose state
+        """
+        try:
+            if self.is_win:
+                # Play winning sound
+                self.resource_manager.play_sound('win_sound', volume=0.5)
+                self.resource_manager.play_sound('applause')
+                debug.log('game_over', "Playing win sound")
+            else:
+                # Play losing sound
+                self.resource_manager.play_sound('lost_sound', volume=0.5)
+                self.resource_manager.play_sound('failing')
+                debug.log('game_over', "Playing lose sound")
+        except Exception as e:
+            debug.error('game_over', f"Error playing game result sound: {e}")
