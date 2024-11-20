@@ -1,6 +1,5 @@
 import os
 import time
-import platform
 import unittest
 
 import pygame
@@ -187,10 +186,9 @@ class KeyModuleTest(unittest.TestCase):
         """does it import?"""
         import pygame.key
 
-    @unittest.skipIf(
-        not ("Windows" in platform.system() or "Darwin" in platform.system()),
-        "Not windows or macOS - we skip.",
-    )
+    # fixme: test_get_focused failing systematically in some linux
+    # fixme: test_get_focused failing on SDL 2.0.18 on Windows
+    @unittest.skip("flaky test, and broken on 2.0.18 windows")
     def test_get_focused(self):
         # This test fails in SDL2 in some linux
         # This test was skipped in SDL1.
@@ -198,14 +196,14 @@ class KeyModuleTest(unittest.TestCase):
         self.assertFalse(focused)  # No window to focus
         self.assertIsInstance(focused, int)
         # Dummy video driver never gets keyboard focus.
-        if os.environ.get("SDL_VIDEODRIVER") != pygame.NULL_VIDEODRIVER:
+        if os.environ.get("SDL_VIDEODRIVER") != "dummy":
             # Positive test, fullscreen with events grabbed
             display_sizes = pygame.display.list_modes()
             if display_sizes == -1:
                 display_sizes = [(500, 500)]
             pygame.display.set_mode(size=display_sizes[-1], flags=pygame.FULLSCREEN)
             pygame.event.set_grab(True)
-            # Pump event queue to get window focus on macOS
+            # Pump event queue to get window focus on macos
             pygame.event.pump()
             focused = pygame.key.get_focused()
             self.assertIsInstance(focused, int)
@@ -236,21 +234,13 @@ class KeyModuleTest(unittest.TestCase):
         states = pygame.key.get_pressed()
         self.assertEqual(states[pygame.K_RIGHT], 0)
 
-    def test_get_just_pressed(self):
-        pressed_keys = pygame.key.get_just_pressed()
-        self.assertEqual(pressed_keys[pygame.K_RIGHT], 0)
-
-    def test_get_just_released(self):
-        released_keys = pygame.key.get_just_released()
-        self.assertEqual(released_keys[pygame.K_RIGHT], 0)
-
-    def test_get_pressed_not_iter(self):
-        states = pygame.key.get_pressed()
-        with self.assertRaises(TypeError):
-            next(states)
-        with self.assertRaises(TypeError):
-            for k in states:
-                pass
+    # def test_get_pressed_not_iter(self):
+    #     states = pygame.key.get_pressed()
+    #     with self.assertRaises(TypeError):
+    #         next(states)
+    #     with self.assertRaises(TypeError):
+    #         for k in states:
+    #             pass
 
     def test_name_and_key_code(self):
         for const_name in dir(pygame):
@@ -268,7 +258,7 @@ class KeyModuleTest(unittest.TestCase):
             const_val = getattr(pygame, const_name)
 
             # with these tests below, we also make sure that key.name and key.key_code
-            # can work together and handle each other's outputs
+            # can work together and handle each others outputs
 
             # test positional args
             self.assertEqual(pygame.key.name(const_val), expected_str_name)

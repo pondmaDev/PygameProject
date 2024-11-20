@@ -1,8 +1,8 @@
-from typing import Any, Iterator, Literal, Tuple, Union, overload
+from typing import Any, Iterator, Sequence, Tuple, Union, overload
 
 from pygame.surface import Surface
 
-from pygame.typing import FileLike, IntPoint, SequenceLike
+from ._common import FileArg, Literal
 
 _Small_string = Tuple[
     str, str, str, str, str, str, str, str, str, str, str, str, str, str, str, str
@@ -47,13 +47,13 @@ sizer_xy_strings: _Small_string
 textmarker_strings: _Small_string
 
 def compile(
-    strings: SequenceLike[str],
+    strings: Sequence[str],
     black: str = "X",
     white: str = ".",
     xor: str = "o",
 ) -> Tuple[Tuple[int, ...], Tuple[int, ...]]: ...
 def load_xbm(
-    curs: FileLike, mask: FileLike
+    curs: FileArg, mask: FileArg
 ) -> Tuple[Tuple[int, int], Tuple[int, int], Tuple[int, ...], Tuple[int, ...]]: ...
 
 class Cursor:
@@ -64,15 +64,15 @@ class Cursor:
     @overload
     def __init__(
         self,
-        size: IntPoint,
-        hotspot: IntPoint,
-        xormasks: SequenceLike[int],
-        andmasks: SequenceLike[int],
+        size: Union[Tuple[int, int], Sequence[int]],
+        hotspot: Union[Tuple[int, int], Sequence[int]],
+        xormasks: Sequence[int],
+        andmasks: Sequence[int],
     ) -> None: ...
     @overload
     def __init__(
         self,
-        hotspot: IntPoint,
+        hotspot: Union[Tuple[int, int], Sequence[int]],
         surface: Surface,
     ) -> None: ...
     def __iter__(self) -> Iterator[Any]: ...
@@ -81,11 +81,11 @@ class Cursor:
     def __hash__(self) -> int: ...
     def __getitem__(
         self, index: int
-    ) -> Union[int, IntPoint, Surface]: ...
-    def copy(self) -> Cursor: ...
+    ) -> Union[int, Tuple[int, int], Sequence[int], Surface]: ...
+    copy = __copy__
     type: Literal["system", "color", "bitmap"]
     data: Union[
         Tuple[int],
         Tuple[Tuple[int, int], Tuple[int, int], Tuple[int, ...], Tuple[int, ...]],
-        Tuple[IntPoint, Surface],
+        Tuple[Union[Tuple[int, int], Sequence[int]], Surface],
     ]

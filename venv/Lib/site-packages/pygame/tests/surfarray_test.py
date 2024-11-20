@@ -9,10 +9,9 @@ from numpy import (
     zeros,
     float32,
     float64,
-    all as np_all,
+    all as alltrue,
     rint,
     arange,
-    __version__ as np_version,
 )
 
 import pygame
@@ -114,10 +113,10 @@ class SurfarrayModuleTest(unittest.TestCase):
 
     def _fill_array2d(self, arr, surf):
         palette = self.test_palette
-        arr[:5, :6] = surf.map_rgb(palette[1])
-        arr[5:, :6] = surf.map_rgb(palette[2])
-        arr[:5, 6:] = surf.map_rgb(palette[3])
-        arr[5:, 6:] = surf.map_rgb(palette[4])
+        arr[:5, :6] = surf.map_rgb(palette[1]) & 0xFFFFFFFF
+        arr[5:, :6] = surf.map_rgb(palette[2]) & 0xFFFFFFFF
+        arr[:5, 6:] = surf.map_rgb(palette[3]) & 0xFFFFFFFF
+        arr[5:, 6:] = surf.map_rgb(palette[4]) & 0xFFFFFFFF
 
     def _fill_array3d(self, arr):
         palette = self.test_palette
@@ -236,7 +235,7 @@ class SurfarrayModuleTest(unittest.TestCase):
                         ),
                     )
             else:
-                self.assertTrue(np_all(arr == 255))
+                self.assertTrue(alltrue(arr == 255))
 
         # No per-pixel alpha when blanket alpha is None.
         for surf in targets:
@@ -244,7 +243,7 @@ class SurfarrayModuleTest(unittest.TestCase):
             surf.set_alpha(None)
             arr = pygame.surfarray.array_alpha(surf)
             self.assertTrue(
-                np_all(arr == 255),
+                alltrue(arr == 255),
                 "All alpha values should be 255 when"
                 " surf.set_alpha(None) has been set."
                 " bitsize: %i, flags: %i" % (surf.get_bitsize(), surf.get_flags()),
@@ -258,12 +257,12 @@ class SurfarrayModuleTest(unittest.TestCase):
             arr = pygame.surfarray.array_alpha(surf)
             if surf.get_masks()[3]:
                 self.assertFalse(
-                    np_all(arr == 255),
+                    alltrue(arr == 255),
                     "bitsize: %i, flags: %i" % (surf.get_bitsize(), surf.get_flags()),
                 )
             else:
                 self.assertTrue(
-                    np_all(arr == 255),
+                    alltrue(arr == 255),
                     "bitsize: %i, flags: %i" % (surf.get_bitsize(), surf.get_flags()),
                 )
             surf.set_alpha(blanket_alpha)
@@ -291,7 +290,7 @@ class SurfarrayModuleTest(unittest.TestCase):
                 p = [surf.unmap_rgb(surf.map_rgb(c)) for c in p]
             surf.set_colorkey(None)
             arr = pygame.surfarray.array_colorkey(surf)
-            self.assertTrue(np_all(arr == 255))
+            self.assertTrue(alltrue(arr == 255))
 
             for i in range(1, len(palette)):
                 surf.set_colorkey(p[i])
@@ -472,18 +471,25 @@ class SurfarrayModuleTest(unittest.TestCase):
         arr.shape = (1, 1, 1, 4)
         self.assertRaises(ValueError, do_blit, surf, arr)
 
-        # pygame-ce issue #96: round from float to int
-        surf = pygame.Surface((10, 10), pygame.SRCALPHA, 32)
-        w, h = surf.get_size()
-        length = w * h
-        for dtype in [float32, float64]:
-            surf.fill((255, 255, 255, 0))
-            farr = arange(0, length, dtype=dtype)
-            farr.shape = w, h
-            pygame.surfarray.blit_array(surf, farr)
-            for x in range(w):
-                for y in range(h):
-                    self.assertEqual(surf.get_at_mapped((x, y)), int(rint(farr[x, y])))
+        # Issue #81: round from float to int
+        try:
+            rint
+        except NameError:
+            pass
+        else:
+            surf = pygame.Surface((10, 10), pygame.SRCALPHA, 32)
+            w, h = surf.get_size()
+            length = w * h
+            for dtype in [float32, float64]:
+                surf.fill((255, 255, 255, 0))
+                farr = arange(0, length, dtype=dtype)
+                farr.shape = w, h
+                pygame.surfarray.blit_array(surf, farr)
+                for x in range(w):
+                    for y in range(h):
+                        self.assertEqual(
+                            surf.get_at_mapped((x, y)), int(rint(farr[x, y]))
+                        )
 
     # this test should be removed soon, when the function is deleted
     def test_get_arraytype(self):
@@ -514,17 +520,24 @@ class SurfarrayModuleTest(unittest.TestCase):
             surf = pygame.surfarray.make_surface(self._make_src_array3d(dtype))
             self._assert_surface(surf)
 
-        # pygame-ce issue #96: round from float to int
-        w = 9
-        h = 11
-        length = w * h
-        for dtype in [float32, float64]:
-            farr = arange(0, length, dtype=dtype)
-            farr.shape = w, h
-            surf = pygame.surfarray.make_surface(farr)
-            for x in range(w):
-                for y in range(h):
-                    self.assertEqual(surf.get_at_mapped((x, y)), int(rint(farr[x, y])))
+        # Issue #81: round from float to int
+        try:
+            rint
+        except NameError:
+            pass
+        else:
+            w = 9
+            h = 11
+            length = w * h
+            for dtype in [float32, float64]:
+                farr = arange(0, length, dtype=dtype)
+                farr.shape = w, h
+                surf = pygame.surfarray.make_surface(farr)
+                for x in range(w):
+                    for y in range(h):
+                        self.assertEqual(
+                            surf.get_at_mapped((x, y)), int(rint(farr[x, y]))
+                        )
 
     def test_map_array(self):
         arr3d = self._make_src_array3d(uint8)
@@ -561,11 +574,6 @@ class SurfarrayModuleTest(unittest.TestCase):
             self._make_array2d(uint8),
         )
 
-    @unittest.skipIf(
-        int(np_version.split(".")[0]) >= 2,
-        "This test fails due to a change in numpy 2.0.0, and a 'proper fix' "
-        "requires an API/behaviour change",
-    )
     def test_pixels2d(self):
         sources = [
             self._make_surface(8),

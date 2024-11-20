@@ -1,4 +1,4 @@
-#    pygame-ce - Python Game Library
+#    pygame - Python Game Library
 #    Copyright (C) 2000-2003  Pete Shinners
 #
 #    This library is free software; you can redistribute it and/or
@@ -106,12 +106,12 @@ class Cursor:
     def __ne__(self, other):
         return not self.__eq__(other)
 
-    def copy(self):
+    def __copy__(self):
         """Clone the current Cursor object.
         You can do the same thing by doing Cursor(Cursor)."""
         return self.__class__(self)
 
-    __copy__ = copy
+    copy = __copy__
 
     def __hash__(self):
         return hash(tuple([self.type] + list(self.data)))

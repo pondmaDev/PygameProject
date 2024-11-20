@@ -1,16 +1,16 @@
 from typing import Any, Optional, overload, Type
 
-from pygame.typing import _PathLike
+from ._common import AnyPath
 
 def encode_string(
-    obj: Optional[_PathLike],
+    obj: Optional[AnyPath],
     encoding: Optional[str] = "unicode_escape",
     errors: Optional[str] = "backslashreplace",
     etype: Optional[Type[Exception]] = UnicodeEncodeError,
 ) -> bytes: ...
 @overload
 def encode_file_path(
-    obj: Optional[_PathLike], etype: Optional[Type[Exception]] = UnicodeEncodeError
+    obj: Optional[AnyPath], etype: Optional[Type[Exception]] = UnicodeEncodeError
 ) -> bytes: ...
 @overload
 def encode_file_path(
