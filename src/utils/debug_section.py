@@ -95,6 +95,17 @@ class DebugLogger:
             elif isinstance(exc_info, Exception):
                 logging.error(traceback.format_exc())
 
+    def warning(self, section: str, message: str):
+        """
+        Log a warning message for a specific section
+        
+        Args:
+            section (str): Debug section
+            message (str): Warning message
+        """
+        if self.enabled and self.sections.get(section, False):
+            logging.warning(f"[{section.upper()}] {message}")
+
     def error_print(self, message: str):
         """
         Print and log an error message
