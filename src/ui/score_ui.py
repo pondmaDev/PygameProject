@@ -22,8 +22,8 @@ class ScoreUI:
         # Win scores for each level
         self.win_scores = {
             1: 100,
-            2: 1000,
-            3: 2500
+            2: 100,
+            3: 100
         }
 
     def update(self, time_delta):
