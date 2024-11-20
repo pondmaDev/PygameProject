@@ -136,9 +136,18 @@ class Item:
             int: Points for collecting the item
         """
         if self.is_good:
-            return 15 if self.color == (128, 0, 128) else 10  # Purple gives 15 points
+            # Blue item (GOOD_BLUE) gives 15 points
+            if self.color == (0, 0, 255):  # Blue color
+                return 15
+            # Green item (GOOD_GREEN) gives 10 points
+            elif self.color == (0, 255, 0):  # Green color
+                return 10
+            # Purple item remains the same
+            elif self.color == (128, 0, 128):
+                return 15
         else:
-            return -100 if self.color == (255, 255, 0) else -5  # Yellow gives -100 points
+            # Bad items remain the same
+            return -100 if self.color == (255, 255, 0) else -5
 
     def draw(self, screen):
         """
